@@ -1,0 +1,24 @@
+<h1>Editing object_value</h1>
+
+<% form_for(@object_value) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :source_id %><br />
+    <%= f.text_field :source_id %>
+  </p>
+  <p>
+    <%= f.label :object %><br />
+    <%= f.text_field :object %>
+  </p>
+  <p>
+    <%= f.label :attribute %><br />
+    <%= f.text_field :attribute %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @object_value %> |
+<%= link_to 'Back', object_values_path %>

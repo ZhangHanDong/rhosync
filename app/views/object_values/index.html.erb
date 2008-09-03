@@ -1,0 +1,24 @@
+<h1>Listing object_values</h1>
+
+<table>
+  <tr>
+    <th>Source</th>
+    <th>Object</th>
+    <th>Attribute</th>
+  </tr>
+
+<% for object_value in @object_values %>
+  <tr>
+    <td><%=h object_value.source_id %></td>
+    <td><%=h object_value.object %></td>
+    <td><%=h object_value.attribute %></td>
+    <td><%= link_to 'Show', object_value %></td>
+    <td><%= link_to 'Edit', edit_object_value_path(object_value) %></td>
+    <td><%= link_to 'Destroy', object_value, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New object_value', new_object_value_path %>

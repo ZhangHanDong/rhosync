@@ -1,0 +1,48 @@
+<h1>Editing source</h1>
+
+<% form_for(@source) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :server %><br />
+    <%= f.text_field :server %>
+  </p>
+
+  <p>
+    <%= f.label :url %><br />
+    <%= f.text_field :url %>
+  </p>
+
+  <p>
+    <%= f.label :login %><br />
+    <%= f.text_field :login %>
+  </p>
+  <p>
+    <%= f.label :password %><br />
+    <%= f.text_field :password %>
+  </p>
+
+  <p>
+    <%= f.label :prolog %><br />
+    <%= f.text_area :prolog, :rows=>20,:cols=>60 %>
+  </p>
+
+
+  <p>
+    <%= f.label :call %><br />
+    <%= f.text_area :call, :rows=>20, :cols=>60%>
+  </p>
+
+    <p>
+    <%= f.label :epilog %><br />
+    <%= f.text_area :epilog ,:rows=>3,:cols=>60%>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+
+  <%=link_to 'Refresh records','refresh',:id=>f.id%>
+<% end %>
+
+<%= link_to 'Back', sources_path %>

@@ -1,0 +1,37 @@
+<p>
+  <b>Server:</b>
+  <%=h @source.server %>
+</p>
+
+<p>
+  <b>URL:</b>
+  <%=h @source.url %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @source.login %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%=h @source.password %>
+</p>
+
+  <p>
+  <b>Prolog:</b>
+    <%=h @source.prolog %>
+  </p>
+
+  <p>
+    <b>Epilog</b>
+    <%=h @source.epilog %>
+  </p>
+  <p>
+    <b>Call</b>
+    <%=h @source.call%>
+  </p>
+<%=link_to 'Refresh records','refresh',:id=>f.id%>
+
+<%= link_to 'Edit', edit_source_path(@source) %> |
+<%= link_to 'Back', sources_path %>

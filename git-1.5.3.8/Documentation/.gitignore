@@ -1,0 +1,7 @@
+*.xml
+*.html
+*.[1-8]
+*.made
+howto-index.txt
+doc.dep
+cmds-*.txt

@@ -1,0 +1,70 @@
+git-cherry-pick(1)
+==================
+
+NAME
+----
+git-cherry-pick - Apply the change introduced by an existing commit
+
+SYNOPSIS
+--------
+'git-cherry-pick' [--edit] [-n] [-x] <commit>
+
+DESCRIPTION
+-----------
+Given one existing commit, apply the change the patch introduces, and record a
+new commit that records it.  This requires your working tree to be clean (no
+modifications from the HEAD commit).
+
+OPTIONS
+-------
+<commit>::
+	Commit to cherry-pick.
+	For a more complete list of ways to spell commits, see
+	"SPECIFYING REVISIONS" section in gitlink:git-rev-parse[1].
+
+-e|--edit::
+	With this option, `git-cherry-pick` will let you edit the commit
+	message prior committing.
+
+-x::
+	Cause the command to append which commit was
+	cherry-picked after the original commit message when
+	making a commit.  Do not use this option if you are
+	cherry-picking from your private branch because the
+	information is useless to the recipient.  If on the
+	other hand you are cherry-picking between two publicly
+	visible branches (e.g. backporting a fix to a
+	maintenance branch for an older release from a
+	development branch), adding this information can be
+	useful.
+
+-r::
+	It used to be that the command defaulted to do `-x`
+	described above, and `-r` was to disable it.  Now the
+	default is not to do `-x` so this option is a no-op.
+
+-n|--no-commit::
+	Usually the command automatically creates a commit with
+	a commit log message stating which commit was
+	cherry-picked.  This flag applies the change necessary
+	to cherry-pick the named commit to your working tree,
+	but does not make the commit.  In addition, when this
+	option is used, your working tree does not have to match
+	the HEAD commit.  The cherry-pick is done against the
+	beginning state of your working tree.
++
+This is useful when cherry-picking more than one commits'
+effect to your working tree in a row.
+
+
+Author
+------
+Written by Junio C Hamano <junkio@cox.net>
+
+Documentation
+--------------
+Documentation by Junio C Hamano and the git-list <git@vger.kernel.org>.
+
+GIT
+---
+Part of the gitlink:git[7] suite
