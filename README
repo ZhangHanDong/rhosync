@@ -1,1 +1,44 @@
-Something interesting to follow...
+= XMLSYNC =
+
+XmlSync is a Ruby-based framework to take data from various backend applications
+and sync them into a common server-based relational schema, in preparation for
+further downstream, generally to mobile devices.
+
+The "master server table" is a "property bag" model, which keeps track of
+data sources, individual objects and the name/value pairs for those objects.
+Specifically the schemas is as describe below.
+
+== SCHEMA ==
+There are two important tables that describe fully the universe of data sources
+and their contents for downstream syncing.  These are the SOURCES table and
+the OBJECT_VALUES table (and the corresponding Source and ObjectValues models.
+
+=== OBJECT_VALUES ===
+A "property bag" schema that facilitatest importing any kind of data
+into a common table for later distribution to downstream clients.
+* object - the unique identifier of the object (generally an integer "record ID"
+  from the backend system)
+* attribute - the name of the attribute (e.g. "Account Name", "Industry")
+* value - the value of the attribute (e.g. "Acme Corp", "software")
+* source_id - reference back to the source (see below) used for syncing
+
+=== SOURCES ===
+This table contains all of the information necessary to connect to a given
+backend system.   These includes the URL to connect to and authentication
+information.
+* URL - the URL to connect to (for REST adapters) or the URL to the WSDL (for
+ SOAP services)
+* SERVER - OPTIONAL a logical name for the data source server (AcmeCorpSugar)
+* LOGIN - the username or logon ID for the backend
+* PASSWORD - password (stored in the clear right now) for the backend system
+
+==== Backend Code Columns ====
+* PROLOG - a set of Ruby code generally for logging into the backend system.
+Generally this is a SOAP or REST call which populates a session_id variable
+(that variable must be used in the call code below).
+* CALL - the actual code for getting data back (generally uses the session_id
+acquired in the prolog)
+* LOGOUT - OPTIONAL, code to logoff the backend system
+* SYNC - this is the code used to take apart the returned data and stuff it into the
+OBJECT_VALUES property bag table.  Theoretically this could be done in the CALL
+column.

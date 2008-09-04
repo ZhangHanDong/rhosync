@@ -26,7 +26,8 @@ How to query Sugar
 
     #result=eval("result",callbinding
     eval(@source.sync,callbinding)
-    #redirect_to :action=>"edit"
+
+    redirect_to :action=>"edit"
   end
 
   # GET /sources
