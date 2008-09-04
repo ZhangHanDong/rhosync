@@ -2,9 +2,8 @@ class CreateObjectValues < ActiveRecord::Migration
   def self.up
     create_table :object_values do |t|
       t.integer :source_id
-      t.string :parent
+      t.string :attribute
       t.string :object
-      t.boolean :isattribute
       t.string :value
       t.timestamps
     end
