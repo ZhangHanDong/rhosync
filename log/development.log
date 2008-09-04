@@ -7069,3 +7069,824 @@ Migrating to LoadSources (20080904182331)
   [4;36;1mSQL (0.004548)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
   [4;35;1mSQL (0.006507)[0m   [0mdescribe `sources`[0m
   [4;36;1mSQL (0.002984)[0m   [0;1mSHOW KEYS FROM `sources`[0m
+
+
+Processing SourcesController#new (for 127.0.0.1 at 2008-09-04 12:00:10) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"new", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000352)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000307)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004729)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+Rendering template within layouts/sources
+Rendering sources/new
+Completed in 0.03359 (29 reqs/sec) | Rendering: 0.01602 (47%) | DB: 0.00539 (16%) | 200 OK [http://localhost/sources/new]
+
+
+Processing SourcesController#new (for 127.0.0.1 at 2008-09-04 12:01:34) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"new", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.007670)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Rendering template within layouts/sources
+Rendering sources/new
+Completed in 0.03477 (28 reqs/sec) | Rendering: 0.01287 (37%) | DB: 0.00767 (22%) | 200 OK [http://localhost/sources/new]
+
+
+Processing SourcesController#create (for 127.0.0.1 at 2008-09-04 12:03:17) [POST]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"commit"=>"Create", "authenticity_token"=>"5bf468eaa2de2f091ad2802f484d5d2691003f68", "action"=>"create", "controller"=>"sources", "source"=>{"prolog"=>"    u = @source.login\r\n    p = Digest::MD5.hexdigest(@source.password)\r\n    ua = {\"user_name\" => u,\"password\" => p}\r\n    #create session\r\n    ss = client.login(ua,nil)\r\n    #check for login errors\r\n    if ss.error.number.to_i != 0\r\n    #status message\r\n      p \"failed to login - \#{ss.error.description}\"\r\n      return\r\n    else\r\n      #get id\r\n      session_id = ss['id']\r\n      #get current user id\r\n      uid = client.get_user_id(session_id)\r\n      #status message\r\n      p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\n    end", "url"=>"http://larsburgess.com/sugar/soap.php?wsdl", "sync"=>"    result.entry_list.each do |x|\r\n      x.name_value_list.each do |y|\r\n        o=ObjectValue.new\r\n        o.source_id=@source.id\r\n        o.object=x.id\r\n        o.attribute=y.name\r\n        o.value=y.value\r\n        o.save\r\n      end\r\n    end", "server"=>"LarsSugar", "call"=>"    module_name = \"Accounts\"\r\n    query = \"\" # gets all the acounts, you can also use SQL like \"accounts.name like '%company%'\"\r\n    order_by = \"\" # in default order. you can also use SQL like \"accounts.name\"\r\n    offset = 0 # I guess this is like the SQL offset\r\n    select_fields = ['name','industry'] # this can't be an empty array, my testing showed\r\n    max_results = \"1000000\" # if set to 0 or \"\", this doesn't return all the results, like you'd expect\r\n    deleted = 0 # whether you want to retrieve deleted records, too\r\n    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;36;1mSource Columns (0.006490)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSQL (0.000526)[0m   [0mBEGIN[0m
+  [4;36;1mSource Create (0.001531)[0m   [0;1mINSERT INTO `sources` (`updated_at`, `prolog`, `url`, `type`, `method`, `sync`, `server`, `call`, `login`, `password`, `created_at`, `epilog`) VALUES('2008-09-04 19:03:17', ' u = @source.login\r\n p = Digest::MD5.hexdigest(@source.password)\r\n ua = {\"user_name\" => u,\"password\" => p}\r\n #create session\r\n ss = client.login(ua,nil)\r\n #check for login errors\r\n if ss.error.number.to_i != 0\r\n #status message\r\n p \"failed to login - #{ss.error.description}\"\r\n return\r\n else\r\n #get id\r\n session_id = ss[\'id\']\r\n #get current user id\r\n uid = client.get_user_id(session_id)\r\n #status message\r\n p \"logged in to session #{session_id} as #{u} (#{uid}) \"\r\n end', 'http://larsburgess.com/sugar/soap.php?wsdl', NULL, NULL, ' result.entry_list.each do |x|\r\n x.name_value_list.each do |y|\r\n o=ObjectValue.new\r\n o.source_id=@source.id\r\n o.object=x.id\r\n o.attribute=y.name\r\n o.value=y.value\r\n o.save\r\n end\r\n end', 'LarsSugar', ' module_name = \"Accounts\"\r\n query = \"\" # gets all the acounts, you can also use SQL like \"accounts.name like \'%company%\'\"\r\n order_by = \"\" # in default order. you can also use SQL like \"accounts.name\"\r\n offset = 0 # I guess this is like the SQL offset\r\n select_fields = [\'name\',\'industry\'] # this can\'t be an empty array, my testing showed\r\n max_results = \"1000000\" # if set to 0 or \"\", this doesn\'t return all the results, like you\'d expect\r\n deleted = 0 # whether you want to retrieve deleted records, too\r\n result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);\r\n', 'admin', 'acc3ss$ugar', '2008-09-04 19:03:17', '')[0m
+  [4;35;1mSQL (0.170539)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/sources/1
+Completed in 0.20450 (4 reqs/sec) | DB: 0.17909 (87%) | 302 Found [http://localhost/sources]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-04 12:03:17) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVk
+LgY6CkB1c2VkewY7B0Y=--902a09391b470d81c76dd330043a719b9b3dd892
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006122)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.003326)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.02886 (34 reqs/sec) | Rendering: 0.01013 (35%) | DB: 0.00945 (32%) | 200 OK [http://localhost/sources/1]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-04 12:03:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSBjcmVhdGVk
+LgY6CkB1c2VkewY7B1Q=--096e64aa60676d03400ea296c7828b91c43f1ded
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.172173)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.152028)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.35228 (2 reqs/sec) | Rendering: 0.01781 (5%) | DB: 0.32420 (92%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#refresh (for 127.0.0.1 at 2008-09-04 12:03:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"refresh", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005090)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002587)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+
+
+SyntaxError ((eval):18:in `refresh': compile error
+(eval):18: syntax error, unexpected tIDENTIFIER, expecting $end
+    end    module_name = "Accounts"
+                      ^):
+    /app/controllers/sources_controller.rb:25:in `refresh'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `eval'
+    /app/controllers/sources_controller.rb:25:in `refresh'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-04 12:04:05) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"5bf468eaa2de2f091ad2802f484d5d2691003f68", "_method"=>"put", "action"=>"update", "id"=>"1", "controller"=>"sources", "source"=>{"prolog"=>"    u = @source.login\r\n    p = Digest::MD5.hexdigest(@source.password)\r\n    ua = {\"user_name\" => u,\"password\" => p}\r\n    #create session\r\n    ss = client.login(ua,nil)\r\n    #check for login errors\r\n    if ss.error.number.to_i != 0\r\n    #status message\r\n      p \"failed to login - \#{ss.error.description}\"\r\n      return\r\n    else\r\n      #get id\r\n      session_id = ss['id']\r\n      #get current user id\r\n      uid = client.get_user_id(session_id)\r\n      #status message\r\n      p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\n    end;", "url"=>"http://larsburgess.com/sugar/soap.php?wsdl", "sync"=>"    result.entry_list.each do |x|\r\n      x.name_value_list.each do |y|\r\n        o=ObjectValue.new\r\n        o.source_id=@source.id\r\n        o.object=x.id\r\n        o.attribute=y.name\r\n        o.value=y.value\r\n        o.save\r\n      end\r\n    end", "server"=>"LarsSugar", "call"=>"    module_name = \"Accounts\"\r\n    query = \"\" # gets all the acounts, you can also use SQL like \"accounts.name like '%company%'\"\r\n    order_by = \"\" # in default order. you can also use SQL like \"accounts.name\"\r\n    offset = 0 # I guess this is like the SQL offset\r\n    select_fields = ['name','industry'] # this can't be an empty array, my testing showed\r\n    max_results = \"1000000\" # if set to 0 or \"\", this doesn't return all the results, like you'd expect\r\n    deleted = 0 # whether you want to retrieve deleted records, too\r\n    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;36;1mSource Columns (0.005542)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.003568)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+  [4;36;1mSQL (0.000395)[0m   [0;1mBEGIN[0m
+  [4;35;1mSource Update (0.000877)[0m   [0mUPDATE `sources` SET `updated_at` = '2008-09-04 19:04:05', `prolog` = ' u = @source.login\r\n p = Digest::MD5.hexdigest(@source.password)\r\n ua = {\"user_name\" => u,\"password\" => p}\r\n #create session\r\n ss = client.login(ua,nil)\r\n #check for login errors\r\n if ss.error.number.to_i != 0\r\n #status message\r\n p \"failed to login - #{ss.error.description}\"\r\n return\r\n else\r\n #get id\r\n session_id = ss[\'id\']\r\n #get current user id\r\n uid = client.get_user_id(session_id)\r\n #status message\r\n p \"logged in to session #{session_id} as #{u} (#{uid}) \"\r\n end;' WHERE `id` = 1[0m
+  [4;36;1mSQL (0.000834)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/sources/1
+Completed in 0.02806 (35 reqs/sec) | DB: 0.01889 (67%) | 302 Found [http://localhost/sources/1]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-04 12:04:05) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVk
+LgY6CkB1c2VkewY7B0Y=--4fc0be2faf7bbbbf74dafa9e398a66213c1376f0
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.004905)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.002266)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.02346 (42 reqs/sec) | Rendering: 0.00495 (21%) | DB: 0.00717 (30%) | 200 OK [http://localhost/sources/1]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-04 12:04:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVk
+LgY6CkB1c2VkewY7B1Q=--c795db4d5abb618a4e2729e19182147820663eee
+  Parameters: {"action"=>"show", "id"=>"refresh", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.004427)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001962)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 0) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Source with ID=refresh):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1379:in `find_one'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1362:in `find_from_ids'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:537:in `find'
+    /app/controllers/sources_controller.rb:46:in `show'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-04 12:05:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.005116)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.002175)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/show
+ERROR: compiling _run_erb_47app47views47sources47show46html46erb RAISED compile error
+/Users/adam/xmlsync/app/views/sources/show.html.erb:42: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat((link_to 'Refresh records',:id=>@source.object_id,"refresh").to_s); _erbout.concat "\n"
+                                                                           ^
+Function body: def _run_erb_47app47views47sources47show46html46erb(local_assigns)
+_erbout = ''; _erbout.concat "<p>\n"
+_erbout.concat "  <b>Server:</b>\n"
+_erbout.concat "  "; _erbout.concat((h @source.server ).to_s); _erbout.concat "\n"
+_erbout.concat "</p>\n"
+_erbout.concat "\n"
+_erbout.concat "<p>\n"
+_erbout.concat "  <b>URL:</b>\n"
+_erbout.concat "  "; _erbout.concat((h @source.url ).to_s); _erbout.concat "\n"
+_erbout.concat "</p>\n"
+_erbout.concat "\n"
+_erbout.concat "<p>\n"
+_erbout.concat "  <b>Login:</b>\n"
+_erbout.concat "  "; _erbout.concat((h @source.login ).to_s); _erbout.concat "\n"
+_erbout.concat "</p>\n"
+_erbout.concat "\n"
+_erbout.concat "<p>\n"
+_erbout.concat "  <b>Password:</b>\n"
+_erbout.concat "  "; _erbout.concat((h @source.password ).to_s); _erbout.concat "\n"
+_erbout.concat "</p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "  <b>Prolog:</b>\n"
+_erbout.concat "    "; _erbout.concat((h @source.prolog ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Call</b>\n"
+_erbout.concat "    "; _erbout.concat((h @source.call).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "  \n"
+_erbout.concat "    <p>\n"
+_erbout.concat "    <b>Epilog</b>\n"
+_erbout.concat "    "; _erbout.concat((h @source.epilog ).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat "  <p>\n"
+_erbout.concat "    <b>Sync</b>\n"
+_erbout.concat "    "; _erbout.concat((h @source.sync).to_s); _erbout.concat "\n"
+_erbout.concat "  </p>\n"
+_erbout.concat "\n"
+_erbout.concat((link_to 'Refresh records',:id=>@source.object_id,"refresh").to_s); _erbout.concat "\n"
+_erbout.concat "<br>\n"
+_erbout.concat(( link_to 'Edit', edit_source_path(@source) ).to_s); _erbout.concat " |\n"
+_erbout.concat(( link_to 'Back', sources_path ).to_s); _erbout.concat "\n"
+_erbout
+end
+Backtrace: /Users/adam/xmlsync/app/views/sources/show.html.erb:47:in `compile_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:55:in `prepare!'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:34:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render_with_no_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render_with_no_layout'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/adam/xmlsync/app/controllers/sources_controller.rb:48:in `show'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+/Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+/Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+/System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+/usr/bin/mongrel_rails:19:in `load'
+/usr/bin/mongrel_rails:19
+
+
+ActionView::TemplateError (compile error
+/Users/adam/xmlsync/app/views/sources/show.html.erb:42: syntax error, unexpected ')', expecting tASSOC
+_erbout.concat((link_to 'Refresh records',:id=>@source.object_id,"refresh").to_s); _erbout.concat "\n"
+                                                                           ^) on line #42 of sources/show.html.erb:
+39:     <%=h @source.sync%>
+40:   </p>
+41: 
+42: <%=link_to 'Refresh records',:id=>@source.object_id,"refresh"%>
+43: <br>
+44: <%= link_to 'Edit', edit_source_path(@source) %> |
+45: <%= link_to 'Back', sources_path %>
+
+    app/views/sources/show.html.erb:47:in `compile_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:55:in `prepare!'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:34:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:131:in `custom'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:160:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `each'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:154:in `respond'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/sources_controller.rb:48:in `show'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-04 12:06:42) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.007493)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.002524)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.03537 (28 reqs/sec) | Rendering: 0.01000 (28%) | DB: 0.01002 (28%) | 200 OK [http://localhost/sources/1]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-04 12:06:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.131241)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.003356)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.15622 (6 reqs/sec) | Rendering: 0.01058 (6%) | DB: 0.13460 (86%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#refresh (for 127.0.0.1 at 2008-09-04 12:06:51) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlN2RlMTk4YjVlMjQ5Y2ZmMTI2Zjk4OTlmMTQ2ZDRk
+ODgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--7ad778a9fc465e6f0e397fec4203d7c4a3a9d7d4
+  Parameters: {"action"=>"refresh", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.004120)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.002170)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+  [4;35;1mObjectValue Columns (0.005893)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mSQL (0.000408)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000711)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', '24/7 Couriers 964608', 1, '1cbddb53-f556-efa1-d1c6-489b28c078f1', 'name', '2008-09-04 19:06:59')[0m
+  [4;36;1mSQL (0.001403)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000329)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000447)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', 'Consulting', 1, '1cbddb53-f556-efa1-d1c6-489b28c078f1', 'industry', '2008-09-04 19:06:59')[0m
+  [4;35;1mSQL (0.000884)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000438)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', '360 Vacations 700010', 1, '5d7aba0e-f582-f406-8a56-489b273741b0', 'name', '2008-09-04 19:06:59')[0m
+  [4;36;1mSQL (0.000904)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000346)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000431)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', 'Machinery', 1, '5d7aba0e-f582-f406-8a56-489b273741b0', 'industry', '2008-09-04 19:06:59')[0m
+  [4;35;1mSQL (0.000726)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000436)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', '3rd Round Funding 111423', 1, '614f62c8-2c8e-c2b7-2ae3-489b27a58d63', 'name', '2008-09-04 19:06:59')[0m
+  [4;36;1mSQL (0.022585)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000529)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000737)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', 'Entertainment', 1, '614f62c8-2c8e-c2b7-2ae3-489b27a58d63', 'industry', '2008-09-04 19:06:59')[0m
+  [4;35;1mSQL (0.002133)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000488)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000714)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', 'A B Drivers Limited 807085', 1, '394b085a-5889-ea75-84c8-489b27d1a5ba', 'name', '2008-09-04 19:06:59')[0m
+  [4;36;1mSQL (0.001185)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000382)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.001390)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:06:59', 'Construction', 1, '394b085a-5889-ea75-84c8-489b27d1a5ba', 'industry', '2008-09-04 19:06:59')[0m
+  [4;35;1mSQL (0.002043)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000349)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000705)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'A.G. Parr PLC 387027', 1, 'e033b956-f03b-c819-b84f-489b27230529', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000476)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000524)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Education', 1, 'e033b956-f03b-c819-b84f-489b27230529', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001190)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000615)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'ABC FUEL CO 197923', 1, 'b2d67aa2-5812-72da-0cb3-489b2818b030', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000987)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000527)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000474)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Construction', 1, 'b2d67aa2-5812-72da-0cb3-489b2818b030', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001214)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000452)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000640)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'B Cool Net Ltd 317656', 1, 'c6adb9c1-0ada-00af-1a47-489b2873fd48', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000860)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000291)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000424)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Healthcare', 1, 'c6adb9c1-0ada-00af-1a47-489b2873fd48', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001310)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000682)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000458)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'B Cool Net Ltd 61447', 1, '2c61d432-e0af-2c37-f6c9-489b28b111f5', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000870)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000609)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000689)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Energy', 1, '2c61d432-e0af-2c37-f6c9-489b28b111f5', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001355)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000486)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000517)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'B.C. Reporting Ltd 867066', 1, '5d891a38-b7ad-ac3d-3fa7-489b28ed5d11', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000960)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000336)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000509)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Hospitality', 1, '5d891a38-b7ad-ac3d-3fa7-489b28ed5d11', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001181)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000340)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000536)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'C Nelson Inc 435346', 1, 'cedd735e-ceac-8755-c72f-489b2842e70f', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000768)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000405)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000449)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Technology', 1, 'cedd735e-ceac-8755-c72f-489b2842e70f', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001170)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000453)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.002159)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Calm C Sailing 203765', 1, 'ad1b9151-55cb-5ae4-a5f1-489b27173b18', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001821)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000482)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000484)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Entertainment', 1, 'ad1b9151-55cb-5ae4-a5f1-489b27173b18', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001424)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000468)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000449)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Calm C Sailing 569132', 1, '41d882a1-617f-9baa-022b-489b287cb28b', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000782)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000297)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000836)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Not For Profit', 1, '41d882a1-617f-9baa-022b-489b287cb28b', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.002859)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000492)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.001723)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'COMPLETE HLDNG 926309', 1, 'c2de6df9-821b-eb47-eb31-489b28e31a68', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001079)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000284)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000440)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Government', 1, 'c2de6df9-821b-eb47-eb31-489b28e31a68', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000848)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000695)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'CONS TRUST (AZ) 947390', 1, '73a4e291-f8ca-92c3-3fbc-489b28e3807a', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001379)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000360)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000557)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Entertainment', 1, '73a4e291-f8ca-92c3-3fbc-489b28e3807a', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001081)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000428)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'DD Furniture Inc 198029', 1, '76ebcc90-1f97-14d3-3217-489b28c9470e', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000747)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000228)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000314)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', '', 1, '76ebcc90-1f97-14d3-3217-489b28c9470e', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000811)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000355)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'First National S/B 830802', 1, 'b38424bc-a460-eaf2-9e6d-489b28293dc1', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000724)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000282)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000434)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Shipping', 1, 'b38424bc-a460-eaf2-9e6d-489b28293dc1', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000791)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000472)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'First National S/B 925048', 1, '5f65ce0b-1de5-f7c4-a0dd-489b28a0e463', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000853)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000289)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000413)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Telecommunications', 1, '5f65ce0b-1de5-f7c4-a0dd-489b28a0e463', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000936)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.001374)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000698)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Income Free Investing LP 794842', 1, '5a7b32fb-1c2f-b4e3-ffbc-489b285e8611', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000885)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000355)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000436)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Other', 1, '5a7b32fb-1c2f-b4e3-ffbc-489b285e8611', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000770)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000407)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'International Art Inc 324032', 1, '4bdaaab8-8457-d952-de5d-489b2829862d', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000761)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000279)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000756)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Chemicals', 1, '4bdaaab8-8457-d952-de5d-489b2829862d', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000828)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000953)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000571)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Itty-Bitty Conglomerate Inc 424040', 1, '493e6a85-2e8e-67de-e355-489b283d0040', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000947)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000436)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000671)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Media', 1, '493e6a85-2e8e-67de-e355-489b283d0040', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001049)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000464)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000871)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'JAB Funds Ltd. 977971', 1, '38a19bd1-f434-abfe-6317-489b281430c2', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000960)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000360)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000466)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Transportation', 1, '38a19bd1-f434-abfe-6317-489b281430c2', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000804)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000303)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000609)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'JBC Banking Inc 772476', 1, 'aa9aaefc-ad25-3431-888d-489b289bfb02', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001373)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.001110)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000685)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Chemicals', 1, 'aa9aaefc-ad25-3431-888d-489b289bfb02', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001444)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000321)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.001714)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'JJ Resources Inc 477401', 1, '4d481f5e-70df-9c31-39a4-489b28d8c993', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.002282)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000468)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000470)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Banking', 1, '4d481f5e-70df-9c31-39a4-489b28d8c993', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000923)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000450)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000767)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Jungle Man Inc 434962', 1, 'ce927cd9-0075-dfa2-1fce-489b28a72d85', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000899)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000470)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000634)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Environmental', 1, 'ce927cd9-0075-dfa2-1fce-489b28a72d85', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001054)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000441)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000570)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'K Kringle IncK.A. Tower & Co 613373', 1, 'ed8763df-4a14-001a-cfa0-489b2805b7dc', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000914)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000424)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Insurance', 1, 'ed8763df-4a14-001a-cfa0-489b2805b7dc', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000768)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000384)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000505)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'K Kringle IncK.A. Tower & Co 855650', 1, 'ac95c8b4-3685-5522-21f4-489b277fb3ad', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000919)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000309)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000502)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Communications', 1, 'ac95c8b4-3685-5522-21f4-489b277fb3ad', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000902)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000293)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000467)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Kaos Theory Ltd 379829', 1, '93ebaee9-69ce-89dc-9a42-489b273d235c', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000869)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000447)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000740)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Telecommunications', 1, '93ebaee9-69ce-89dc-9a42-489b273d235c', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001707)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000457)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000720)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Kitty Kat Inc 759559', 1, '4a03d1af-d489-d4ab-e405-489b27fc256a', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000944)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000844)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000765)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Telecommunications', 1, '4a03d1af-d489-d4ab-e405-489b27fc256a', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000902)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000433)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'MISSISSIPPI BANKS 969933', 1, 'c602c5ca-781a-8180-ff8f-489b27d0c480', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000820)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000343)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000574)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Manufacturing', 1, 'c602c5ca-781a-8180-ff8f-489b27d0c480', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000809)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000672)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'MMM Mortuary Corp 24094', 1, '24885161-de02-f199-ce31-489b289c74d2', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001070)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.001013)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000984)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Recreation', 1, '24885161-de02-f199-ce31-489b289c74d2', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000988)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000478)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000609)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'MMM Mortuary Corp 868970', 1, '73bee964-d92f-b1b3-a842-489b281b565a', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000952)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000466)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000619)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Chemicals', 1, '73bee964-d92f-b1b3-a842-489b281b565a', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000931)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000426)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000717)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Nimble Technologies Inc 357797', 1, 'e4a8091e-9a0b-e4e1-4872-489b2888cb54', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000819)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000300)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000425)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Engineering', 1, 'e4a8091e-9a0b-e4e1-4872-489b2888cb54', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.002554)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000347)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000580)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'OTC Holdings 27682', 1, 'd42b12c9-9e1d-b926-d931-489b272a3100', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.002381)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000452)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000639)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Engineering', 1, 'd42b12c9-9e1d-b926-d931-489b272a3100', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001050)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000447)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000656)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'OTC Holdings 763855', 1, '1cb4d75d-9b2d-b90f-cdad-489b277cdbdb', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000928)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000296)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000453)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Banking', 1, '1cb4d75d-9b2d-b90f-cdad-489b277cdbdb', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000759)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000438)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Pullman Cart Company 65790', 1, '28ea7575-fe34-61b0-e5ae-489b27791d22', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000781)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000303)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000396)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Engineering', 1, '28ea7575-fe34-61b0-e5ae-489b27791d22', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000797)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000410)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Q.R.&E. Corp 468698', 1, 'a066bb72-9e3e-8bdb-545d-489b28c5b5f1', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000735)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000282)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000479)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Telecommunications', 1, 'a066bb72-9e3e-8bdb-545d-489b28c5b5f1', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000850)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000472)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000604)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Q.R.&E. Corp 658881', 1, '8c930fb5-f534-d1f9-7271-489b28fdfc1e', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000844)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000277)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000412)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Hospitality', 1, '8c930fb5-f534-d1f9-7271-489b28fdfc1e', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000785)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000419)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'S Cane Sweeteners Ltd 254204', 1, 'a45005d3-a50f-6133-4908-489b28bf8051', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000723)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000279)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000405)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Healthcare', 1, 'a45005d3-a50f-6133-4908-489b28bf8051', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000857)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000602)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000702)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'SEA REGION S A 329494', 1, '8c100080-ea4e-f13b-024c-489b2807d0c9', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001004)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000284)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000404)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Environmental', 1, '8c100080-ea4e-f13b-024c-489b2807d0c9', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000743)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000396)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'SEA REGION S A 61953', 1, '252d62a1-39b2-b040-312c-489b28ce1184', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000844)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000463)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000644)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Retail', 1, '252d62a1-39b2-b040-312c-489b28ce1184', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000992)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000446)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000647)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'SEA REGION S A 753139', 1, 'b3000252-fa1d-e012-9687-489b288db2ab', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000943)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000432)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000612)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Manufacturing', 1, 'b3000252-fa1d-e012-9687-489b288db2ab', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000960)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000412)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000849)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Slender Broadband Inc 636818', 1, '13af45bc-4f00-1c08-380f-489b28d0a914', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.002713)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000437)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000679)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Insurance', 1, '13af45bc-4f00-1c08-380f-489b28d0a914', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001266)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000486)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000663)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Southern Realty 355686', 1, '8292a9fc-a908-be04-b7e3-489b27a45895', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.001137)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000458)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000667)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Utilities', 1, '8292a9fc-a908-be04-b7e3-489b27a45895', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001711)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.001502)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000492)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Spend Thrift Inc 917311', 1, '82add344-697c-fea3-46e4-489b284f3c83', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000764)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000294)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000421)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Finance', 1, '82add344-697c-fea3-46e4-489b284f3c83', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000995)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000413)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Start Over Trust 305749', 1, '8256c59d-8324-5038-e29d-489b28327054', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000761)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000289)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000463)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Healthcare', 1, '8256c59d-8324-5038-e29d-489b28327054', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.001083)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000340)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000460)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Start Over Trust 807939', 1, '1336a3bb-fbfc-7655-01c1-489b28a9ecae', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000727)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000293)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000416)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Recreation', 1, '1336a3bb-fbfc-7655-01c1-489b28a9ecae', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000789)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000409)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'T-Cat Media Group Inc 748929', 1, '9d64f1cf-cba2-fdef-4d1f-489b283e486c', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000722)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000276)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000406)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Machinery', 1, '9d64f1cf-cba2-fdef-4d1f-489b283e486c', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000825)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000890)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000444)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'TJ O&#039;Rourke Inc 181212', 1, '7e9983f7-6b7b-fed3-12a1-489b27320645', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000755)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000403)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Retail', 1, '7e9983f7-6b7b-fed3-12a1-489b27320645', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000862)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000425)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000748)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Tortoise Corp 628159', 1, 'd6e4a979-e359-f984-87e7-489b28206e36', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000963)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000422)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Hospitality', 1, 'd6e4a979-e359-f984-87e7-489b28206e36', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000981)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000286)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000779)[0m   [0mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'XY&Z Funding Inc 563258', 1, '1276ed67-6c83-9b4d-74d8-489b2841d4c3', 'name', '2008-09-04 19:07:00')[0m
+  [4;36;1mSQL (0.000745)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000307)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000503)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `value`, `source_id`, `object`, `attribute`, `created_at`) VALUES('2008-09-04 19:07:00', 'Recreation', 1, '1276ed67-6c83-9b4d-74d8-489b2841d4c3', 'industry', '2008-09-04 19:07:00')[0m
+  [4;35;1mSQL (0.000909)[0m   [0mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/refresh
+
+
+ActionView::MissingTemplate (Missing template sources/refresh.html.erb in view path /Users/adam/xmlsync/app/views):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:15:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `new'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
