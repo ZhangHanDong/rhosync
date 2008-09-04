@@ -2,7 +2,9 @@ require 'active_record/fixtures'
 
 class LoadSources < ActiveRecord::Migration
   def self.up
-    Fixtures.create_fixtures(File.dirname(__FILE__),"sources")
+    dir=File.dirname(__FILE__)
+    p dir
+    Fixtures.create_fixtures(dir, "sources")
   end
 
   def self.down
