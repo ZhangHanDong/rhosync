@@ -39,7 +39,7 @@
     <%=h @source.sync%>
   </p>
 
-<%=link_to 'Refresh records',"refresh",:id=>@source.id%>
+<%=link_to 'Refresh records', :controller=>'sources', :action=>'refresh', :id=>@source.id%>
 <br>
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>
