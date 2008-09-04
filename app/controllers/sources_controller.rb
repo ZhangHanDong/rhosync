@@ -14,17 +14,19 @@ How to query Sugar
    7. max_result, max number of entries to retrieve
    8. deleted, whether to show also deleted entries or not
 =end
+
+
   def refresh
 
     @source=Source.find params[:id]
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver
     # make sure to use client and session_id variables in your code
-    session_id=eval(@source.prolog) if @source.prolog and @source.prolog.size>0
-    response=eval(@source.call)
-    # the method in the db is something like:L
-    # client.get_entry_list(session_id, 'Accounts', '','order by name);
-    eval(@source.epilog) if @source.epilog and @source.epilog.size>0
-    ObjectValue.serialize(response)
+    #session_id=eval(@source.prolog) if @source.prolog and @source.prolog.size>0
+    vars=eval(@source.prolog+@source.call+";binding")
+    result=eval("result",vars)
+    p result.instance_attributes
+
+    #ObjectValue.serialize(result.to_s)
   end
 
   # GET /sources
@@ -63,6 +65,7 @@ How to query Sugar
   # GET /sources/1/edit
   def edit
     @source = Source.find(params[:id])
+    render :action=>"edit"
   end
 
   # POST /sources

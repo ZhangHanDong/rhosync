@@ -31,7 +31,7 @@
     <b>Call</b>
     <%=h @source.call%>
   </p>
-<%=link_to 'Refresh records','refresh',:id=>f.id%>
-
+<%=link_to 'Refresh records','refresh',:id=>@source.object_id%>
+<br>
 <%= link_to 'Edit', edit_source_path(@source) %> |
 <%= link_to 'Back', sources_path %>

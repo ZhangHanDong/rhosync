@@ -42,7 +42,7 @@
     <%= f.submit "Update" %>
   </p>
 
-  <%=link_to 'Refresh records','refresh',:id=>f.id%>
+  <%=link_to 'Refresh records','refresh',:id=>f.object_id%>
 <% end %>
 
 <%= link_to 'Back', sources_path %>
