@@ -23,14 +23,22 @@
     <%=h @source.prolog %>
   </p>
 
-  <p>
-    <b>Epilog</b>
-    <%=h @source.epilog %>
-  </p>
+
   <p>
     <b>Call</b>
     <%=h @source.call%>
   </p>
+  
+    <p>
+    <b>Epilog</b>
+    <%=h @source.epilog %>
+  </p>
+
+  <p>
+    <b>Sync</b>
+    <%=h @source.sync%>
+  </p>
+
 <%=link_to 'Refresh records','refresh',:id=>@source.object_id%>
 <br>
 <%= link_to 'Edit', edit_source_path(@source) %> |

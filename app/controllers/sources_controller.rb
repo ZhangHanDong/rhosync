@@ -22,11 +22,11 @@ How to query Sugar
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver
     # make sure to use client and session_id variables in your code
     #session_id=eval(@source.prolog) if @source.prolog and @source.prolog.size>0
-    vars=eval(@source.prolog+@source.call+";binding")
-    result=eval("result",vars)
-    p result.instance_attributes
+    callbinding=eval(@source.prolog+@source.call+";binding")
 
-    #ObjectValue.serialize(result.to_s)
+    #result=eval("result",callbinding
+    eval(@source.sync,callbinding)
+    #redirect_to :action=>"edit"
   end
 
   # GET /sources

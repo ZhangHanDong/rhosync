@@ -17,7 +17,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: xmsync_development
+  database: xmlsync_development
   username: root
   password:
   # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
@@ -32,7 +32,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: xmsync_test
+  database: xmlsync_test
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -40,7 +40,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: xmsync_production
+  database: xmlsync_production
   username: root
   password: 
   socket: /tmp/mysql.sock

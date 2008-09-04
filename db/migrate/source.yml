@@ -1,4 +1,5 @@
 sugar:
+  id: 1
   server: LarsSugar
   url: http://larsburgess.com/sugar/soap.php?wsdl
   login: admin

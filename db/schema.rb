@@ -9,12 +9,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080902111111) do
+ActiveRecord::Schema.define(:version => 20080904182331) do
 
   create_table "object_values", :force => true do |t|
     t.integer  "source_id",  :limit => 11
-    t.string   "object"
     t.string   "attribute"
+    t.string   "object"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -28,9 +28,10 @@ ActiveRecord::Schema.define(:version => 20080902111111) do
     t.string   "password"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "prolog"
-    t.string   "epilog"
-    t.string   "call"
+    t.text     "prolog"
+    t.text     "epilog"
+    t.text     "call"
+    t.text     "sync"
     t.string   "type"
   end
 
