@@ -20,14 +20,12 @@ How to query Sugar
 
     @source=Source.find params[:id]
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver
-    # make sure to use client and session_id variables in your code
-    #session_id=eval(@source.prolog) if @source.prolog and @source.prolog.size>0
-    callbinding=eval(@source.prolog+@source.call+";binding")
-
-    #result=eval("result",callbinding
+    # make sure to use client and session_id variables
+    # in your code that is edited into each source!
+    callbinding=eval(@source.prolog+@source.call+";"+ @source.epilog+ ";binding")
+    #result=eval("result",callbinding  - THIS IS TO JUST GET DATA RESULTS
     eval(@source.sync,callbinding)
-
-    redirect_to :action=>"edit"
+    redirect_to :controller=>"sources",:action=>"show"
   end
 
   # GET /sources
