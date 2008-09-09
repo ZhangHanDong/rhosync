@@ -20,7 +20,8 @@ development:
   database: xmlsync_development
   username: root
   password:
-  # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+  # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
+                                                                          #socket:
                                                   #socket:
                           #socket:
   host: 127.0.0.1

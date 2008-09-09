@@ -9,21 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080904182331) do
+ActiveRecord::Schema.define(:version => 20080906214406) do
 
   create_table "object_values", :force => true do |t|
-    t.integer  "source_id",  :limit => 11
+    t.integer  "source_id",   :limit => 11
     t.string   "attribute"
     t.string   "object"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "update_type"
   end
 
   create_table "sources", :force => true do |t|
     t.string   "server"
     t.string   "url"
-    t.string   "method"
     t.string   "login"
     t.string   "password"
     t.datetime "created_at"
@@ -33,6 +33,9 @@ ActiveRecord::Schema.define(:version => 20080904182331) do
     t.text     "call"
     t.text     "sync"
     t.string   "type"
+    t.text     "createcall"
+    t.text     "updatecall"
+    t.text     "deletecall"
   end
 
 end

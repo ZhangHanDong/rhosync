@@ -3,30 +3,26 @@ require 'digest/md5'
 
 class SourcesController < ApplicationController
 
-=begin
-How to query Sugar
-   1. session_id, what we get after using login()
-   2. module_name, that is Contacts,Accounts,Notes,Cases etc
-   3. query, a sql like query
-   4. order_by, a sql like order by clause
-   5. offset, to obtain something like a pagination
-   6. select_fields, array of fields to be retrieved
-   7. max_result, max number of entries to retrieve
-   8. deleted, whether to show also deleted entries or not
-=end
 
-
+  # this connect to the web service of the given source backend and:
+  # - does a prolog (generally logging in)
+  # - does updating of records as required
+  # - reads records from the backend
+  # - does an epilog (logs off)
   def refresh
 
     @source=Source.find params[:id]
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver
     # make sure to use client and session_id variables
     # in your code that is edited into each source!
-    callbinding=eval(@source.prolog+@source.call+";"+ @source.epilog+ ";binding")
+    callbinding=eval(@source.prolog+";binding")
+    callbinding=eval(@source.updatecall+";binding",callbinding) if @source.updatecall
+    callbinding=eval(@source.call+";"+ @source.epilog+ ";binding",callbinding)
     #result=eval("result",callbinding  - THIS IS TO JUST GET DATA RESULTS
     eval(@source.sync,callbinding)
     redirect_to :controller=>"sources",:action=>"show"
   end
+
 
   # GET /sources
   # GET /sources.xml

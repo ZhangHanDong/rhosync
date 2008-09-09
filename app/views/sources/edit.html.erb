@@ -29,8 +29,20 @@
 
 
   <p>
-    <%= f.label :call %><br />
+    <%= f.label "Query Call" %><br />
     <%= f.text_area :call, :rows=>20, :cols=>60%>
+  </p>
+    <p>
+    <%= f.label "Create Call" %><br />
+    <%= f.text_area :createcall, :rows=>10, :cols=>60%>
+  </p>
+  <p>
+    <%= f.label "Update Call" %><br />
+    <%= f.text_area :updatecall, :rows=>10, :cols=>60%>
+  </p>
+  <p>
+    <%= f.label "Delete Call" %><br />
+    <%= f.text_area :deletecall, :rows=>10, :cols=>60%>
   </p>
 
     <p>

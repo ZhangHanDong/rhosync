@@ -1,0 +1,205 @@
+# Logfile created on Sat Sep 06 14:24:07 -0700 2008
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-09 11:33:23) [GET]
+  Session ID: 385b699969f29d5222c24bffc1b0211a
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.155184)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.015120)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Load (0.203249)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.065532)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.37132 (2 reqs/sec) | Rendering: 0.07059 (19%) | DB: 0.43908 (118%) | 200 OK [http://localhost/]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:33:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004265)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.178907)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.21886 (4 reqs/sec) | Rendering: 0.02559 (11%) | DB: 0.18317 (83%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:37:55) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004163)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001948)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03330 (30 reqs/sec) | Rendering: 0.01478 (44%) | DB: 0.00611 (18%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:38:28) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.003478)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002602)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+
+
+ActionView::TemplateError (undefined method `createcall' for #<Source:0x19eda1c>) on line #37 of sources/edit.html.erb:
+34:   </p>
+35:     <p>
+36:     <%= f.label "Create Call" %><br />
+37:     <%= f.text_area :createcall, :rows=>20, :cols=>60%>
+38:   </p>
+39:   <p>
+40:     <%= f.label "Update Call" %><br />
+
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:624:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:624:in `value_before_type_cast'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:612:in `value_before_type_cast'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:568:in `to_text_area_tag'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:445:in `text_area'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:709:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:709:in `text_area'
+    app/views/sources/edit.html.erb:37:in `_run_erb_47app47views47sources47edit46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:317:in `fields_for'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/helpers/form_helper.rb:253:in `form_for'
+    app/views/sources/edit.html.erb:3:in `_run_erb_47app47views47sources47edit46html46erb'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:338:in `execute'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template_handlers/compilable.rb:29:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:35:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:22:in `render_template'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:865:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:880:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    app/controllers/sources_controller.rb:63:in `edit'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000225)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000213)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.192594)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.022250)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000924)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000877)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000862)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;35;1mSQL (0.000863)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;36;1mSQL (0.000899)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;35;1mSQL (0.000849)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to LoadSources (20080904182331)
+  [4;36;1mSQL (0.000928)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;35;1mSQL (0.000961)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.243581)[0m   [0;1mALTER TABLE `object_values` ADD `update_type` varchar(255)[0m
+  [4;35;1mSQL (0.037368)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080906212411')[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;36;1mSQL (0.001588)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.010660)[0m   [0mALTER TABLE `sources` ADD `createcall` text[0m
+  [4;36;1mSQL (0.012886)[0m   [0;1mALTER TABLE `sources` ADD `updatecall` text[0m
+  [4;35;1mSQL (0.009346)[0m   [0mALTER TABLE `sources` ADD `deletecall` text[0m
+  [4;36;1mSQL (0.001235)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.000746)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000815)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.006593)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mSQL (0.004137)[0m   [0;1mdescribe `object_values`[0m
+  [4;35;1mSQL (0.002399)[0m   [0mSHOW KEYS FROM `object_values`[0m
+  [4;36;1mSQL (0.004450)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSQL (0.003992)[0m   [0mdescribe `sources`[0m
+  [4;36;1mSQL (0.002301)[0m   [0;1mSHOW KEYS FROM `sources`[0m
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:44:19) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000270)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000249)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004889)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001924)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03498 (28 reqs/sec) | Rendering: 0.01974 (56%) | DB: 0.00733 (20%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:46:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.130147)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002458)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.15887 (6 reqs/sec) | Rendering: 0.01668 (10%) | DB: 0.13261 (83%) | 200 OK [http://localhost/sources/1/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-09 11:46:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjA4ZmZiZmQwYTMwYWFkMGJiMjczMTEyMTExNzcz
+NWYiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--727b3ffe9aced62e30628ef40b386a2483ecb660
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004524)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002352)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02668 (37 reqs/sec) | Rendering: 0.01020 (38%) | DB: 0.00688 (25%) | 200 OK [http://localhost/sources/1/edit]
