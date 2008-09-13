@@ -36,9 +36,21 @@ sugar:
         o.object=x.id
         o.attribute=y.name
         o.value=y.value
+        o.updatetype="update"
         o.save
       end
     end
+
+  create:
+    name_value_list =  [ { "name" => "name", "value" => "rhomobile" },
+                             { "name" => "industry", "value" => "software" } ]
+    result=client.set_entry(session_id,'Accounts',select_fields)
+
+  update:
+
+
+
+
 
 
 
