@@ -1,7 +1,7 @@
 sugar:
   id: 1
   server: LarsSugar
-  url: http://larsburgess.com/sugar/soap.php?wsdl
+  url: http://rhomobile.com/sugar/soap.php?wsdl
   login: admin
   password: acc3ss$ugar
   prolog: |
