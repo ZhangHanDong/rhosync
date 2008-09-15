@@ -51,6 +51,7 @@ sugar:
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
   delete:
+    name_value_list << ("deleted"=>1) # in Sugar deletes get performed by adding delete=1 to the list
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
 

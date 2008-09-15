@@ -70,7 +70,6 @@ class SourcesController < ApplicationController
       deleteobjects.each do |x|
         attrvalues={}
         attrvalues["id"]=x.object
-        attrvalues["deleted"]=1  #
         nvlist=make_name_value_list(attrvalues)
         callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
         x.destroy
