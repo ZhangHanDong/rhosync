@@ -3,15 +3,16 @@ require 'digest/md5'
 
 class SourcesController < ApplicationController
 
-  # helper function to come up with the string used for the hash
-  # avhash has jasj
-  def hashstring(h)
-    result="{"
-    h.keys.each do |x|
-      result << (x +"=>" + h[x] + ",")
+  # helper function to come up with the string used for the name_value_list
+  # name_value_list =  [ { "name" => "name", "value" => "rhomobile" },
+  #                     { "name" => "industry", "value" => "software" } ]
+  def make_name_value_list(hash)
+    result="["
+    hash.keys.each do |x|
+      result << ('{ "name" => "'+ x +'", "value" => ' + h[x] + '},')
     end
     result=result[0...size-1] # chop off the last comma!
-    result += "}"
+    result += "]"
   end
 
   # this connect to the web service of the given source backend and:
@@ -29,46 +30,50 @@ class SourcesController < ApplicationController
 
     # first do all the the creates
     if @source.createcall and @source.createcall.size>0
-      objvals=ObjectValue.find_by_update_type("create")
-      createobjects=objvals.map {|x| x.object }
-      createobjects=createobjects.uniq
-      # createobjects is all the distinct objects that are marked for create
+      createobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='create'")
       createobjects.each do |x|
-        objvals=ObjectValue.find_by_object(x)  # this has all the attribute value pairs now
+        xvals=ObjectValue.find_by_object(x)  # this has all the attribute value pairs for this particular object
         attrvalues={}
-        objvals.each do |x|
-          attrvalues[x.attribute]=x.value
+        xvals.each do |y|
+          attrvalues[y.attribute]=y.value
+          y.destroy
         end
         # now attrvalues has the attribute values needed for the createcall
-        avstring=hashstring(attrvalues)
-        callbinding=eval("attrvals="+avstring+";"+@source.createcall+";binding",callbinding)
+        # the Sugar adapter will use the name_value_list variable that we're building up here
+        # TODO: name_value_list is probably too specific to Sugar
+        # TODO: need a clean way to pass the attrvalues hash to any adapter cleanly
+        nvlist=make_name_value_list(attrvalues)
+        callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
       end
     end
 
     # now do the updates
     if @source.updatecall and @source.updatecall.size>0
-      objvals=ObjectValue.find_by_update_type("update")
-      updateobjects=objvals.map {|x| x.object }
-      updateobjects=updateobjects.uniq
+      updateobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='update'")
       updateobjects.each do |x|
         objvals=ObjectValue.find_by_object(x)  # this has all the attribute value pairs now
         attrvalues={}
-        objvals.each do |x|
-          attrvalues[x.attribute]=x.value
+        attrvalues["id"]=x.object  # setting the ID allows it be an update
+        objvals.each do |y|
+          attrvalues[y.attribute]=y.value
+          y.destroy
         end
         # now attrvalues has the attribute values needed for the createcall
-        avstring=hashstring(attrvalues)
-        callbinding=eval("attrvals="+avstring+";"+@source.updatecall+";binding",callbinding)
+        nvlist=make_name_value_list(attrvalues)
+        callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
       end
     end
 
-
     # now do the deletes
     if @source.updatecall and @source.updatecall.size>0
-      objvals=ObjectValue.find_by_update_type("delete")
-      deleteobjects=objvals.map {|x| x.object }
+      objvals=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='delete'")
       deleteobjects.each do |x|
-        callbinding=eval("deleteobj="+x+";"+@source.deletecall+";binding",callbinding)
+        attrvalues={}
+        attrvalues["id"]=x.object
+        attrvalues["deleted"]=1  #
+        nvlist=make_name_value_list(attrvalues)
+        callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
+        x.destroy
       end
     end
 

@@ -42,12 +42,16 @@ sugar:
     end
 
   create:
-    name_value_list =  [ { "name" => "name", "value" => "rhomobile" },
-                             { "name" => "industry", "value" => "software" } ]
-    result=client.set_entry(session_id,'Accounts',select_fields)
+    # name_value_list is passed in and can be used in the code below
+    # for creates we just assume that the primary keys (if fields) are left out
+    result=client.set_entry(session_id,'Accounts',name_value_list)
 
   update:
+    # name_value_list is passed in and can be used in the code below
+    result=client.set_entry(session_id,'Accounts',name_value_list)
 
+  delete:
+    result=client.set_entry(session_id,'Accounts',name_value_list)
 
 
 
