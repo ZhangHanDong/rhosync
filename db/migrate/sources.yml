@@ -41,22 +41,15 @@ sugar:
       end
     end
 
-  create:
+  createcall:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
-  update:
+  updatecall:
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
-  delete:
-    name_value_list << ("deleted"=>1) # in Sugar deletes get performed by adding delete=1 to the list
+  deletecall:
+    name_value_list << ("deleted"=>1)
     result=client.set_entry(session_id,'Accounts',name_value_list)
-
-
-
-
-
-
-

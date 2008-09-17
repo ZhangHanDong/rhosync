@@ -1,3 +1,6 @@
+require 'active_record/fixtures'
+
+
 class LoadAllSource < ActiveRecord::Migration
   def self.up
 

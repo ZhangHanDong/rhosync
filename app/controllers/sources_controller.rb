@@ -15,11 +15,34 @@ class SourcesController < ApplicationController
     result += "]"
   end
 
-  # this connect to the web service of the given source backend and:
+  # this creates all of the rows in the object values table corresponding to
+  # the hash given by attrvals.
+  # note that the REFRESH action below will DELETE all of the created records
+  def create
+    source=Source.find_by_name params[:source]
+    params[:attrvals].values.each do |x|
+       o=ObjectValue.new
+       o.object=x.object
+       o.attribute=x.atttribute
+       o.value=x.value
+       o.update_type="create"
+       o.source=source
+       o.save
+    end
+  end
+
+
+
+  # this connects to the web service of the given source backend and:
   # - does a prolog (generally logging in)
-  # - does updating of records as required
-  # - reads records from the backend
+  # - does creating, updating, deleting of records as required
+  # - reads (queries) records from the backend
   # - does an epilog (logs off)
+  #
+  # it should be invoked on a scheduled basis by some admin process,
+  # generally using CURL.  it should also be done with a separate instance
+  # than the one used to service create, update and delete calls from the client
+  # device
   def refresh
 
     @source=Source.find params[:id]

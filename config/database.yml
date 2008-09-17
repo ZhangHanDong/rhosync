@@ -20,10 +20,10 @@ development:
   database: xmlsync_development
   username: root
   password:
-  # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support # JRuby doesn't support socket:
-                                                                          #socket:
-                                                  #socket:
-                          #socket:
+  #adapter: activesalesforce
+  #url: https://www.salesforce.com
+  #username: salesforce-username
+  #password: salesforce-password
   host: 127.0.0.1
   #socket: /tmp/mysql.sock
 
