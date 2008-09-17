@@ -2,13 +2,13 @@
 
 <table>
   <tr>
-    <th>Server</th>
+    <th>Name</th>
     <th>URL</th>
   </tr>
 
 <% for source in @sources %>
   <tr>
-    <td><%=link_to source.server,edit_source_path(source) %></td>
+    <td><%=link_to source.name,edit_source_path(source) %></td>
     <td><%=source.url%></td>
     <td><%= link_to 'X', source, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>

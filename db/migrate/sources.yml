@@ -1,6 +1,6 @@
 sugar:
   id: 1
-  server: LarsSugar
+  name: LarsSugar
   url: http://rhomobile.com/sugar/soap.php?wsdl
   login: admin
   password: acc3ss$ugar

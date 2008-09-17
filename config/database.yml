@@ -17,7 +17,7 @@
 development:
   adapter: mysql
   encoding: utf8
-  database: xmlsync_development
+  database: rhosync_development
   username: root
   password:
   #adapter: activesalesforce
@@ -33,7 +33,7 @@ development:
 test:
   adapter: mysql
   encoding: utf8
-  database: xmlsync_test
+  database: rhosync_test
   username: root
   password:
   socket: /tmp/mysql.sock
@@ -41,7 +41,7 @@ test:
 production:
   adapter: mysql
   encoding: utf8
-  database: xmlsync_production
+  database: rhosync_production
   username: root
   password: 
   socket: /tmp/mysql.sock

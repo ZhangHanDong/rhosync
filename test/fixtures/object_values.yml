@@ -3,9 +3,9 @@
 one:
   source_id: 1
   object: MyString
-  attribute: MyString
+  attrib: MyString
 
 two:
   source_id: 1
   object: MyString
-  attribute: MyString
+  attrib: MyString

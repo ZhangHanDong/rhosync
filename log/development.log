@@ -381,3 +381,474 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;35;1mSQL (0.004134)[0m   [0mSHOW FIELDS FROM `sources`[0m
   [4;36;1mSQL (0.004093)[0m   [0;1mdescribe `sources`[0m
   [4;35;1mSQL (0.001937)[0m   [0mSHOW KEYS FROM `sources`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000457)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000408)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.001253)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.001078)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000795)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000732)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.004459)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.006057)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002309)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.005174)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004639)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001902)[0m   [0mSHOW KEYS FROM `sources`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000297)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000263)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000742)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003452)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.006294)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000932)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000917)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000457)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000453)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000455)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000566)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000447)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;36;1mSQL (0.000437)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003279)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001086)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080831020723')[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;35;1mSQL (0.000555)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.002784)[0m   [0;1mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` int(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001154)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080831020931')[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;36;1mSQL (0.000962)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.006710)[0m   [0mALTER TABLE `sources` ADD `prolog` text[0m
+  [4;36;1mSQL (0.006081)[0m   [0;1mALTER TABLE `sources` ADD `epilog` text[0m
+  [4;35;1mSQL (0.009156)[0m   [0mALTER TABLE `sources` ADD `call` text[0m
+  [4;36;1mSQL (0.006691)[0m   [0;1mALTER TABLE `sources` ADD `sync` text[0m
+  [4;35;1mSQL (0.007040)[0m   [0mALTER TABLE `sources` ADD `type` varchar(255)[0m
+  [4;36;1mSQL (0.001229)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080902111111')[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;35;1mSQL (0.000720)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.173307)[0m   [0;1mALTER TABLE `object_values` ADD `update_type` varchar(255)[0m
+  [4;35;1mSQL (0.001444)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080906212411')[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;36;1mSQL (0.000949)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.012207)[0m   [0mALTER TABLE `sources` ADD `createcall` text[0m
+  [4;36;1mSQL (0.009597)[0m   [0;1mALTER TABLE `sources` ADD `updatecall` text[0m
+  [4;35;1mSQL (0.028002)[0m   [0mALTER TABLE `sources` ADD `deletecall` text[0m
+  [4;36;1mSQL (0.002341)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080906214406')[0m
+Migrating to LoadAllSource (20080915225024)
+  [4;35;1mSQL (0.001389)[0m   [0mSELECT version FROM schema_migrations[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000309)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000837)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000968)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000876)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000625)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000611)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000862)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;36;1mSQL (0.000609)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;35;1mSQL (0.000606)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;36;1mSQL (0.000810)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;35;1mSQL (0.000683)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;36;1mSQL (0.000620)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to LoadAllSource (20080915225024)
+  [4;35;1mSQL (0.000616)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001563)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080915225024')[0m
+  [4;35;1mSQL (0.000797)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000805)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005478)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mSQL (0.004938)[0m   [0;1mdescribe `object_values`[0m
+  [4;35;1mSQL (0.001945)[0m   [0mSHOW KEYS FROM `object_values`[0m
+  [4;36;1mSQL (0.006453)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSQL (0.006684)[0m   [0mdescribe `sources`[0m
+  [4;36;1mSQL (0.002931)[0m   [0;1mSHOW KEYS FROM `sources`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000235)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000207)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000646)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000596)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001101)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000850)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003324)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003363)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002088)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004593)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004291)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001937)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000221)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000172)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000591)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000721)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000192)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000179)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000552)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.486391)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001363)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004889)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001567)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003364)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010767)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001609)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000969)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001003)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.002587)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000944)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000913)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000920)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000909)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000306)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000267)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000857)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000702)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001437)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001260)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.005378)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.008769)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002941)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.006931)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.008561)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.003277)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000216)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.007683)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000789)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000241)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000580)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005153)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001254)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004519)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000768)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002610)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010516)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000917)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000782)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000880)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.000935)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000912)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000924)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000916)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.001110)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000236)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000225)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000797)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000567)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000704)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000649)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002717)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.002710)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001533)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.003933)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.003458)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001429)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000253)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000212)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.154697)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000944)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000241)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000211)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000748)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003619)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000881)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004797)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000980)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003702)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.009204)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000805)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.002471)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.000926)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000731)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000846)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.001068)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.002305)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000237)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000206)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000700)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000681)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001267)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001262)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.004233)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.004311)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001815)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004317)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004237)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001831)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000257)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000217)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.483668)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000655)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000251)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000215)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000651)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004031)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001101)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004858)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001262)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003054)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007989)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000807)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000640)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.002115)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.001088)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000941)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000919)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.001180)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000882)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000259)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000217)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000690)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000603)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001261)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001243)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.004179)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.004514)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001822)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.005252)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004522)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001877)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000216)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.121511)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000783)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000210)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000668)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.006210)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000859)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003191)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000718)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002963)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008270)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001200)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001078)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.003342)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.001162)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001100)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000992)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.001002)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000899)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000291)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000957)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000743)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000871)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000852)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003575)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003727)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001829)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004774)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004499)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001871)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000207)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000174)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000592)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000471)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000211)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000925)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.109238)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000908)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004256)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000833)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003026)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008972)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000799)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000637)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000958)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.001088)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000912)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000986)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000952)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000986)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000309)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000266)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000875)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000704)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000769)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000738)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003341)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003485)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.003620)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004624)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.005975)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.002068)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000222)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.129655)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000996)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000242)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000213)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000649)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003613)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attribute` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001009)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005492)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001138)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003114)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.010426)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001024)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000810)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000991)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.001177)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001201)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000810)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000831)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000851)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000330)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000274)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000862)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000877)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000735)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000659)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000684)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000664)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000658)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;35;1mSQL (0.000679)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;36;1mSQL (0.000676)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;35;1mSQL (0.000658)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;36;1mSQL (0.000706)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;35;1mSQL (0.000670)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to LoadAllSource (20080915225024)
+  [4;36;1mSQL (0.000685)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000705)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000887)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003519)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mSQL (0.003118)[0m   [0;1mdescribe `object_values`[0m
+  [4;35;1mSQL (0.002675)[0m   [0mSHOW KEYS FROM `object_values`[0m
+  [4;36;1mSQL (0.004320)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSQL (0.004529)[0m   [0mdescribe `sources`[0m
+  [4;36;1mSQL (0.001773)[0m   [0;1mSHOW KEYS FROM `sources`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000298)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000264)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002805)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007952)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001585)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000944)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000464)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000442)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000440)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000438)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000439)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;36;1mSQL (0.000436)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.003204)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001015)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080831020723')[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;35;1mSQL (0.000538)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.156838)[0m   [0;1mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` int(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.001756)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080831020931')[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;36;1mSQL (0.000922)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.008896)[0m   [0mALTER TABLE `sources` ADD `prolog` text[0m
+  [4;36;1mSQL (0.011411)[0m   [0;1mALTER TABLE `sources` ADD `epilog` text[0m
+  [4;35;1mSQL (0.014555)[0m   [0mALTER TABLE `sources` ADD `call` text[0m
+  [4;36;1mSQL (0.013815)[0m   [0;1mALTER TABLE `sources` ADD `sync` text[0m
+  [4;35;1mSQL (0.011057)[0m   [0mALTER TABLE `sources` ADD `type` varchar(255)[0m
+  [4;36;1mSQL (0.001282)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080902111111')[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;35;1mSQL (0.000883)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.012902)[0m   [0;1mALTER TABLE `object_values` ADD `update_type` varchar(255)[0m
+  [4;35;1mSQL (0.001148)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20080906212411')[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;36;1mSQL (0.000650)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.007693)[0m   [0mALTER TABLE `sources` ADD `createcall` text[0m
+  [4;36;1mSQL (0.010710)[0m   [0;1mALTER TABLE `sources` ADD `updatecall` text[0m
+  [4;35;1mSQL (0.010651)[0m   [0mALTER TABLE `sources` ADD `deletecall` text[0m
+  [4;36;1mSQL (0.004645)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080906214406')[0m
+Migrating to LoadAllSource (20080915225024)
+  [4;35;1mSQL (0.002230)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001125)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20080915225024')[0m
+  [4;35;1mSQL (0.001092)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001588)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003299)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mSQL (0.006230)[0m   [0;1mdescribe `object_values`[0m
+  [4;35;1mSQL (0.003308)[0m   [0mSHOW KEYS FROM `object_values`[0m
+  [4;36;1mSQL (0.006395)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSQL (0.004380)[0m   [0mdescribe `sources`[0m
+  [4;36;1mSQL (0.002006)[0m   [0;1mSHOW KEYS FROM `sources`[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000300)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000266)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000874)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000732)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000898)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003547)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003469)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002270)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004763)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004413)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.002011)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000247)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000221)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000784)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000677)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000243)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000239)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000746)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.107943)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001137)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004093)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000787)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002820)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.009531)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001179)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000781)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000889)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.000925)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000869)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000929)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000942)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000919)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000434)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000245)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000866)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000836)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001247)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001248)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.004277)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.004224)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002123)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004158)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.003702)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001631)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000253)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000214)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.473473)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.001030)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000244)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000364)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000680)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003031)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001307)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.006042)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001060)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005084)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008235)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001196)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001037)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000977)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.000966)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.002562)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.001088)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000868)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000908)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
