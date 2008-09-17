@@ -1,6 +1,6 @@
 sugar:
   id: 1
-  name: LarsSugar
+  name: RhoSugar
   url: http://rhomobile.com/sugar/soap.php?wsdl
   login: admin
   password: acc3ss$ugar
@@ -34,9 +34,9 @@ sugar:
         o=ObjectValue.new
         o.source_id=@source.id
         o.object=x.id
-        o.attribute=y.name
+        o.attrib=y.name
         o.value=y.value
-        o.updatetype="update"
+        o.update_type="query"
         o.save
       end
     end

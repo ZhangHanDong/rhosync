@@ -9,20 +9,20 @@ class SourcesController < ApplicationController
   def make_name_value_list(hash)
     result="["
     hash.keys.each do |x|
-      result << ('{ "name" => "'+ x +'", "value" => ' + h[x] + '},')
+      result << ('{ "name" => "'+ x +'", "value" => "' + hash[x] + '"},')
     end
-    result=result[0...size-1] # chop off the last comma!
+    result=result[0...result.size-1] # chop off the last comma!
     result += "]"
   end
 
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
-  # note that the REFRESH action below will DELETE all of the created records
+  # note that the REFRESH action below will later DELETE all of the created records
   def create
     source=Source.find_by_name params[:source]
     params[:attrvals].values.each do |x|
+       # note that there should NOT be an object value for new records
        o=ObjectValue.new
-       o.object=x.object
        o.attribute=x.atttribute
        o.value=x.value
        o.update_type="create"
@@ -31,7 +31,34 @@ class SourcesController < ApplicationController
     end
   end
 
+  # this creates all of the rows in the object values table corresponding to
+  # the hash given by attrvals.
+  # note that the REFRESH action below will later DELETE all of the created records
+  def update
+    source=Source.find_by_name params[:source]
+    params[:attrvals].values.each do |x|
+       o=ObjectValue.new
+       o.object=x.object
+       o.attribute=x.atttribute
+       o.value=x.value
+       o.update_type="update"
+       o.source=source
+       o.save
+    end
+  end
 
+  # this creates all of the rows in the object values table corresponding to
+  # the hash given by attrvals.
+  # note that the REFRESH action below will later DELETE all of the created records
+  def delete
+    source=Source.find_by_name params[:source]
+    params[:attrvals].values.each do |x|
+       o=ObjectValue.new
+       o.update_type="delete"
+       o.source=source
+       o.save
+    end
+  end
 
   # this connects to the web service of the given source backend and:
   # - does a prolog (generally logging in)
@@ -53,62 +80,68 @@ class SourcesController < ApplicationController
 
     # first do all the the creates
     if @source.createcall and @source.createcall.size>0
-      createobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='create'")
-      createobjects.each do |x|
-        xvals=ObjectValue.find_by_object(x)  # this has all the attribute value pairs for this particular object
-        attrvalues={}
-        xvals.each do |y|
-          attrvalues[y.attribute]=y.value
-          y.destroy
+      createobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='create'")
+      if createobjects and createobjects.size>0
+        createobjects.each do |x|
+          xvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs for this particular object
+          attrvalues={}
+          xvals.each do |y|
+            attrvalues[y.attribute]=y.value
+            y.destroy
+          end
+          # now attrvalues has the attribute values needed for the createcall
+          # the Sugar adapter will use the name_value_list variable that we're building up here
+          # TODO: name_value_list is probably too specific to Sugar
+          # TODO: need a clean way to pass the attrvalues hash to any adapter cleanly
+          nvlist=make_name_value_list(attrvalues)
+          callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
         end
-        # now attrvalues has the attribute values needed for the createcall
-        # the Sugar adapter will use the name_value_list variable that we're building up here
-        # TODO: name_value_list is probably too specific to Sugar
-        # TODO: need a clean way to pass the attrvalues hash to any adapter cleanly
-        nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
       end
     end
 
     # now do the updates
     if @source.updatecall and @source.updatecall.size>0
-      updateobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='update'")
-      updateobjects.each do |x|
-        objvals=ObjectValue.find_by_object(x)  # this has all the attribute value pairs now
-        attrvalues={}
-        attrvalues["id"]=x.object  # setting the ID allows it be an update
-        objvals.each do |y|
-          attrvalues[y.attribute]=y.value
-          y.destroy
+      updateobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='update'")
+      if updateobjects and updateobjects.size>0
+        updateobjects.each do |x|
+          objvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs now
+          attrvalues={}
+          attrvalues["id"]=x.object  # setting the ID allows it be an update
+          objvals.each do |y|
+            attrvalues[y.attribute]=y.value
+            y.destroy
+          end
+          # now attrvalues has the attribute values needed for the createcall
+          nvlist=make_name_value_list(attrvalues)
+          callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
         end
-        # now attrvalues has the attribute values needed for the createcall
-        nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
       end
     end
 
     # now do the deletes
     if @source.updatecall and @source.updatecall.size>0
-      objvals=ObjectValue.find_by_sql("select distinct(object) from object_values where object_type='delete'")
-      deleteobjects.each do |x|
-        attrvalues={}
-        attrvalues["id"]=x.object
-        nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
-        x.destroy
+      deleteobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='delete'")
+      if deleteobjects and deleteobjects.size>0
+        deleteobjects.each do |x|
+          attrvalues={}
+          attrvalues["id"]=x.object
+          nvlist=make_name_value_list(attrvalues)
+          callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
+          x.destroy
+        end
       end
     end
 
     if @source.call
       # now do the query call
       callbinding=eval(@source.call+";binding",callbinding)
-      # now take apart the returned data 
+      # now take apart the returned data
       callbinding=eval(@source.sync,callbinding)
     end
     
     # now do the logoff
     callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog
-    eval(@source.sync,callbinding)
+ 
     redirect_to :controller=>"sources",:action=>"show"
   end
 
