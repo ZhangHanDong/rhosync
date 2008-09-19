@@ -39,7 +39,8 @@ sugar:
         o.update_type="query"
         o.save
       end
-    end
+    end';
+
 
   createcall:
     # name_value_list is passed in and can be used in the code below
@@ -52,4 +53,39 @@ sugar:
 
   deletecall:
     name_value_list << ("deleted"=>1)
-    result=client.set_entry(session_id,'Accounts',name_value_list)
+    result=client.set_entry(session_id,'Accounts',name_value_list)    result.entry_list.each do |x|
+      x.name_value_list.each do |y|
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.id
+        o.attrib=y.name
+        o.value=y.value
+        o.update_type="query"
+        o.save
+      end
+    end
+
+salesforce:
+  id: 2
+  name: RhoForce
+  url: http://rhomobile.com/salesforce
+  login: adam@rhomobile.com
+  password: ac
+  prolog: |
+    # lets manually connect to the proper db
+    ActiveRecord::Base.establish_connection(
+    :adapter => 'activesalesforce',
+    :url => 'http://www.salesforce.com',
+    :username => 'adam@rhomobile.com',
+    :password => 'password314')
+    class Account < ActiveRecord::Base
+    end
+
+  call: |
+    accounts=Account.find :all
+
+  createcall:
+
+  updatecall:
+
+  deletecall:

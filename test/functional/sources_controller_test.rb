@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class SourcesControllerTest < ActionController::TestCase
+
+  def test_should_refresh
+    get :refresh
+    assert_response :success
+  end
+
+  def test_should_create
+    post :create, :s=>{}
+
+  end
+
   def test_should_get_index
     get :index
     assert_response :success

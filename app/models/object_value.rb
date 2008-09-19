@@ -1,7 +1,7 @@
 require "xml/libxml"
 
 class ObjectValue < ActiveRecord::Base
-
+  belongs_to :source
   # take arbitrary XML and serialize it into this table of objects and values
   def self.serialize(xml)
     p "Serializing " + xml

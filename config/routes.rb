@@ -1,14 +1,22 @@
 ActionController::Routing::Routes.draw do |map|
+
+  # Sample of regular route:
+  map.connect 'sources/:id/create', :controller => 'sources', :action => 'create'
+  map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
+  map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'
+  map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
+  map.connect 'sources/:id/do_load_adapter',:controller=>'sources',:action => 'do_load_adapter'
+
   map.resources :object_values
 
   map.resources :sources
 
   map.resources :stores
 
+
   # The priority is based upon order of creation: first created -> highest priority.
 
-  # Sample of regular route:
-   map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
+
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:

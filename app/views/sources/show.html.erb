@@ -1,60 +1,6 @@
-<p>
-  <b>Name:</b>
-  <%=h @source.name %>
-</p>
-
-<p>
-  <b>URL:</b>
-  <%=h @source.url %>
-</p>
-
-<p>
-  <b>Login:</b>
-  <%=h @source.login %>
-</p>
-
-<p>
-  <b>Password:</b>
-  <%=h @source.password %>
-</p>
-
-  <p>
-  <b>Prolog:</b>
-    <%=h @source.prolog %>
-  </p>
-
-
-  <p>
-    <b>Query Call:</b>
-    <%=h @source.call%>
-  </p>
-
- <p>
-    <b>Create Call:</b>
-    <%=h @source.createcall%>
-  </p>
-
- <p>
-    <b>Update Call:</b>
-    <%=h @source.updatecall%>
-  </p>
-
- <p>
-    <b>Delete Call:</b>
-    <%=h @source.deletecall%>
-  </p>
-
-    <p>
-    <b>Epilog:</b>
-    <%=h @source.epilog %>
-  </p>
-
-  <p>
-    <b>Sync:</b>
-    <%=h @source.sync%>
-  </p>
-
-<%=link_to 'Refresh records', :controller=>'sources', :action=>'refresh', :id=>@source.id%>
-<br>
-<%= link_to 'Edit', edit_source_path(@source) %> |
-<%= link_to 'Back', sources_path %>
+<table>
+  <tr><th>Object</th><th>Attribute</th><th>Value</th></tr>
+<%  @object_values.each do |x|%>
+  <tr><td><%=x.object%></td><td><%=x.attrib%></td><td><%=x.value%></td></tr>
+<%  end%>
+</table>

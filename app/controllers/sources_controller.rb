@@ -1,5 +1,6 @@
 require 'soap/wsdlDriver'
 require 'digest/md5'
+require 'yaml'
 
 class SourcesController < ApplicationController
 
@@ -15,11 +16,22 @@ class SourcesController < ApplicationController
     result += "]"
   end
 
+  # shows all object values in XMK structure given a supplied source
+  def show
+    @source=Source.find params[:id]
+    @object_values=ObjectValue.find_all_by_update_type_and_source_id "query",params[:id]
+
+    respond_to do |format|
+      format.html 
+      format.xml  { render :xml => @object_values}
+    end
+  end
+
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
   def create
-    source=Source.find_by_name params[:source]
+    source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        # note that there should NOT be an object value for new records
        o=ObjectValue.new
@@ -35,7 +47,7 @@ class SourcesController < ApplicationController
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
   def update
-    source=Source.find_by_name params[:source]
+    source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        o=ObjectValue.new
        o.object=x.object
@@ -51,12 +63,24 @@ class SourcesController < ApplicationController
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
   def delete
-    source=Source.find_by_name params[:source]
+    source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        o=ObjectValue.new
        o.update_type="delete"
        o.source=source
        o.save
+    end
+  end
+
+  def load_adapter
+    # this loads up the yaml file correponding to an individual adapters source code
+  end
+
+  def do_load_adapter
+    @sources=YAML::load_file params[:yaml_file]
+    @sources.keys.each do |x|
+      source=Source.new(@sources[x])
+      source.save
     end
   end
 
@@ -157,16 +181,6 @@ class SourcesController < ApplicationController
     end
   end
 
-  # GET /sources/1
-  # GET /sources/1.xml
-  def show
-    @source = Source.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @source }
-    end
-  end
 
   # GET /sources/new
   # GET /sources/new.xml
