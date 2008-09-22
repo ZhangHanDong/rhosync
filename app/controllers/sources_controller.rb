@@ -12,7 +12,7 @@ class SourcesController < ApplicationController
     hash.keys.each do |x|
       result << ('{ "name" => "'+ x +'", "value" => "' + hash[x] + '"},')
     end
-    result=result[0...result.size-1] # chop off the last comma!
+    result=result[0...result.size-1] # chop off the last comma
     result += "]"
   end
 
@@ -97,7 +97,8 @@ class SourcesController < ApplicationController
   def refresh
 
     @source=Source.find params[:id]
-    client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver
+    # not all endpoints require WSDL!
+    client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0
     # make sure to use client and session_id variables
     # in your code that is edited into each source!
     callbinding=eval(@source.prolog+";binding")
@@ -158,8 +159,15 @@ class SourcesController < ApplicationController
 
     if @source.call
       # now do the query call
+      p "Executing query call"
       callbinding=eval(@source.call+";binding",callbinding)
-      # now take apart the returned data
+      # delete the old source records
+      oldobjs=ObjectValue.find_all_by_source_id @source.id
+      oldobjs.each do |x| 
+        x.destroy
+      end
+      # now take apart the returned data and fill the object values table
+      p "Executing backend data sync"
       callbinding=eval(@source.sync,callbinding)
     end
     
