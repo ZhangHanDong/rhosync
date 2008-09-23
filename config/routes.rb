@@ -1,6 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
 
   # Sample of regular route:
+  map.connect 'sources/:id/show', :controller => 'sources', :action => 'show'
+  map.connect 'sources/:id/updateobjects', :controller => 'sources', :action => 'updateobjects'
+  map.connect 'sources/:id/createobjects', :controller => 'sources', :action => 'createobjects'
+  map.connect 'sources/:id/deleteobjects', :controller => 'sources', :action => 'deleteobjects'
   map.connect 'sources/:id/create', :controller => 'sources', :action => 'create'
   map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
   map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'

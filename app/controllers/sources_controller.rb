@@ -5,7 +5,7 @@ require 'yaml'
 class SourcesController < ApplicationController
 
   include SourcesHelper
-  # shows all object values in XMK structure given a supplied source
+  # shows all object values in XML structure given a supplied source
   def show
     @source=Source.find params[:id]
     @object_values=ObjectValue.find_all_by_update_type_and_source_id "query",params[:id]
