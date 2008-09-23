@@ -4,18 +4,7 @@ require 'yaml'
 
 class SourcesController < ApplicationController
 
-  # helper function to come up with the string used for the name_value_list
-  # name_value_list =  [ { "name" => "name", "value" => "rhomobile" },
-  #                     { "name" => "industry", "value" => "software" } ]
-  def make_name_value_list(hash)
-    result="["
-    hash.keys.each do |x|
-      result << ('{ "name" => "'+ x +'", "value" => "' + hash[x] + '"},')
-    end
-    result=result[0...result.size-1] # chop off the last comma
-    result += "]"
-  end
-
+  include SourcesHelper
   # shows all object values in XMK structure given a supplied source
   def show
     @source=Source.find params[:id]
@@ -30,7 +19,7 @@ class SourcesController < ApplicationController
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
-  def create
+  def createobjects
     source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        # note that there should NOT be an object value for new records
@@ -46,7 +35,7 @@ class SourcesController < ApplicationController
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
-  def update
+  def updateobjects
     source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        o=ObjectValue.new
@@ -62,7 +51,7 @@ class SourcesController < ApplicationController
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
-  def delete
+  def deleteobjects
     source=Source.find params[:id]
     params[:attrvals].values.each do |x|
        o=ObjectValue.new
@@ -101,7 +90,7 @@ class SourcesController < ApplicationController
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0
     # make sure to use client and session_id variables
     # in your code that is edited into each source!
-    callbinding=eval(@source.prolog+";binding")
+    callbinding=eval %"#{@source.prolog};binding"
 
     # first do all the the creates
     if @source.createcall and @source.createcall.size>0
@@ -162,13 +151,13 @@ class SourcesController < ApplicationController
       p "Executing query call"
       callbinding=eval(@source.call+";binding",callbinding)
       # delete the old source records
-      oldobjs=ObjectValue.find_all_by_source_id @source.id
+      oldobjs=ObjectValue.find_by_sql 'select object,attrib,value from object_values where source_id='+@source.id.to_s
       oldobjs.each do |x| 
         x.destroy
       end
       # now take apart the returned data and fill the object values table
       p "Executing backend data sync"
-      callbinding=eval(@source.sync,callbinding)
+      callbinding=eval(@source.sync,callbinding) if @source.sync
     end
     
     # now do the logoff
