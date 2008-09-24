@@ -3,8 +3,11 @@ db\:charset=Retrieves the charset for the current environment's database
 db\:collation=Retrieves the collation for the current environment's database
 db\:create=Create the database defined in config/database.yml for the current RAILS_ENV
 db\:create\:all=Create all the local databases defined in config/database.yml
+db\:data\:dump=Dump data to the db/ directory. Use MODEL=ModelName and LIMIT (optional)
+db\:data\:load=Load data from the db/ directory. Use MODEL=ModelName
 db\:drop=Drops the database for the current RAILS_ENV
 db\:drop\:all=Drops all the local databases defined in config/database.yml
+db\:fixtures\:dump=Dump data to the test/fixtures/ directory. Use MODEL=ModelName and LIMIT (optional)
 db\:fixtures\:identify=Search for a fixture given a LABEL or ID.
 db\:fixtures\:load=Load fixtures into the current environment's database.  Load specific fixtures using FIXTURES=x,y
 db\:migrate=Migrate the database through scripts in db/migrate. Target specific version with VERSION=x. Turn off output with VERBOSE=false.

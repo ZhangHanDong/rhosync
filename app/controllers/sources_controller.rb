@@ -17,15 +17,29 @@ class SourcesController < ApplicationController
   end
 
   # this creates all of the rows in the object values table corresponding to
-  # the hash given by attrvals.
+  # the array of hashes given by the attrvals parameter
   # note that the REFRESH action below will later DELETE all of the created records
+  # 
+  # also note that there is no object identifier during the create. so
+  # you can leave out the "object" hash key as it will be ignored
+  # 
+  # for example
+  # :attrvals=
+  #   [{"object"=>nil,"attrib"=>"name","value"=>"rhomobile"},
+  #   {"object"=>nil,"attrib"=>"industry","value"=>"software"},
+  #   {"attrib"=>"employees","value
+  #   {"attrib"=>"name","value"=>"mobio"},
+  #   {"attrib"=>"industry","value"=>"software"},
+  #   {"object"=>nil,"attrib"=>"name","value"=>"xaware"},
+  #   {"object"=>nil,"attrib"=>"industry","value"=>"software"}]
+  #
   def createobjects
     source=Source.find params[:id]
-    params[:attrvals].values.each do |x|
+    params[:attrvals].each do |x| # for each hash in the array
        # note that there should NOT be an object value for new records
        o=ObjectValue.new
-       o.attribute=x.atttribute
-       o.value=x.value
+       o.attribute=x["name"]
+       o.value=x["value"]
        o.update_type="create"
        o.source=source
        o.save
@@ -33,15 +47,24 @@ class SourcesController < ApplicationController
   end
 
   # this creates all of the rows in the object values table corresponding to
-  # the hash given by attrvals.
+  # the array of hashes given by the attrval parameter.
   # note that the REFRESH action below will later DELETE all of the created records
+  #  # for example
+  # :attrvals=
+  #   [{"object"=>"1","attrib"=>"name","value"=>"rhomobile"},
+  #   {"object"=>"1","attrib"=>"industry","value"=>"software"},
+  #   {"object"=>"1","attrib"=>"employees","value
+  #   {"object"=>"2","attrib"=>"name","value"=>"mobio"},
+  #   {"object"=>"2","attrib"=>"industry","value"=>"software"},
+  #   {"object"=>"3","attrib"=>"name","value"=>"xaware"},
+  #   {"object"=>"3","attrib"=>"industry","value"=>"software"}]
   def updateobjects
     source=Source.find params[:id]
-    params[:attrvals].values.each do |x|
+    params[:attrvals].each do |x|  # for each hash in the array
        o=ObjectValue.new
-       o.object=x.object
-       o.attribute=x.atttribute
-       o.value=x.value
+       o.object=x["object"]
+       o.attribute=x["attrib"]
+       o.value=x["value"]
        o.update_type="update"
        o.source=source
        o.save
@@ -53,8 +76,11 @@ class SourcesController < ApplicationController
   # note that the REFRESH action below will later DELETE all of the created records
   def deleteobjects
     source=Source.find params[:id]
-    params[:attrvals].values.each do |x|
+    params[:attrvals].each do |x|
        o=ObjectValue.new
+       o.object=x["object"]
+       o.attribute=x["attrib"]
+       o.value=x["value"]
        o.update_type="delete"
        o.source=source
        o.save
