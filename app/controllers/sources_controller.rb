@@ -13,6 +13,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @object_values}
+      format.json { render :json => @object_values}
     end
   end
 
@@ -53,6 +54,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       format.html { render :xml => objects }
       format.xml  { render :xml => objects }
+      format.json  { render :json => objects }
     end
   end
 
@@ -89,6 +91,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       format.html { render :xml => objects }
       format.xml  { render :xml => objects }
+      format.json  { render :json => objects }
     end
   end
 
@@ -219,9 +222,9 @@ class SourcesController < ApplicationController
     end
     
     # now do the logoff
-    callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog
+    callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog and @source.epilog.size>0
  
-    redirect_to :controller=>"sources",:action=>"show"
+    redirect_to :action=>"show",:id=>@source.id
   end
 
 

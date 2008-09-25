@@ -27096,3 +27096,1091 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;36;1mSQL (0.001319)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
   [4;35;1mSQL (0.001026)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
   [4;36;1mSQL (0.000937)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-25 11:19:31) [GET]
+  Session ID: 5e3a5bb877aa2334e0e97467cdf8c775
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000269)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000237)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Load (0.004132)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.005164)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.03637 (27 reqs/sec) | Rendering: 0.01724 (47%) | DB: 0.00980 (26%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-25 11:19:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"edit", "id"=>"7", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004854)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002348)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 7) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03303 (30 reqs/sec) | Rendering: 0.01351 (40%) | DB: 0.00720 (21%) | 200 OK [http://localhost/sources/7/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-25 11:19:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004681)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002377)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02817 (35 reqs/sec) | Rendering: 0.01038 (36%) | DB: 0.00706 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#refresh (for 127.0.0.1 at 2008-09-25 11:19:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"refresh", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005394)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002493)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Load (0.001388)[0m   [0;1mselect distinct(object) from object_values where update_type='create'[0m
+  [4;35;1mObjectValue Load (0.003198)[0m   [0mselect distinct(object) from object_values where update_type='update'[0m
+  [4;36;1mObjectValue Columns (0.003385)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.002055)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mCACHE (0.000000)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;36;1mCACHE (0.000000)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`object` = NULL) [0m
+  [4;35;1mObjectValue Load (0.002311)[0m   [0mselect distinct(object) from object_values where update_type='delete'[0m
+  [4;36;1mObjectValue Load (0.005626)[0m   [0;1mselect object,attrib,value from object_values where source_id=6[0m
+  [4;35;1mSQL (0.000341)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000370)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000339)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000292)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000353)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000297)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000324)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000303)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000325)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000303)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000322)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000304)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000281)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000339)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000306)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000340)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000282)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000328)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000398)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000326)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000317)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000300)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000328)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000270)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000335)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000291)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000271)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000324)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000316)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000308)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000320)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000514)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000333)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000344)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000299)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000330)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000274)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000316)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000311)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000315)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000296)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000288)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000327)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000284)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000321)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000320)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000338)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000276)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000318)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000288)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000330)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000266)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000314)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000335)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000273)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000321)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000313)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000320)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000355)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000452)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000445)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000365)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000537)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000321)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000312)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000386)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000329)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000277)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000315)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000300)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000351)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000329)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000297)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000268)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000344)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000319)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000303)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000342)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000282)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000277)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000345)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000298)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000333)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000298)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000276)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000319)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000313)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000318)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000330)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000298)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000327)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000309)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000277)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000317)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000310)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000317)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000297)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000292)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000329)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000299)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000319)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000276)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000328)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000276)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000316)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000309)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000289)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000320)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000278)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000286)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000326)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000308)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000330)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000314)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000319)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000286)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000275)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000316)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000302)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000329)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000325)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000347)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000289)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000323)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000318)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000279)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000318)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000307)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000333)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000350)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000332)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000314)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000287)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000333)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000288)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000281)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000319)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000315)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000277)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000342)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000358)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000334)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000280)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000329)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000279)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000332)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000326)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000275)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000321)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000292)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000331)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000276)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000323)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000315)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000328)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000298)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000273)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000317)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000331)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000294)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000308)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000301)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000336)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000335)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000293)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000327)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000315)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000278)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000319)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000323)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000303)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000342)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000280)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000326)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000316)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000340)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000276)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000343)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000299)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000291)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000443)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000306)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000295)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000321)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000307)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000292)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000328)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000322)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000293)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000272)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000320)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000300)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000291)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000334)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000314)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000361)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000313)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000311)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000360)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000321)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000299)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000343)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000307)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000380)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000312)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000351)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000327)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000328)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000401)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000296)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000399)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000539)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000294)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000410)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000304)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000363)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000284)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000284)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000331)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000311)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000274)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000315)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000310)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000278)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Destroy (0.000316)[0m   [0;1m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;35;1mSQL (0.000279)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000307)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Destroy (0.000334)[0m   [0m DELETE FROM `object_values`
+ WHERE `id` = NULL
+[0m
+  [4;36;1mSQL (0.000281)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000319)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000473)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', '24/7 Couriers 964608', 6, '1cbddb53-f556-efa1-d1c6-489b28c078f1', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000866)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000295)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000449)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Consulting', 6, '1cbddb53-f556-efa1-d1c6-489b28c078f1', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000686)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000310)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000412)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', '360 Vacations 7000101', 6, '5d7aba0e-f582-f406-8a56-489b273741b0', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000679)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000305)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000436)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Machinery', 6, '5d7aba0e-f582-f406-8a56-489b273741b0', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000676)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000301)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000412)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', '3rd Round Funding 111423', 6, '614f62c8-2c8e-c2b7-2ae3-489b27a58d63', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000672)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000317)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000428)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Entertainment', 6, '614f62c8-2c8e-c2b7-2ae3-489b27a58d63', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000667)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000315)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000417)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'A B Drivers Limited 807085', 6, '394b085a-5889-ea75-84c8-489b27d1a5ba', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000677)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000436)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Construction', 6, '394b085a-5889-ea75-84c8-489b27d1a5ba', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000676)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000303)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000718)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'A.G. Parr PLC 387027', 6, 'e033b956-f03b-c819-b84f-489b27230529', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000843)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000374)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000532)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Education', 6, 'e033b956-f03b-c819-b84f-489b27230529', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000703)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000264)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000610)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'ABC FUEL CO 197923', 6, 'b2d67aa2-5812-72da-0cb3-489b2818b030', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000792)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000303)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000456)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Construction', 6, 'b2d67aa2-5812-72da-0cb3-489b2818b030', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.000674)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000250)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000495)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'B Cool Net Ltd 317656', 6, 'c6adb9c1-0ada-00af-1a47-489b2873fd48', 'name', '2008-09-25 18:20:58')[0m
+  [4;35;1mSQL (0.000760)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000290)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000480)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:58', 'query', 'Healthcare', 6, 'c6adb9c1-0ada-00af-1a47-489b2873fd48', 'industry', '2008-09-25 18:20:58')[0m
+  [4;36;1mSQL (0.492081)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000516)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000710)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'B Cool Net Ltd 61447', 6, '2c61d432-e0af-2c37-f6c9-489b28b111f5', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.002619)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000430)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000604)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Energy', 6, '2c61d432-e0af-2c37-f6c9-489b28b111f5', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000928)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000307)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000451)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'B.C. Reporting Ltd 867066', 6, '5d891a38-b7ad-ac3d-3fa7-489b28ed5d11', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000770)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000301)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000438)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Hospitality', 6, '5d891a38-b7ad-ac3d-3fa7-489b28ed5d11', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000856)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000439)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000596)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'C Nelson Inc 435346', 6, 'cedd735e-ceac-8755-c72f-489b2842e70f', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000977)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000447)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000590)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Technology', 6, 'cedd735e-ceac-8755-c72f-489b2842e70f', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001004)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000413)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000636)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Calm C Sailing 203765', 6, 'ad1b9151-55cb-5ae4-a5f1-489b27173b18', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000941)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000361)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000644)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Entertainment', 6, 'ad1b9151-55cb-5ae4-a5f1-489b27173b18', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000875)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000479)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000630)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Calm C Sailing 569132', 6, '41d882a1-617f-9baa-022b-489b287cb28b', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000961)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000504)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000631)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Not For Profit', 6, '41d882a1-617f-9baa-022b-489b287cb28b', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000866)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000293)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000427)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'COMPLETE HLDNG 926309', 6, 'c2de6df9-821b-eb47-eb31-489b28e31a68', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000806)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000338)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000432)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Government', 6, 'c2de6df9-821b-eb47-eb31-489b28e31a68', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000949)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000460)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000615)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'CONS TRUST (AZ) 947390', 6, '73a4e291-f8ca-92c3-3fbc-489b28e3807a', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000941)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000506)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000629)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Entertainment', 6, '73a4e291-f8ca-92c3-3fbc-489b28e3807a', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000815)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000295)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000434)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'DD Furniture Inc 198029', 6, '76ebcc90-1f97-14d3-3217-489b28c9470e', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000829)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000451)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000411)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', '', 6, '76ebcc90-1f97-14d3-3217-489b28c9470e', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001260)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000470)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000734)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'First National S/B 830802', 6, 'b38424bc-a460-eaf2-9e6d-489b28293dc1', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000866)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000302)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000422)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Shipping', 6, 'b38424bc-a460-eaf2-9e6d-489b28293dc1', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000731)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000421)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000690)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'First National S/B 925048', 6, '5f65ce0b-1de5-f7c4-a0dd-489b28a0e463', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.002630)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000487)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.018821)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Telecommunications', 6, '5f65ce0b-1de5-f7c4-a0dd-489b28a0e463', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001048)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000440)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000705)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Income Free Investing LP 794842', 6, '5a7b32fb-1c2f-b4e3-ffbc-489b285e8611', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001052)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000332)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000454)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Other', 6, '5a7b32fb-1c2f-b4e3-ffbc-489b285e8611', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000936)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000435)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000744)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'International Art Inc 324032', 6, '4bdaaab8-8457-d952-de5d-489b2829862d', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.003650)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000465)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000671)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Chemicals', 6, '4bdaaab8-8457-d952-de5d-489b2829862d', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000736)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000315)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000428)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Itty-Bitty Conglomerate Inc 424040', 6, '493e6a85-2e8e-67de-e355-489b283d0040', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000889)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000448)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000627)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Media', 6, '493e6a85-2e8e-67de-e355-489b283d0040', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000882)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000422)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'JAB Funds Ltd. 977971', 6, '38a19bd1-f434-abfe-6317-489b281430c2', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000806)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000431)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000603)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Transportation', 6, '38a19bd1-f434-abfe-6317-489b281430c2', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000939)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000470)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000632)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'JBC Banking Inc 772476', 6, 'aa9aaefc-ad25-3431-888d-489b289bfb02', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000989)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000427)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000547)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Chemicals', 6, 'aa9aaefc-ad25-3431-888d-489b289bfb02', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001522)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000425)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000652)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'JJ Resources Inc 477401', 6, '4d481f5e-70df-9c31-39a4-489b28d8c993', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001007)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000460)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000616)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Banking', 6, '4d481f5e-70df-9c31-39a4-489b28d8c993', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001011)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000463)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000627)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Jungle Man Inc 434962', 6, 'ce927cd9-0075-dfa2-1fce-489b28a72d85', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000934)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000696)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.001493)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Environmental', 6, 'ce927cd9-0075-dfa2-1fce-489b28a72d85', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001121)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000318)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000446)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'K Kringle IncK.A. Tower & Co 613373', 6, 'ed8763df-4a14-001a-cfa0-489b2805b7dc', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000819)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000311)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000436)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Insurance', 6, 'ed8763df-4a14-001a-cfa0-489b2805b7dc', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000897)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000444)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000640)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'K Kringle IncK.A. Tower & Co 855650', 6, 'ac95c8b4-3685-5522-21f4-489b277fb3ad', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001026)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000425)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000980)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Communications', 6, 'ac95c8b4-3685-5522-21f4-489b277fb3ad', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001472)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000441)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000676)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Kaos Theory Ltd 379829', 6, '93ebaee9-69ce-89dc-9a42-489b273d235c', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001398)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000468)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000717)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Telecommunications', 6, '93ebaee9-69ce-89dc-9a42-489b273d235c', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000739)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000311)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000421)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Kitty Kat Inc 759559', 6, '4a03d1af-d489-d4ab-e405-489b27fc256a', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000860)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000434)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000598)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Telecommunications', 6, '4a03d1af-d489-d4ab-e405-489b27fc256a', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000979)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000439)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000612)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'MISSISSIPPI BANKS 969933', 6, 'c602c5ca-781a-8180-ff8f-489b27d0c480', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001284)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000448)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000603)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Manufacturing', 6, 'c602c5ca-781a-8180-ff8f-489b27d0c480', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000828)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000334)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000409)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'MMM Mortuary Corp 24094', 6, '24885161-de02-f199-ce31-489b289c74d2', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000840)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000454)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000616)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Recreation', 6, '24885161-de02-f199-ce31-489b289c74d2', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001241)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000467)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000599)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'MMM Mortuary Corp 868970', 6, '73bee964-d92f-b1b3-a842-489b281b565a', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001379)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000415)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000406)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Chemicals', 6, '73bee964-d92f-b1b3-a842-489b281b565a', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000914)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000415)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000613)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Nimble Technologies Inc 357797', 6, 'e4a8091e-9a0b-e4e1-4872-489b2888cb54', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000989)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000425)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000599)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Engineering', 6, 'e4a8091e-9a0b-e4e1-4872-489b2888cb54', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001047)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000439)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000676)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'OTC Holdings 27682', 6, 'd42b12c9-9e1d-b926-d931-489b272a3100', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001272)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000455)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000437)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Engineering', 6, 'd42b12c9-9e1d-b926-d931-489b272a3100', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000863)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000523)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000813)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'OTC Holdings 763855', 6, '1cb4d75d-9b2d-b90f-cdad-489b277cdbdb', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001142)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000474)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000446)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Banking', 6, '1cb4d75d-9b2d-b90f-cdad-489b277cdbdb', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000892)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000443)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000599)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Pullman Cart Company 65790', 6, '28ea7575-fe34-61b0-e5ae-489b27791d22', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001245)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000443)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000592)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Engineering', 6, '28ea7575-fe34-61b0-e5ae-489b27791d22', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000966)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000427)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000619)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Q.R.&E. Corp 468698', 6, 'a066bb72-9e3e-8bdb-545d-489b28c5b5f1', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.002711)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000544)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000479)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Telecommunications', 6, 'a066bb72-9e3e-8bdb-545d-489b28c5b5f1', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000815)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000497)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000644)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Q.R.&E. Corp 658881', 6, '8c930fb5-f534-d1f9-7271-489b28fdfc1e', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001382)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000423)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000628)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Hospitality', 6, '8c930fb5-f534-d1f9-7271-489b28fdfc1e', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001043)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000418)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000595)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'S Cane Sweeteners Ltd 254204', 6, 'a45005d3-a50f-6133-4908-489b28bf8051', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000888)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000294)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000404)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Healthcare', 6, 'a45005d3-a50f-6133-4908-489b28bf8051', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000848)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000423)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000685)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'SEA REGION S A 329494', 6, '8c100080-ea4e-f13b-024c-489b2807d0c9', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001025)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000477)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000593)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Environmental', 6, '8c100080-ea4e-f13b-024c-489b2807d0c9', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000945)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000408)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000587)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'SEA REGION S A 61953', 6, '252d62a1-39b2-b040-312c-489b28ce1184', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001000)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000418)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000585)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Retail', 6, '252d62a1-39b2-b040-312c-489b28ce1184', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000985)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000417)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000629)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'SEA REGION S A 753139', 6, 'b3000252-fa1d-e012-9687-489b288db2ab', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001034)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000426)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000401)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Manufacturing', 6, 'b3000252-fa1d-e012-9687-489b288db2ab', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000725)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000280)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000402)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Slender Broadband Inc 636818', 6, '13af45bc-4f00-1c08-380f-489b28d0a914', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000939)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000456)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000622)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Insurance', 6, '13af45bc-4f00-1c08-380f-489b28d0a914', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000966)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000458)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000624)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Southern Realty 355686', 6, '8292a9fc-a908-be04-b7e3-489b27a45895', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001048)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000416)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000840)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Utilities', 6, '8292a9fc-a908-be04-b7e3-489b27a45895', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001428)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000410)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000471)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Spend Thrift Inc 917311', 6, '82add344-697c-fea3-46e4-489b284f3c83', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000971)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000428)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000615)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Finance', 6, '82add344-697c-fea3-46e4-489b284f3c83', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000878)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000293)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000462)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Start Over Trust 305749', 6, '8256c59d-8324-5038-e29d-489b28327054', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000764)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000285)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000422)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Healthcare', 6, '8256c59d-8324-5038-e29d-489b28327054', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.002639)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000452)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000681)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Start Over Trust 807939', 6, '1336a3bb-fbfc-7655-01c1-489b28a9ecae', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.001077)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000457)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000617)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Recreation', 6, '1336a3bb-fbfc-7655-01c1-489b28a9ecae', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000895)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000286)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000420)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'T-Cat Media Group Inc 748929', 6, '9d64f1cf-cba2-fdef-4d1f-489b283e486c', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000730)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000279)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000401)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Machinery', 6, '9d64f1cf-cba2-fdef-4d1f-489b283e486c', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.000734)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000403)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'TJ O&#039;Rourke Inc 181212', 6, '7e9983f7-6b7b-fed3-12a1-489b27320645', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000828)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000454)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000589)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Retail', 6, '7e9983f7-6b7b-fed3-12a1-489b27320645', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001004)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000445)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000659)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Tortoise Corp 628159', 6, 'd6e4a979-e359-f984-87e7-489b28206e36', 'name', '2008-09-25 18:20:59')[0m
+  [4;35;1mSQL (0.000976)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000442)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.001010)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:20:59', 'query', 'Hospitality', 6, 'd6e4a979-e359-f984-87e7-489b28206e36', 'industry', '2008-09-25 18:20:59')[0m
+  [4;36;1mSQL (0.001146)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.000459)[0m   [0mBEGIN[0m
+  [4;36;1mObjectValue Create (0.000502)[0m   [0;1mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:21:00', 'query', 'XY&Z Funding Inc 563258', 6, '1276ed67-6c83-9b4d-74d8-489b2841d4c3', 'name', '2008-09-25 18:21:00')[0m
+  [4;35;1mSQL (0.001051)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (0.000442)[0m   [0;1mBEGIN[0m
+  [4;35;1mObjectValue Create (0.000624)[0m   [0mINSERT INTO `object_values` (`updated_at`, `update_type`, `value`, `source_id`, `object`, `attrib`, `created_at`) VALUES('2008-09-25 18:21:00', 'query', 'Recreation', 6, '1276ed67-6c83-9b4d-74d8-489b2841d4c3', 'industry', '2008-09-25 18:21:00')[0m
+  [4;36;1mSQL (0.001055)[0m   [0;1mCOMMIT[0m
+
+
+TypeError (wrong argument type Array (expected Proc/Binding)):
+    /app/controllers/sources_controller.rb:222:in `eval'
+    /app/controllers/sources_controller.rb:222:in `refresh'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000239)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000206)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000666)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000536)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000922)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000833)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.127174)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.515985)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.003232)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004025)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.005843)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.003766)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000185)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000159)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.007738)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000547)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000186)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000217)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000526)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002869)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000585)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003187)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000764)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002171)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.004825)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000671)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000601)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.180053)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.006772)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001835)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.001007)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000902)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.002524)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000306)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000264)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000856)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000718)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000812)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000766)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.141040)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.005073)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.003215)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.006816)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004916)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001885)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000265)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000223)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.026899)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000971)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000246)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000211)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000664)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004113)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001106)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.006645)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001244)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003317)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.009385)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001379)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001019)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001020)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.000968)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000888)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000924)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000892)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000948)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000234)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000201)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000650)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000577)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000884)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000878)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.130902)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.513234)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.003125)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.006480)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004697)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.002021)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000249)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000225)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.006672)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000896)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000205)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000641)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003651)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001073)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.006542)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001468)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002894)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007294)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000795)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000698)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000722)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.001897)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000878)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000861)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.002149)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000916)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000305)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000290)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000853)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000688)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001322)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001315)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.137110)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.122306)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.008295)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.006895)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.005847)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001840)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000209)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000175)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.022900)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000712)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000239)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000211)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000657)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003343)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001006)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005297)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001187)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005373)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007618)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001163)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000941)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001247)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+  [4;36;1mSQL (0.002416)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.002935)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.001258)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000939)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000920)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m

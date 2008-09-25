@@ -20,7 +20,7 @@ class SourcesControllerTest < ActionController::TestCase
 
   def test_should_refresh
     get :refresh,:id=>sources(:sugar).id
-    assert_response :success
+    assert_redirected_to source_path(assigns(:source))
   end
 
   def test_should_create
