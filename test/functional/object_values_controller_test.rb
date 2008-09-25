@@ -20,10 +20,6 @@ class ObjectValuesControllerTest < ActionController::TestCase
     assert_redirected_to object_value_path(assigns(:object_value))
   end
 
-  def test_should_show_object_value
-    get :show, :id => object_values(:one).id
-    assert_response :success
-  end
 
   def test_should_get_edit
     get :edit, :id => object_values(:one).id

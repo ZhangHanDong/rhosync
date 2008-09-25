@@ -33,16 +33,26 @@ class SourcesController < ApplicationController
   #   {"object"=>nil,"attrib"=>"name","value"=>"xaware"},
   #   {"object"=>nil,"attrib"=>"industry","value"=>"software"}]
   #
+  # RETURNS:
+  #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def createobjects
     source=Source.find params[:id]
+    objects={}
     params[:attrvals].each do |x| # for each hash in the array
        # note that there should NOT be an object value for new records
        o=ObjectValue.new
-       o.attribute=x["name"]
+       o.attrib=x["name"]
        o.value=x["value"]
        o.update_type="create"
        o.source=source
        o.save
+       # add the created ID + created_at time to the list
+       objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
+    end
+
+    respond_to do |format|
+      format.html { render :xml => objects }
+      format.xml  { render :xml => objects }
     end
   end
 
@@ -58,32 +68,54 @@ class SourcesController < ApplicationController
   #   {"object"=>"2","attrib"=>"industry","value"=>"software"},
   #   {"object"=>"3","attrib"=>"name","value"=>"xaware"},
   #   {"object"=>"3","attrib"=>"industry","value"=>"software"}]
+  #
+  # RETURNS:
+  #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def updateobjects
     source=Source.find params[:id]
+    objects={}
     params[:attrvals].each do |x|  # for each hash in the array
        o=ObjectValue.new
        o.object=x["object"]
-       o.attribute=x["attrib"]
+       o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="update"
        o.source=source
-       o.save
+       o.save     
+       # add the created ID + created_at time to the list
+       objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
+    end
+
+    respond_to do |format|
+      format.html { render :xml => objects }
+      format.xml  { render :xml => objects }
     end
   end
 
   # this creates all of the rows in the object values table corresponding to
   # the hash given by attrvals.
   # note that the REFRESH action below will later DELETE all of the created records
+  #
+  # RETURNS:
+  #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def deleteobjects
     source=Source.find params[:id]
+    objects={}
     params[:attrvals].each do |x|
        o=ObjectValue.new
        o.object=x["object"]
-       o.attribute=x["attrib"]
+       o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="delete"
        o.source=source
        o.save
+       # add the created ID + created_at time to the list
+       objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
+    end
+
+    respond_to do |format|
+      format.html { render :xml => objects }
+      format.xml  { render :xml => objects }
     end
   end
 

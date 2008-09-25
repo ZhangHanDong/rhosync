@@ -13,16 +13,6 @@ class ObjectValuesController < ApplicationController
     end
   end
 
-  # GET /object_values/1
-  # GET /object_values/1.xml
-  def show
-    @object_value = ObjectValue.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @object_value }
-    end
-  end
 
   # GET /object_values/new
   # GET /object_values/new.xml
