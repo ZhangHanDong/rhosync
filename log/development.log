@@ -28252,3 +28252,654 @@ WARNING: You're using the Ruby-based MySQL library that ships with Rails. This l
   [4;36;1mSQL (0.000917)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
   [4;35;1mSQL (0.000927)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
   [4;36;1mSQL (0.000922)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 14:02:46) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000523)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000947)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Load (0.002779)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.007527)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.06653 (15 reqs/sec) | Rendering: 0.04368 (65%) | DB: 0.01178 (17%) | 200 OK [http://localhost/]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 14:02:49) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"edit", "id"=>"7", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006550)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002721)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 7) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03784 (26 reqs/sec) | Rendering: 0.01639 (43%) | DB: 0.00927 (24%) | 200 OK [http://localhost/sources/7/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 14:02:59) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.141817)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.032729)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.19967 (5 reqs/sec) | Rendering: 0.01365 (6%) | DB: 0.17455 (87%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#load_adapter (for 127.0.0.1 at 2008-09-26 14:03:27) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"load_adapter", "id"=>"1", "controller"=>"sources"}
+Rendering template within layouts/sources
+Rendering sources/load_adapter
+Completed in 0.02188 (45 reqs/sec) | Rendering: 0.01752 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/sources/load_adapter/1]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 14:04:21) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005425)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002573)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03414 (29 reqs/sec) | Rendering: 0.01133 (33%) | DB: 0.00800 (23%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 14:07:09) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--341aab8061bf7d397dcd9eff085d2e4ffe3f7d26
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"55dc151e83283fa4bd49505799ad73142d1453d9", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;36;1mSource Columns (0.006141)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002676)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mSQL (0.000367)[0m   [0;1mBEGIN[0m
+  [4;35;1mSource Update (0.000810)[0m   [0mUPDATE `sources` SET `deletecall` = 'name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,\'Accounts\',name_value_list) ', `updated_at` = '2008-09-26 21:07:09' WHERE `id` = 6[0m
+  [4;36;1mSQL (0.026657)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/sources/6
+Completed in 0.06344 (15 reqs/sec) | DB: 0.03665 (57%) | 302 Found [http://localhost/sources/6]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-26 14:07:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlNGUzZDYzNzJiNTRiODNkNjNhNTY5ZDIxMWNlMzZj
+MzgiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVk
+LgY6CkB1c2VkewY7B0Y=--136c51d70813266a6ee3b6b193fc3e1b4b0c1fef
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.007188)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.003001)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mObjectValue Columns (0.006160)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mObjectValue Load (0.032769)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`update_type` = 'query' AND `object_values`.`source_id` = '6') [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.15991 (6 reqs/sec) | Rendering: 0.03052 (19%) | DB: 0.04912 (30%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:05:03) [GET]
+  Session ID: c2ec6ee1d5b7c8cd6c3907fed092b49d
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.021592)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000704)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Load (0.052670)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.009966)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.15490 (6 reqs/sec) | Rendering: 0.04527 (29%) | DB: 0.08493 (54%) | 200 OK [http://localhost/]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:05:08) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004663)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002768)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03114 (32 reqs/sec) | Rendering: 0.01499 (48%) | DB: 0.00743 (23%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#6 (for 127.0.0.1 at 2008-09-26 16:05:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"6", "id"=>"save", "controller"=>"sources"}
+
+
+ActionController::UnknownAction (No action responded to 6):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:07:45) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004851)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002433)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03295 (30 reqs/sec) | Rendering: 0.01558 (47%) | DB: 0.00728 (22%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:09:04) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005913)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002439)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03284 (30 reqs/sec) | Rendering: 0.01511 (46%) | DB: 0.00835 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:09:33) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.003841)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001852)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02742 (36 reqs/sec) | Rendering: 0.01123 (40%) | DB: 0.00569 (20%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:10:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004852)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002333)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.02651 (37 reqs/sec) | DB: 0.00718 (27%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:10:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002001)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.386338)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.56239 (1 reqs/sec) | Rendering: 0.00922 (1%) | DB: 0.38834 (69%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:10:07) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006970)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.003998)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.04437 (22 reqs/sec) | Rendering: 0.01613 (36%) | DB: 0.01097 (24%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:15:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004876)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002388)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.02379 (42 reqs/sec) | DB: 0.00726 (30%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:15:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002354)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.004520)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02370 (42 reqs/sec) | Rendering: 0.00679 (28%) | DB: 0.00687 (29%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:15:03) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004543)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002438)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02766 (36 reqs/sec) | Rendering: 0.01050 (37%) | DB: 0.00698 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:15:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.003787)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001915)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.01952 (51 reqs/sec) | DB: 0.00570 (29%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:15:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002376)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.004702)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02665 (37 reqs/sec) | Rendering: 0.00882 (33%) | DB: 0.00708 (26%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:15:29) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006848)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.003991)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03457 (28 reqs/sec) | Rendering: 0.01181 (34%) | DB: 0.01084 (31%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:16:35) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004817)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002359)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.02552 (39 reqs/sec) | DB: 0.00718 (28%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:16:35) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002677)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.004506)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02669 (37 reqs/sec) | Rendering: 0.00734 (27%) | DB: 0.00718 (26%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:17:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004613)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002458)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02832 (35 reqs/sec) | Rendering: 0.01094 (38%) | DB: 0.00707 (24%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:17:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005064)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002476)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.02783 (35 reqs/sec) | DB: 0.00754 (27%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:17:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002074)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.006622)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02821 (35 reqs/sec) | Rendering: 0.01043 (36%) | DB: 0.00870 (30%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:17:13) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005212)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002411)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02992 (33 reqs/sec) | Rendering: 0.01115 (37%) | DB: 0.00762 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:17:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.003900)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.124276)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.14001 (7 reqs/sec) | DB: 0.12818 (91%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:17:14) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002388)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.006523)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02695 (37 reqs/sec) | Rendering: 0.00963 (35%) | DB: 0.00891 (33%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:17:16) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004707)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002406)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02807 (35 reqs/sec) | Rendering: 0.01033 (36%) | DB: 0.00711 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:22:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005557)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002457)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.03095 (32 reqs/sec) | DB: 0.00801 (25%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:22:58) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.002992)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.004707)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.02477 (40 reqs/sec) | Rendering: 0.00721 (29%) | DB: 0.00770 (31%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:23:00) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004744)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002449)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02985 (33 reqs/sec) | Rendering: 0.01097 (36%) | DB: 0.00719 (24%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:27:09) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.005024)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002430)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02914 (34 reqs/sec) | Rendering: 0.01019 (34%) | DB: 0.00745 (25%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:27:11) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004604)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002401)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02681 (37 reqs/sec) | Rendering: 0.01057 (39%) | DB: 0.00700 (26%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:27:17) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;36;1mSource Columns (0.006735)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.005543)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mSQL (0.000743)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.001153)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/sources/6
+Completed in 0.03984 (25 reqs/sec) | DB: 0.01417 (35%) | 302 Found [http://localhost/sources/6]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-26 16:27:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVk
+LgY6CkB1c2VkewY7B0Y=--16debfbb3795dd72027063d1dac47aa2f374a03d
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006671)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002422)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.095840)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.030025)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = '6' AND `object_values`.`update_type` = 'query') [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.42407 (2 reqs/sec) | Rendering: 0.02324 (5%) | DB: 0.13496 (31%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#save (for 127.0.0.1 at 2008-09-26 16:27:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7BjoLbm90aWNlIiVTb3VyY2Ugd2FzIHN1Y2Nlc3NmdWxseSB1cGRhdGVk
+LgY6CkB1c2VkewY7B1Q=--80d4cd8e6d46e0f725d9439becabe26cf832f0bc
+  Parameters: {"action"=>"save", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004875)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002499)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Redirected to http://localhost:3000/sources
+Completed in 0.02508 (39 reqs/sec) | DB: 0.00737 (29%) | 302 Found [http://localhost/sources/6/save]
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-09-26 16:27:43) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+  [4;36;1mSource Load (0.004024)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.006706)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.03120 (32 reqs/sec) | Rendering: 0.01067 (34%) | DB: 0.01073 (34%) | 200 OK [http://localhost/sources]
+
+
+Processing SourcesController#edit (for 127.0.0.1 at 2008-09-26 16:30:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"action"=>"edit", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004853)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002416)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02934 (34 reqs/sec) | Rendering: 0.01085 (36%) | DB: 0.00727 (24%) | 200 OK [http://localhost/sources/6/edit]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:30:13) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>"# nothing"}}
+  [4;36;1mSource Columns (0.420946)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002187)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+
+
+NameError (undefined local variable or method `params' for #<Source:0x2564e90>):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    /app/models/source.rb:5:in `save'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:2262:in `update_attributes'
+    /app/controllers/sources_controller.rb:281:in `update'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:106:in `call'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/mime_responds.rb:106:in `respond_to'
+    /app/controllers/sources_controller.rb:280:in `update'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:31:56) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>"# nothing"}}
+  [4;36;1mSource Columns (0.097122)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.015470)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.13988 (7 reqs/sec) | Rendering: 0.00681 (4%) | DB: 0.53573 (382%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:32:02) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>"# nothing"}}
+  [4;36;1mSource Columns (0.005186)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002385)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03206 (31 reqs/sec) | Rendering: 0.00662 (20%) | DB: 0.00757 (23%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:32:07) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>"# nothing"}}
+  [4;36;1mSource Columns (0.005088)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002493)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03717 (26 reqs/sec) | Rendering: 0.00652 (17%) | DB: 0.00758 (20%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-26 16:35:04) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZTkyMWZmMDNhOTMzNzUyN2JkNDYwOThiN2I2Mzk1
+NTEiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--8174fd2ed4a2daa9b66dd04bbe84024d259bad84
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"aa1bdefd0814a26f7f91d62b1fad37d0e164bc13", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p \"failed to login - \#{ss.error.description}\"\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p \"logged in to session \#{session_id} as \#{u} (\#{uid}) \"\r\nend\r\n", "deletecall"=>"name_value_list << (\"deleted\"=>1) result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = \"Accounts\"\r\nquery = \"\" \r\norder_by = \"\" \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>"# nothing here for Sugar"}}
+  [4;36;1mSource Columns (0.005069)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002463)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03414 (29 reqs/sec) | Rendering: 0.00699 (20%) | DB: 0.00753 (22%) | 200 OK [http://localhost/sources/6]

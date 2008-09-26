@@ -9,7 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
   map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'
   map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
-  map.connect 'sources/:id/do_load_adapter',:controller=>'sources',:action => 'do_load_adapter'
+  map.connect 'sources/:id/do_load',:controller=>'sources',:action => 'do_load'
+  map.connect 'sources/:id/save',:controller=>'sources',:action => 'save'
 
   map.resources :object_values
 

@@ -37,7 +37,7 @@ class SourcesController < ApplicationController
   # RETURNS:
   #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def createobjects
-    source=Source.find params[:id]
+    @source=Source.find params[:id]
     objects={}
     params[:attrvals].each do |x| # for each hash in the array
        # note that there should NOT be an object value for new records
@@ -45,7 +45,7 @@ class SourcesController < ApplicationController
        o.attrib=x["name"]
        o.value=x["value"]
        o.update_type="create"
-       o.source=source
+       o.source=@source
        o.save
        # add the created ID + created_at time to the list
        objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
@@ -74,7 +74,7 @@ class SourcesController < ApplicationController
   # RETURNS:
   #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def updateobjects
-    source=Source.find params[:id]
+    @source=Source.find params[:id]
     objects={}
     params[:attrvals].each do |x|  # for each hash in the array
        o=ObjectValue.new
@@ -82,7 +82,7 @@ class SourcesController < ApplicationController
        o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="update"
-       o.source=source
+       o.source=@source
        o.save     
        # add the created ID + created_at time to the list
        objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
@@ -102,7 +102,7 @@ class SourcesController < ApplicationController
   # RETURNS:
   #   a hash of the object_values table ID columns as keys and the updated_at times as values
   def deleteobjects
-    source=Source.find params[:id]
+    @source=Source.find params[:id]
     objects={}
     params[:attrvals].each do |x|
        o=ObjectValue.new
@@ -110,7 +110,7 @@ class SourcesController < ApplicationController
        o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="delete"
-       o.source=source
+       o.source=@source
        o.save
        # add the created ID + created_at time to the list
        objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
@@ -122,17 +122,18 @@ class SourcesController < ApplicationController
     end
   end
 
-  def load_adapter
+  def pick_load
     # this loads up the yaml file correponding to an individual adapters source code
   end
 
-  def do_load_adapter
+  def do_load
     @sources=YAML::load_file params[:yaml_file]
     @sources.keys.each do |x|
       source=Source.new(@sources[x])
       source.save
     end
   end
+
 
   # this connects to the web service of the given source backend and:
   # - does a prolog (generally logging in)
@@ -278,6 +279,7 @@ class SourcesController < ApplicationController
 
     respond_to do |format|
       if @source.update_attributes(params[:source])
+        @source.save
         flash[:notice] = 'Source was successfully updated.'
         format.html { redirect_to(@source) }
         format.xml  { head :ok }
