@@ -212,10 +212,7 @@ class SourcesController < ApplicationController
       p "Executing query call"
       callbinding=eval(@source.call+";binding",callbinding)
       # delete the old source records
-      oldobjs=ObjectValue.find_by_sql 'select object,attrib,value from object_values where source_id='+@source.id.to_s
-      oldobjs.each do |x| 
-        x.destroy
-      end
+      ObjectValue.delete_all "update_type='query' and source_id="+@source.id.to_s
       # now take apart the returned data and fill the object values table
       p "Executing backend data sync"
       callbinding=eval(@source.sync,callbinding) if @source.sync

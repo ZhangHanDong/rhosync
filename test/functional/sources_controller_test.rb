@@ -23,6 +23,14 @@ class SourcesControllerTest < ActionController::TestCase
     assert_redirected_to source_path(assigns(:source))
   end
 
+  def test_should_refresh_twice_with_same_count
+    get :refresh,:id=>sources(:sugar).id
+    # refresh is supposed to delete existing query records before reexecuting a query
+    assert_no_difference 'ObjectValue.count' do
+      get :refresh,:id=>sources(:sugar).id
+    end
+  end
+
   def test_should_create
     post :create, :s=>{}
 
