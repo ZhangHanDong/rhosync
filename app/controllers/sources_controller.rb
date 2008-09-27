@@ -123,15 +123,36 @@ class SourcesController < ApplicationController
   end
 
   def pick_load
-    # this loads up the yaml file correponding to an individual adapters source code
+    # go to the view to pick the file to load
   end
 
-  def do_load
+  def load_all
+    # NOTE: THIS DOES NOT WORK FROM OUR SAVING FORMAT RIGHT NOW! (the one that save_all does)
+    # it only works from the YAML format in db/migrate/sources.yml
+    # this is a very well reported upon Ruby/YAML issue
     @sources=YAML::load_file params[:yaml_file]
+    p @sources
     @sources.keys.each do |x|
       source=Source.new(@sources[x])
       source.save
     end
+    flash[:notice]="Loaded sources"
+    redirect_to :action=>"index"
+  end
+
+  def pick_save
+    # go to the view to pick the file
+  end
+
+  def save_all
+    @sources=Source.find :all
+    File.open(params[:yaml_file],'w') do |out|
+      @sources.each do |x|
+        YAML.dump(x,out)
+      end
+    end
+    flash[:notice]="Saved sources"
+    redirect_to :action=>"index"
   end
 
 

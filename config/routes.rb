@@ -1,21 +1,26 @@
 ActionController::Routing::Routes.draw do |map|
 
-  # Sample of regular route:
+  # build in CRUD
+  map.connect 'sources/:id/create', :controller => 'sources', :action => 'create'
+  map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
+  map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'
+
+  # object read (show), update, create, delete methods
   map.connect 'sources/:id/show', :controller => 'sources', :action => 'show'
   map.connect 'sources/:id/updateobjects', :controller => 'sources', :action => 'updateobjects'
   map.connect 'sources/:id/createobjects', :controller => 'sources', :action => 'createobjects'
   map.connect 'sources/:id/deleteobjects', :controller => 'sources', :action => 'deleteobjects'
-  map.connect 'sources/:id/create', :controller => 'sources', :action => 'create'
-  map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
-  map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'
+
+
   map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
-  map.connect 'sources/:id/do_load',:controller=>'sources',:action => 'do_load'
+
+  # yaml saving and loading
+  map.connect 'sources/:id/load_all',:controller=>'sources',:action => 'load_all'
+  map.connect 'sources/:id/save_all',:controller=>'sources',:action => 'save_all'
   map.connect 'sources/:id/save',:controller=>'sources',:action => 'save'
 
   map.resources :object_values
-
   map.resources :sources
-
   map.resources :stores
 
 
