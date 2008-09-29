@@ -7,24 +7,24 @@ sugar:
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
-    ua = {"user_name" => u,"password" => p}
+    ua = {'user_name' => u,'password' => p}
     ss = client.login(ua,nil)
     if ss.error.number.to_i != 0
-      p "failed to login - #{ss.error.description}"
+      p 'failed to login - #{ss.error.description}'
       return
     else
       session_id = ss['id']
       uid = client.get_user_id(session_id)
-      p "logged in to session #{session_id} as #{u} (#{uid}) "
+      p 'logged in to session #{session_id} as #{u} (#{uid}) '
     end
 
   call: |
-    module_name = "Accounts"
-    query = "" # gets all the acounts, you can also use SQL like "accounts.name like '%company%'"
-    order_by = "" # in default order. you can also use SQL like "accounts.name"
+    module_name = 'Accounts'
+    query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
+    order_by = '' # in default order. you can also use SQL like 'accounts.name'
     offset = 0 # I guess this is like the SQL offset
     select_fields = ['name','industry'] # this can't be an empty array, my testing showed
-    max_results = "1000000" # if set to 0 or "", this doesn't return all the results, like you'd expect
+    max_results = '1000000' # if set to 0 or '', this doesn't return all the results, like you'd expect
     deleted = 0 # whether you want to retrieve deleted records, too
     result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
 
@@ -36,7 +36,7 @@ sugar:
         o.object=x.id
         o.attrib=y.name
         o.value=y.value
-        o.update_type="query"
+        o.update_type='query'
         o.save
       end
     end
@@ -51,7 +51,7 @@ sugar:
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
   deletecall:
-    name_value_list << ("deleted"=>1)
+    namevaluelist.push('deleted'=>1);
     result=client.set_entry(session_id,'Accounts',name_value_list)
     result.entry_list.each do |x|
       x.name_value_list.each do |y|
@@ -60,7 +60,7 @@ sugar:
         o.object=x.id
         o.attrib=y.name
         o.value=y.value
-        o.update_type="query"
+        o.update_type='query'
         o.save
       end
     end
@@ -73,7 +73,7 @@ salesforce:
   password: ac
   prolog: |
     class Account < ActiveRecord::Base
-      establish_connection(:url=>"https://www.salesforce.com",
+      establish_connection(:url=>'https://www.salesforce.com',
         :adapter => 'activesalesforce',
         :username => @source.login,
         :password => @source.password)
@@ -83,7 +83,7 @@ salesforce:
     accounts=Account.find :all
 
   sync:
-    p "Syncing"
+    p 'Syncing'
     accounts.each do |x|
       name_value_list.each do |y|
         o=ObjectValue.new
@@ -91,7 +91,7 @@ salesforce:
         o.object=x.id
         o.attrib=y.name
         o.value=y.value
-        o.update_type="query"
+        o.update_type='query'
         o.save
       end
     end

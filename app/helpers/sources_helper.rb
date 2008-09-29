@@ -40,7 +40,7 @@ module SourcesHelper
   def make_name_value_list(hash)
     result="["
     hash.keys.each do |x|
-      result << ('{ "name" => "'+ x +'", "value" => "' + hash[x] + '"},')
+      result << ("{ 'name' => '"+ x +"', 'value' => '" + hash[x] + "'},")
     end
     result=result[0...result.size-1] # chop off the last comma
     result += "]"

@@ -107,8 +107,8 @@ class SourcesController < ApplicationController
     params[:attrvals].each do |x|
        o=ObjectValue.new
        o.object=x["object"]
-       o.attrib=x["attrib"]
-       o.value=x["value"]
+       o.attrib=x["attrib"] if x["attrib"]
+       o.value=x["value"] if x["value"]
        o.update_type="delete"
        o.source=@source
        o.save
@@ -117,7 +117,10 @@ class SourcesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :xml => objects }
+      format.html do
+            flash[:notice]="Deleted objects"
+            redirect_to :action=>"show"
+      end
       format.xml  { render :xml => objects }
     end
   end
@@ -299,16 +302,26 @@ class SourcesController < ApplicationController
     @source = Source.find(params[:id])
 
     respond_to do |format|
-      if @source.update_attributes(params[:source])
-        @source.save
-        flash[:notice] = 'Source was successfully updated.'
-        format.html { redirect_to(@source) }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @source.errors, :status => :unprocessable_entity }
+      begin
+        if @source.update_attributes(params[:source])
+          @source.save
+          flash[:notice] = 'Source was successfully updated.'
+          format.html { redirect_to(@source) }
+          format.xml  { head :ok }
+        else
+          begin  # call underlying save! so we can get some exceptions back to report
+            # (update_attributes just calls save
+            @source.save!
+          rescue Exception
+            flash[:notice] = $!
+          end
+
+          format.html { render :action => "edit" }
+          format.xml  { render :xml => @source.errors, :status => :unprocessable_entity }
+        end
       end
     end
+
   end
 
   # DELETE /sources/1

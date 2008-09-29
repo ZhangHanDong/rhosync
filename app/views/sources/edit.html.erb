@@ -1,7 +1,13 @@
 <h2>Editing Source Adapter </h2>
-<%=link_to 'Refresh records','refresh',:id=>@source.id%>
+
 <% form_for(@source) do |f| %>
+
   <%= f.error_messages %>
+  <p>
+    <%= f.submit "Update source adapter code" %>
+  </p>
+<%=link_to 'Refresh records',{:action=>'refresh',:id=>@source.id}%>
+<%=link_to 'Show records',{:action=>'show',:id=>@source.id}%><br/>
 
   <p>
     <%= f.label "Source Name" %> <%=f.text_field :name %>
@@ -13,6 +19,8 @@
     <%= f.label :password %><%= f.text_field :password %>
   </p>
 
+Enter source code for login, query, create, update, delete, logoff and sync in boxes below.
+Be careful to only use apostrophes (single quotes) for strings versus double quotes.
   <p>
     <%= f.label "Prolog (login)" %><br />
     <%= f.text_area :prolog, :rows=>10,:cols=>60 %>
@@ -46,9 +54,7 @@
     <%= f.text_area :sync ,:rows=>5,:cols=>60%>
   </p>
 
-  <p>
-    <%= f.submit "Update" %>
-  </p>
+
 
 <% end %>
 

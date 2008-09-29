@@ -1,8 +1,12 @@
-<%=link_to 'Refresh records','refresh',:id=>@source.id%>
+<%=link_to 'Edit source',{:action=>'edit',:id=>@source.id}%><br>
+<%=link_to 'Refresh records',{:action=>'refresh',:id=>@source.id}%><br>
 
 <table>
-  <tr><th>Object</th><th>Attribute</th><th>Value</th></tr>
+  <tr><th>Object</th><th>Attribute</th><th>Value</th><th>Delete Objects</th></tr>
 <%  @object_values.each do |x|%>
-  <tr><td><%=x.object%></td><td><%=x.attrib%></td><td><%=x.value%></td></tr>
+  <tr>
+  <td><%=x.object%></td><td><%=x.attrib%></td><td><%=x.value%></td>
+  <td><%=link_to "X",{:action=>"deleteobjects",:id=>@source.id,:attrvals=>[{"object"=>x.object}]}%></td>
+  </tr>
 <%  end%>
 </table>
