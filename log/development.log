@@ -37422,3 +37422,219 @@ OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
 Rendering template within layouts/sources
 Rendering sources/show
 Completed in 0.08639 (11 reqs/sec) | Rendering: 0.02709 (31%) | DB: 0.02614 (30%) | 200 OK [http://localhost/sources/6/show]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-29 16:55:41) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.004953)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001956)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mObjectValue Columns (0.003221)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mObjectValue Load (0.009421)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = '6' AND `object_values`.`update_type` = 'query') [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.08390 (11 reqs/sec) | Rendering: 0.03286 (39%) | DB: 0.01955 (23%) | 200 OK [http://localhost/sources/6/show]
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-09-29 16:55:42) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.003720)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001691)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mObjectValue Columns (0.002793)[0m   [0mSHOW FIELDS FROM `object_values`[0m
+  [4;36;1mObjectValue Load (0.007655)[0m   [0;1mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = '6' AND `object_values`.`update_type` = 'query') [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.06995 (14 reqs/sec) | Rendering: 0.02693 (38%) | DB: 0.01586 (22%) | 200 OK [http://localhost/sources/6/show]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:57:00) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.004240)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001536)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.001282)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000254)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03802 (26 reqs/sec) | Rendering: 0.00808 (21%) | DB: 0.00731 (19%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:57:00) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.006054)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.003279)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000538)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000760)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.04780 (20 reqs/sec) | Rendering: 0.00897 (18%) | DB: 0.01063 (22%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:57:40) [PUT]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.004247)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.002834)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000288)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000223)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03312 (30 reqs/sec) | Rendering: 0.00959 (28%) | DB: 0.00759 (22%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:57:56) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.004728)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001654)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000297)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000225)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03690 (27 reqs/sec) | Rendering: 0.01406 (38%) | DB: 0.00690 (18%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:58:21) [PUT]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.006538)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001629)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000514)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000425)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.04257 (23 reqs/sec) | Rendering: 0.01522 (35%) | DB: 0.00911 (21%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:58:48) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.004046)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.003230)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000305)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000222)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.03095 (32 reqs/sec) | Rendering: 0.00773 (24%) | DB: 0.00780 (25%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:59:01) [PUT]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.003832)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.005095)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000535)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000433)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.04439 (22 reqs/sec) | Rendering: 0.01635 (36%) | DB: 0.00990 (22%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 16:59:01) [PUT]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.003455)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001403)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000272)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000216)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02488 (40 reqs/sec) | Rendering: 0.00521 (20%) | DB: 0.00535 (21%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#update (for 127.0.0.1 at 2008-09-29 17:00:08) [PUT]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"ad393a39d0fa76cd4492a47f5f57b90a1e307d18", "_method"=>"put", "action"=>"update", "id"=>"6", "controller"=>"sources", "source"=>{"name"=>"RhoSugar", "prolog"=>"u = @source.login\r\np = Digest::MD5.hexdigest(@source.password)\r\nua = {\"user_name\" => u,\"password\" => p}\r\nss = client.login(ua,nil)\r\nif ss.error.number.to_i != 0\r\n  p 'failed to login - \#{ss.error.description}'\r\n  return\r\nelse\r\n  session_id = ss['id']\r\n  uid = client.get_user_id(session_id)\r\n  p 'logged in to session \#{session_id} as \#{u} (\#{uid}) '\r\nend\r\n", "deletecall"=>"namevaluelist.push('deleted'=>1);result=client.set_entry(session_id,'Accounts',name_value_list)    ", "url"=>"http://rhomobile.com/sugar/soap.php?wsdl", "createcall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "sync"=>"result.entry_list.each do |x|\r\n  x.name_value_list.each do |y|\r\n    o=ObjectValue.new\r\n    o.source_id=@source.id\r\n    o.object=x.id\r\n    o.attrib=y.name\r\n    o.value=y.value\r\n    o.update_type=\"query\"\r\n    o.save\r\n  end\r\nend\r\n", "updatecall"=>"result=client.set_entry(session_id,'Accounts',name_value_list)", "call"=>"module_name = 'Accounts'\r\nquery = ''\r\norder_by = '' \r\noffset = 0\r\nselect_fields = ['name','industry'] \r\nmax_results = \"1000000\" \r\ndeleted = 0 \r\nresult = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)\r\n", "login"=>"admin", "password"=>"acc3ss$ugar", "epilog"=>""}}
+  [4;35;1mSource Columns (0.003454)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001438)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;35;1mSQL (0.000306)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000220)[0m   [0;1mCOMMIT[0m
+Rendering template within layouts/sources
+Rendering sources/edit
+Completed in 0.02807 (35 reqs/sec) | Rendering: 0.00765 (27%) | DB: 0.00542 (19%) | 200 OK [http://localhost/sources/6]
+
+
+Processing SourcesController#deleteobjects (for 127.0.0.1 at 2008-09-29 17:50:20) [GET]
+  Session ID: BAh7ByIKZmxhc2hJQzonQWN0aW9uQ29udHJvbGxlcjo6Rmxhc2g6OkZsYXNo
+SGFzaHsABjoKQHVzZWR7ADoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2
+OTliMmUxZmJhMjQyMjA=--572ed21c475caf7e6dfa46d76c65aec3bec789fa
+  Parameters: {"action"=>"deleteobjects", "id"=>"1", "controller"=>"sources"}
+  [4;35;1mSource Columns (0.007102)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSource Load (0.001843)[0m   [0;1mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Source with ID=1):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1379:in `find_one'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1362:in `find_from_ids'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:537:in `find'
+    /app/controllers/sources_controller.rb:105:in `deleteobjects'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:76:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/rails.rb:74:in `process'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:159:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:158:in `process_client'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:285:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `initialize'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `new'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel.rb:268:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:128:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/../lib/mongrel/command.rb:212:in `run'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/gems/1.8/gems/mongrel-1.1.4/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
