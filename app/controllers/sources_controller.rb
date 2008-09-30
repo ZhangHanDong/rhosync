@@ -6,6 +6,9 @@ class SourcesController < ApplicationController
 
   include SourcesHelper
   # shows all object values in XML structure given a supplied source
+  
+  protect_from_forgery :only => [:create, :delete, :update] 
+  
   def show
     @source=Source.find params[:id]
     @object_values=ObjectValue.find_all_by_update_type_and_source_id "query",params[:id]
@@ -122,6 +125,7 @@ class SourcesController < ApplicationController
             redirect_to :action=>"show"
       end
       format.xml  { render :xml => objects }
+      format.json { render :json => objects }
     end
   end
 
