@@ -1,0 +1,37 @@
+--- !ruby/object:Source 
+attributes: 
+  name: RhoForce
+  prolog: |
+    class Account < ActiveRecord::Base
+      establish_connection(:url=>"https://www.salesforce.com",
+        :adapter => 'activesalesforce',
+        :username => @source.login,
+        :password => @source.password)
+    end
+
+  updated_at: 
+  deletecall: 
+  createcall: 
+  type: 
+  url: http://localhost:3000/sf.wsdl
+  sync: p "Syncing" accounts.each do |x| name_value_list.each do |y| o=ObjectValue.new o.source_id=@source.id o.object=x.id o.attrib=y.name o.value=y.value o.update_type="query" o.save end end
+  method: 
+  updatecall: 
+  call: |
+    accounts=Account.find :all
+
+  password: ac
+  login: adam@rhomobile.com
+  epilog: 
+  created_at: 
+attributes_cache: {}
+
+changed_attributes: 
+  name: 
+  prolog: 
+  url: 
+  sync: 
+  call: 
+  password: 
+  login: 
+new_record: true

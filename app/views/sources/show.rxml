@@ -1,0 +1,8 @@
+xml.instruct! :xml, :version=>"1.0", :encoding=>"UTF-8"
+xml.source do
+  @object_values.each do |x|
+    xml.tag!('object',x.object)
+    xml.tag!('attrib',x.attrib)
+    xml.tag!('value',x.attrib)
+  end
+end
