@@ -6,10 +6,18 @@ class SourcesController < ApplicationController
 
   include SourcesHelper
   # shows all object values in XML structure given a supplied source
+  # if a :last_update parameter is supplied then only show data that has been
+  # refreshed (retrieved from the backend) since then
   def show
+    last_update_time=Time.parse(params[:last_update]) if params[:last_update]
     @source=Source.find params[:id]
-    @object_values=ObjectValue.find_all_by_update_type_and_source_id "query",params[:id]
-
+    # if we have a last_update parameter then only do the update
+    # if the last update time is before the most recent refresh then bring back values
+    if !last_update_time or (@source.refreshtime and (last_update_time<=>@source.refreshtime)<0)
+      @object_values=ObjectValue.find_all_by_update_type_and_source_id "query",params[:id]
+    else  # no need to bring back values because we're still waiting for a refresh on the server!
+      @object_values=nil
+    end
     respond_to do |format|
       format.html 
       format.xml  { render :xml => @object_values}
@@ -125,6 +133,57 @@ class SourcesController < ApplicationController
     end
   end
 
+  # the define method creates a table definition for a given source
+  # where each attribute is a column name
+  # this string can then be used to create a "flattened table definition"
+  def define
+    @source=Source.find params[:id]
+
+    objects=ObjectValue.find_all_by_source_id @source.id
+    colnames=[]
+    objects.each do |x|  # each attrib is a column name
+      colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
+    end
+    result="DROP TABLE "+@source.name + ";"
+    result="CREATE TABLE "+@source.name + "("
+    colnames.each do |x|
+      result = result + x + " varchar(255)," if x
+    end
+    result=result[0...result.size-1]  # chop off that last comma
+    result = result + ");"
+
+    respond_to do |format|
+      format.html { render :xml => result}
+      format.xml  { render :xml => result }
+      format.json  { render :json => result }
+    end
+  end
+
+  def populate
+    @source=Source.find params[:id]
+    objects=ObjectValue.find_all_by_source_id @source.id
+
+    colnames=[]
+    objects.each do |x|  # each attrib is a column name
+      colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
+    end
+
+    insertstart="INSERT INTO " + @source.name + "("
+    colnames.each do |colname|
+      insertstart+=(colname+",")
+    end
+    insertstart=insertstart[0...insertstart.size-1]
+    insertstart+=") values("
+
+
+    inserts=[]
+    objects.each do |x|  # each value is a column name
+      sql = insertstart+"'" + x.value + "',"
+      inserts << sql
+    end
+  end
+
+
   def pick_load
     # go to the view to pick the file to load
   end
@@ -192,7 +251,7 @@ class SourcesController < ApplicationController
           # now attrvalues has the attribute values needed for the createcall
           # the Sugar adapter will use the name_value_list variable that we're building up here
           # TODO: name_value_list is probably too specific to Sugar
-          # TODO: need a clean way to pass the attrvalues hash to any adapter cleanly
+          #  need a clean way to pass the attrvalues hash to any source adapter cleanly
           nvlist=make_name_value_list(attrvalues)
           callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
         end
@@ -245,7 +304,10 @@ class SourcesController < ApplicationController
     
     # now do the logoff
     callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog and @source.epilog.size>0
- 
+
+    @source.refreshtime=Time.new  # keep track of the refresh time to help optimize show queries
+    @source.save
+
     redirect_to :action=>"show",:id=>@source.id
   end
 
@@ -304,7 +366,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       begin
         if @source.update_attributes(params[:source])
-          @source.save
+          @source.save_to_yaml
           flash[:notice] = 'Source was successfully updated.'
           format.html { redirect_to(@source) }
           format.xml  { head :ok }

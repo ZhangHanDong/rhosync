@@ -11,7 +11,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'sources/:id/createobjects', :controller => 'sources', :action => 'createobjects'
   map.connect 'sources/:id/deleteobjects', :controller => 'sources', :action => 'deleteobjects'
 
-
+  map.connect 'sources/:id/define', :controller => 'sources', :action => 'define'
+  map.connect 'sources/:id/populate', :controller => 'sources', :action => 'populate'
   map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
 
   # yaml saving and loading

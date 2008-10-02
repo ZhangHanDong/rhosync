@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20080915225024) do
+ActiveRecord::Schema.define(:version => 20081002212238) do
 
   create_table "object_values", :force => true do |t|
     t.integer  "source_id",   :limit => 11
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(:version => 20080915225024) do
     t.text     "createcall"
     t.text     "updatecall"
     t.text     "deletecall"
+    t.datetime "refreshtime"
   end
 
 end

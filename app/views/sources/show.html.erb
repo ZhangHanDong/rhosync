@@ -3,10 +3,12 @@
 
 <table>
   <tr><th>Object</th><th>Attribute</th><th>Value</th><th>Delete Objects</th></tr>
+  <%if @object_values%>
 <%  @object_values.each do |x|%>
   <tr>
   <td><%=x.object%></td><td><%=x.attrib%></td><td><%=x.value%></td>
   <td><%=link_to "X",{:action=>"deleteobjects",:id=>@source.id,:attrvals=>[{"object"=>x.object}]}%></td>
   </tr>
+<%end%>
 <%  end%>
 </table>

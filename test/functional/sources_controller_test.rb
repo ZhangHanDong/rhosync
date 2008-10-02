@@ -2,6 +2,18 @@ require 'test_helper'
 
 class SourcesControllerTest < ActionController::TestCase
 
+  def test_should_show_source
+    get :show, :id => sources(:sugar).id
+    assert_response :success
+  end
+
+  def test_should_show_null_when_waiting_for_refresh
+    get :updateobjects,:id=>sources(:sugar).id,
+      :attrvals=>[{"object"=>"1","attrib"=>"name","value"=>"rhomobile"}]
+
+    get :show, :id => sources(:sugar).id, :last_update => Time.now.to_s
+  end
+
   def test_should_createobjects
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"attrib"=>"name","value"=>"rhomobile"}]
     assert_response :success
@@ -31,10 +43,6 @@ class SourcesControllerTest < ActionController::TestCase
     end
   end
 
-  def test_should_create
-    post :create, :s=>{}
-
-  end
 
   def test_should_get_index
     get :index
@@ -53,11 +61,6 @@ class SourcesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to source_path(assigns(:source))
-  end
-
-  def test_should_show_source
-    get :show, :id => sources(:sugar).id
-    assert_response :success
   end
 
   def test_should_get_edit

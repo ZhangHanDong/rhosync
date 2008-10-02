@@ -37638,3 +37638,627 @@ ActiveRecord::RecordNotFound (Couldn't find Source with ID=1):
     /usr/bin/mongrel_rails:19
 
 Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SourcesController#index (for 127.0.0.1 at 2008-10-02 11:41:02) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"index", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.118297)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.003592)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Load (0.238821)[0m   [0;1mSELECT * FROM `sources` [0m
+Rendering template within layouts/sources
+Rendering sources/index
+  [4;35;1mSource Columns (0.050414)[0m   [0mSHOW FIELDS FROM `sources`[0m
+Completed in 0.38838 (2 reqs/sec) | Rendering: 0.06097 (15%) | DB: 0.41112 (105%) | 200 OK [http://localhost/]
+
+
+Processing SourcesController#1 (for 127.0.0.1 at 2008-10-02 11:41:20) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"1", "id"=>"define", "controller"=>"sources"}
+
+
+ActionController::UnknownAction (No action responded to 1):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:42:26) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"1", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000299)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000227)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004923)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.170276)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 1) [0m
+
+
+ActiveRecord::RecordNotFound (Couldn't find Source with ID=1):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1379:in `find_one'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:1362:in `find_from_ids'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/base.rb:537:in `find'
+    /app/controllers/sources_controller.rb:132:in `define'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (not_found)
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:43:18) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"6", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000248)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000221)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004441)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001880)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.005470)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.030118)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = 6) LIMIT 1[0m
+
+
+NoMethodError (undefined method `each' for #<ObjectValue:0x1f7d374>):
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/attribute_methods.rb:256:in `method_missing'
+    /app/controllers/sources_controller.rb:135:in `define'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:43:44) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.006328)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002918)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.003498)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.009601)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = 6) [0m
+Rendering template within layouts/sources
+Rendering sources/define
+
+
+ActionView::MissingTemplate (Missing template sources/define.html.erb in view path /Users/adam/rhosync/app/views):
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:85:in `raise_missing_template_exception'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:78:in `set_extension_and_file_name'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/template.rb:15:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `new'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_view/base.rb:245:in `render_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1108:in `render_for_file'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:841:in `render_with_no_layout'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/layout.rb:251:in `render_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/activesupport-2.1.0/lib/active_support/core_ext/benchmark.rb:8:in `realtime'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1157:in `default_render'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1163:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:45:01) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004118)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.003907)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.004627)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.010404)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = 6) [0m
+Completed in 0.05766 (17 reqs/sec) | Rendering: 0.00040 (0%) | DB: 0.02306 (39%) | 200 OK [http://localhost/sources/6/define]
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:45:23) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"6", "controller"=>"sources"}
+  [4;36;1mSource Columns (0.004229)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001827)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.003262)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.010277)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = 6) [0m
+
+
+TypeError (can't convert nil into String):
+    /app/controllers/sources_controller.rb:140:in `+'
+    /app/controllers/sources_controller.rb:140:in `define'
+    /app/controllers/sources_controller.rb:139:in `each'
+    /app/controllers/sources_controller.rb:139:in `define'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:1162:in `perform_action_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:580:in `call_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:573:in `perform_action_without_benchmark'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /System/Library/Frameworks/Ruby.framework/Versions/1.8/usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/rescue.rb:201:in `perform_action_without_caching'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:13:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/connection_adapters/abstract/query_cache.rb:33:in `cache'
+    /Library/Ruby/Gems/1.8/gems/activerecord-2.1.0/lib/active_record/query_cache.rb:8:in `cache'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/caching/sql_cache.rb:12:in `perform_action'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `send'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:529:in `process_without_filters'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/filters.rb:569:in `process_without_session_management_support'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/session_management.rb:130:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/base.rb:389:in `process'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:149:in `handle_request'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:107:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:104:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:120:in `dispatch_cgi'
+    /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/dispatcher.rb:35:in `dispatch'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:76:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `synchronize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/rails.rb:74:in `process'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:159:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:158:in `process_client'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:285:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `initialize'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `new'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel.rb:268:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:282:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `each'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/configurator.rb:281:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:128:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/../lib/mongrel/command.rb:212:in `run'
+    /Library/Ruby/Gems/1.8/gems/mongrel-1.1.5/bin/mongrel_rails:281
+    /usr/bin/mongrel_rails:19:in `load'
+    /usr/bin/mongrel_rails:19
+
+Rendering /Library/Ruby/Gems/1.8/gems/actionpack-2.1.0/lib/action_controller/templates/rescues/layout.erb (internal_server_error)
+
+
+Processing SourcesController#define (for 127.0.0.1 at 2008-10-02 11:54:06) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"define", "id"=>"6", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000252)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000279)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004599)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.002071)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.003283)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.009386)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = 6) [0m
+Completed in 0.08739 (11 reqs/sec) | Rendering: 0.00040 (0%) | DB: 0.01987 (22%) | 200 OK [http://localhost/sources/6/define]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000303)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000270)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000811)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000970)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000606)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000590)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000570)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000568)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000579)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSources (20080831020723)
+  [4;35;1mSQL (0.000566)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateObjectValues (20080831020931)
+  [4;36;1mSQL (0.000565)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceColumns (20080902111111)
+  [4;35;1mSQL (0.000566)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to AddObjectUpdateType (20080906212411)
+  [4;36;1mSQL (0.000564)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceCallColumns (20080906214406)
+  [4;35;1mSQL (0.000568)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to LoadAllSource (20080915225024)
+  [4;36;1mSQL (0.000724)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to AddSourceRefreshtime (20081002212238)
+  [4;35;1mSQL (0.000555)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.320538)[0m   [0;1mALTER TABLE `sources` ADD `refreshtime` datetime[0m
+  [4;35;1mSQL (0.001473)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.001020)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001868)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003661)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003338)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002345)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.007108)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.006798)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.005053)[0m   [0mSHOW KEYS FROM `sources`[0m
+
+
+Processing SourcesController#show (for 127.0.0.1 at 2008-10-02 14:48:56) [GET]
+  Session ID: BAh7BzoMY3NyZl9pZCIlZjQ0Y2FkNDg3Nzk4NjRiNWU2OTliMmUxZmJhMjQy
+MjAiCmZsYXNoSUM6J0FjdGlvbkNvbnRyb2xsZXI6OkZsYXNoOjpGbGFzaEhh
+c2h7AAY6CkB1c2VkewA=--daec7759be673add5f4fa6f7e60766dca8600177
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"sources"}
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000309)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000205)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSource Columns (0.004219)[0m   [0;1mSHOW FIELDS FROM `sources`[0m
+  [4;35;1mSource Load (0.001965)[0m   [0mSELECT * FROM `sources` WHERE (`sources`.`id` = 6) [0m
+  [4;36;1mObjectValue Columns (0.005135)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mObjectValue Load (0.015920)[0m   [0mSELECT * FROM `object_values` WHERE (`object_values`.`source_id` = '6' AND `object_values`.`update_type` = 'query') [0m
+Rendering template within layouts/sources
+Rendering sources/show
+Completed in 0.47158 (2 reqs/sec) | Rendering: 0.18881 (40%) | DB: 0.02775 (5%) | 200 OK [http://localhost/sources/6]
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000269)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000238)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000727)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000539)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000811)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000777)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003078)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.002909)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002569)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.005993)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004220)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001601)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000202)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000182)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.367699)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.035004)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000195)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000188)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000494)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.043650)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001025)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005670)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001037)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.004552)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.009344)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001264)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.001055)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000970)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.002404)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000944)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000894)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000915)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000800)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.000830)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000223)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000209)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000663)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000519)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000851)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000759)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.003238)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003033)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.003873)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004426)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.003986)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001620)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000255)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000189)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.525609)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.001013)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000236)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000204)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000612)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003703)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000893)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005895)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001045)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002665)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007049)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000718)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000618)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001001)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.001931)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001149)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000910)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000859)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000833)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.001012)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000293)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000268)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000789)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000649)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.001195)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.001116)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.290024)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.003926)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001653)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.006780)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.006285)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.002526)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000232)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000205)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.036113)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000985)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000234)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000606)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003373)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000892)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005350)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000975)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003384)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007307)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000735)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000597)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000923)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.002490)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001778)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.001723)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.001779)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.001828)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.001814)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000214)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000200)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000609)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000495)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000648)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000603)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.311719)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.004307)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.001664)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.004304)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.007434)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001525)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000200)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000181)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.007514)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000645)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000205)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000181)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000472)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.027442)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001028)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.007378)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001077)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003473)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.008914)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.001132)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000863)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001114)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.001700)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.001846)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.001570)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.001743)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.004401)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.001153)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000270)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000242)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000694)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000547)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000638)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000628)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.004258)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.005644)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002872)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.005228)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.004335)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001484)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000228)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.041718)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000994)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000607)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003554)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000900)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.005795)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001039)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003290)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007823)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000732)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000595)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.000881)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.000875)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000866)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000826)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.000691)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.000771)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.000705)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
+WARNING: You're using the Ruby-based MySQL library that ships with Rails. This library is not suited for production. Please install the C-based MySQL library instead (gem install mysql).
+  [4;36;1mSQL (0.000294)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000264)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000815)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.000621)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.000721)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.000672)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.002940)[0m   [0;1mSHOW FIELDS FROM `object_values`[0m
+  [4;35;1mSQL (0.002866)[0m   [0mdescribe `object_values`[0m
+  [4;36;1mSQL (0.002188)[0m   [0;1mSHOW KEYS FROM `object_values`[0m
+  [4;35;1mSQL (0.005334)[0m   [0mSHOW FIELDS FROM `sources`[0m
+  [4;36;1mSQL (0.003829)[0m   [0;1mdescribe `sources`[0m
+  [4;35;1mSQL (0.001455)[0m   [0mSHOW KEYS FROM `sources`[0m
+  [4;36;1mSQL (0.000227)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000203)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.005168)[0m   [0;1mDROP DATABASE IF EXISTS `rhosync_test`[0m
+  [4;35;1mSQL (0.000630)[0m   [0mCREATE DATABASE `rhosync_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.000230)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.000202)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.000599)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.003341)[0m   [0mCREATE TABLE `object_values` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `source_id` bigint(11) DEFAULT NULL NULL, `attrib` varchar(255) DEFAULT NULL NULL, `object` varchar(255) DEFAULT NULL NULL, `value` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `update_type` varchar(255) DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.000989)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.515201)[0m   [0mCREATE TABLE `sources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255) DEFAULT NULL NULL, `url` varchar(255) DEFAULT NULL NULL, `method` varchar(255) DEFAULT NULL NULL, `login` varchar(255) DEFAULT NULL NULL, `password` varchar(255) DEFAULT NULL NULL, `created_at` datetime DEFAULT NULL NULL, `updated_at` datetime DEFAULT NULL NULL, `prolog` text DEFAULT NULL NULL, `epilog` text DEFAULT NULL NULL, `call` text DEFAULT NULL NULL, `sync` text DEFAULT NULL NULL, `type` varchar(255) DEFAULT NULL NULL, `createcall` text DEFAULT NULL NULL, `updatecall` text DEFAULT NULL NULL, `deletecall` text DEFAULT NULL NULL, `refreshtime` datetime DEFAULT NULL NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.001236)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.002966)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.007791)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.000740)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.000593)[0m   [0;1mSELECT version FROM `schema_migrations`[0m
+  [4;35;1mSQL (0.001063)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20081002212238')[0m
+  [4;36;1mSQL (0.000825)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080831020723')[0m
+  [4;35;1mSQL (0.000934)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080831020931')[0m
+  [4;36;1mSQL (0.000832)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080902111111')[0m
+  [4;35;1mSQL (0.004323)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080906212411')[0m
+  [4;36;1mSQL (0.001165)[0m   [0;1mINSERT INTO `schema_migrations` (version) VALUES ('20080906214406')[0m
+  [4;35;1mSQL (0.001930)[0m   [0mINSERT INTO `schema_migrations` (version) VALUES ('20080915225024')[0m
