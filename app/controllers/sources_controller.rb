@@ -8,6 +8,10 @@ class SourcesController < ApplicationController
   # shows all object values in XML structure given a supplied source
   # if a :last_update parameter is supplied then only show data that has been
   # refreshed (retrieved from the backend) since then
+
+
+  protect_from_forgery :only => [:create, :delete, :update]
+
   def show
     last_update_time=Time.parse(params[:last_update]) if params[:last_update]
     @source=Source.find params[:id]
@@ -19,7 +23,7 @@ class SourcesController < ApplicationController
       @object_values=nil
     end
     respond_to do |format|
-      format.html 
+      format.html
       format.xml  { render :xml => @object_values}
       format.json { render :json => @object_values}
     end
@@ -28,10 +32,10 @@ class SourcesController < ApplicationController
   # this creates all of the rows in the object values table corresponding to
   # the array of hashes given by the attrvals parameter
   # note that the REFRESH action below will later DELETE all of the created records
-  # 
+  #
   # also note that there is no object identifier during the create. so
   # you can leave out the "object" hash key as it will be ignored
-  # 
+  #
   # for example
   # :attrvals=
   #   [{"object"=>nil,"attrib"=>"name","value"=>"rhomobile"},
@@ -91,7 +95,7 @@ class SourcesController < ApplicationController
        o.value=x["value"]
        o.update_type="update"
        o.source=@source
-       o.save     
+       o.save
        # add the created ID + created_at time to the list
        objects[o.id]=o.created_at if not objects.keys.index(o.id)  # add to list of objects
     end
@@ -130,6 +134,7 @@ class SourcesController < ApplicationController
             redirect_to :action=>"show"
       end
       format.xml  { render :xml => objects }
+      format.json { render :json => objects }
     end
   end
 
@@ -301,7 +306,7 @@ class SourcesController < ApplicationController
       p "Executing backend data sync"
       callbinding=eval(@source.sync,callbinding) if @source.sync
     end
-    
+
     # now do the logoff
     callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog and @source.epilog.size>0
 
