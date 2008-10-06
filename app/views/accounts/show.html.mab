@@ -1,0 +1,6 @@
+labeled_value 'Name', @account.name
+labeled_value 'Industry', @account.industry
+
+link_to 'Edit', edit_account_path(@account)
+text ' | '
+link_to 'Back', accounts_path

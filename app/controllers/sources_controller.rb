@@ -54,7 +54,7 @@ class SourcesController < ApplicationController
     params[:attrvals].each do |x| # for each hash in the array
        # note that there should NOT be an object value for new records
        o=ObjectValue.new
-       o.attrib=x["name"]
+       o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="create"
        o.source=@source
@@ -138,6 +138,26 @@ class SourcesController < ApplicationController
     end
   end
 
+  # this creates a view that "flattens" the object values into a view that
+  # has each attribute as a separate column
+  # for example
+  #     create view account_names as
+  #select value as name,object
+  # from object_values
+  # where attrib='name';
+  # create view account_industries as
+  # select value as name,object
+  # from object_values
+  # where attrib='industry';
+  # create view account_all as
+  # select account_names.object,account_names.name,account_names.industry
+  # from account_names, account_industries
+  # where account_names.object=account_industries.object;
+  def flat_view
+    sql
+
+  end
+
   # Generate the SQL CREATE statement
   # to create a table which is an "app/source specific table"
   # (usable by an ORM on top of SQLITE on the device)
@@ -154,9 +174,9 @@ class SourcesController < ApplicationController
       colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
     end
     result="DROP TABLE "+@source.name + ";"
-    result="CREATE TABLE "+@source.name + "("
+    result+="CREATE TABLE "+@source.name + "(id INTEGER PRIMARY KEY,"
     colnames.each do |x|
-      result = result + x + " varchar(255)," if x
+      result = result + x + " VARCHAR(255)," if x
     end
     result=result[0...result.size-1]  # chop off that last comma
     result = result + ");"
@@ -207,13 +227,13 @@ class SourcesController < ApplicationController
       colnames.each do |col|
         xvals.each do |xval|
           if xval.attrib==col and !valuelist.index(xval.value)
-            sql = sql +"'" + xval.value + "',"
+            sql = sql +"\"" + xval.value + "\","
             valuelist << xval.value
           end
         end
       end
-      sql=sql[0...sql.size-1] if sql[sql.size-1]==','
-      sql+=")"  # chop off the trailing comma and close the VALUES right paren
+      sql=sql[0...sql.size-1]
+      sql+=");"  # chop off the trailing comma and close the VALUES right paren
       @inserts << sql
     end
 
@@ -253,14 +273,14 @@ class SourcesController < ApplicationController
       colnames.each do |col|
         xvals.each do |xval|
           if xval.attrib==col and !valuelist.index(xval.value)
-            sql = sql + col +"='" + xval.value + "',"
+            sql = sql + col +"=\"" + xval.value + "\","
             valuelist << xval.value
           end
           objectid=xval.value if xval.attrib.downcase=="id"
         end
       end
-      sql=sql[0...sql.size-1] if sql[sql.size-1]==','  # chop last comma off
-      sql += " WHERE ID=" + objectid
+      sql=sql[0...sql.size-1]  # chop last comma off
+      sql += " WHERE ID=" + objectid + ";"
       @updates << sql if objectid  # only add if we got an ID to use for the object
     end
 
@@ -317,7 +337,6 @@ class SourcesController < ApplicationController
   # than the one used to service create, update and delete calls from the client
   # device
   def refresh
-
     @source=Source.find params[:id]
     # not all endpoints require WSDL!
     client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0
@@ -333,7 +352,7 @@ class SourcesController < ApplicationController
           xvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs for this particular object
           attrvalues={}
           xvals.each do |y|
-            attrvalues[y.attribute]=y.value
+            attrvalues[y.attrib]=y.value
             y.destroy
           end
           # now attrvalues has the attribute values needed for the createcall
@@ -355,7 +374,7 @@ class SourcesController < ApplicationController
           attrvalues={}
           attrvalues["id"]=x.object  # setting the ID allows it be an update
           objvals.each do |y|
-            attrvalues[y.attribute]=y.value
+            attrvalues[y.attrib]=y.value
             y.destroy
           end
           # now attrvalues has the attribute values needed for the createcall

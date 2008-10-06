@@ -1,0 +1,17 @@
+h1 'Editing account'
+
+error_messages_for :account
+
+form_for @account do |f|
+  labeled_input'Name', :for => :name do
+    f.text_field :name
+  end
+  labeled_input'Industry', :for => :industry do
+    f.text_field :industry
+  end
+  p { f.submit "Update"  }
+end
+
+link_to 'Show', @account
+text ' | '
+link_to 'Back', accounts_path
