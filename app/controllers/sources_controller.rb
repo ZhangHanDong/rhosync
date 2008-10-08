@@ -33,18 +33,18 @@ class SourcesController < ApplicationController
   # the array of hashes given by the attrvals parameter
   # note that the REFRESH action below will later DELETE all of the created records
   #
-  # also note that there is no object identifier during the create. so
-  # you can leave out the "object" hash key as it will be ignored
+  # also note YOU MUST CREATE A TEMPORARY OBJECT ID. Some form of hash or CRC
+  #  of all of the values can be used
   #
   # for example
   # :attrvals=
-  #   [{"object"=>nil,"attrib"=>"name","value"=>"rhomobile"},
-  #   {"object"=>nil,"attrib"=>"industry","value"=>"software"},
-  #   {"attrib"=>"employees","value
-  #   {"attrib"=>"name","value"=>"mobio"},
-  #   {"attrib"=>"industry","value"=>"software"},
-  #   {"object"=>nil,"attrib"=>"name","value"=>"xaware"},
-  #   {"object"=>nil,"attrib"=>"industry","value"=>"software"}]
+  #   [{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"},
+  #   {"object"=>"temp1","attrib"=>"industry","value"=>"software"},
+  #   {"object"=>"temp1","attrib"=>"employees","value"=>"500"}
+  #   {"object"=>"temp2","attrib"=>"name","value"=>"mobio"},
+  #   {"object"=>"temp2","attrib"=>"industry","value"=>"software"},
+  #   {"object"=>"temp3","attrib"=>"name","value"=>"xaware"},
+  #   {"object"=>"temp3","attrib"=>"industry","value"=>"software"}]
   #
   # RETURNS:
   #   a hash of the object_values table ID columns as keys and the updated_at times as values
@@ -54,6 +54,7 @@ class SourcesController < ApplicationController
     params[:attrvals].each do |x| # for each hash in the array
        # note that there should NOT be an object value for new records
        o=ObjectValue.new
+       o.object=x["object"]
        o.attrib=x["attrib"]
        o.value=x["value"]
        o.update_type="create"
@@ -346,55 +347,63 @@ class SourcesController < ApplicationController
 
     # first do all the the creates
     if @source.createcall and @source.createcall.size>0
-      createobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='create'")
-      if createobjects and createobjects.size>0
-        createobjects.each do |x|
-          xvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs for this particular object
+      creates=ObjectValue.find_by_sql("select * from object_values where update_type='create'")
+      uniqobjs=creates.map {|x| x.object}
+      uniqobjs.uniq!
+      uniqobjs.each do |x|
+        p "Searching for attribute values for object: "+x
+        xvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs for this particular object
+        if xvals.size>0
           attrvalues={}
           xvals.each do |y|
-            attrvalues[y.attrib]=y.value
+            p "Attribute: " + y.attrib
+            p "Value: " + y.value
+            attrvalues[y.attrib]=y.value if y.attrib and y.value
             y.destroy
           end
           # now attrvalues has the attribute values needed for the createcall
           # the Sugar adapter will use the name_value_list variable that we're building up here
           # TODO: name_value_list is probably too specific to Sugar
           #  need a clean way to pass the attrvalues hash to any source adapter cleanly
+          p "Attributes hash size: " + attrvalues.size.to_s
           nvlist=make_name_value_list(attrvalues)
           callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
         end
+
       end
     end
 
     # now do the updates
     if @source.updatecall and @source.updatecall.size>0
-      updateobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='update'")
-      if updateobjects and updateobjects.size>0
-        updateobjects.each do |x|
-          objvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs now
-          attrvalues={}
-          attrvalues["id"]=x.object  # setting the ID allows it be an update
-          objvals.each do |y|
-            attrvalues[y.attrib]=y.value
-            y.destroy
-          end
-          # now attrvalues has the attribute values needed for the createcall
-          nvlist=make_name_value_list(attrvalues)
-          callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
+      updates=ObjectValue.find_by_sql("select * from object_values where update_type='update'")
+      uniqobjs=updates.map {|x|x.object}
+      uniqobjs.uniq!
+      uniqobjs.each do |x|
+        objvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs now
+        attrvalues={}
+        attrvalues["id"]=x  # setting the ID allows it be an update
+        objvals.each do |y|
+          attrvalues[y.attrib]=y.value
+          y.destroy
         end
+        # now attrvalues has the attribute values needed for the createcall
+        nvlist=make_name_value_list(attrvalues)
+        callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
+
       end
     end
 
     # now do the deletes
     if @source.updatecall and @source.updatecall.size>0
-      deleteobjects=ObjectValue.find_by_sql("select distinct(object) from object_values where update_type='delete'")
-      if deleteobjects and deleteobjects.size>0
-        deleteobjects.each do |x|
-          attrvalues={}
-          attrvalues["id"]=x.object
-          nvlist=make_name_value_list(attrvalues)
-          callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
-          x.destroy
-        end
+      deletes=ObjectValue.find_by_sql("select * from object_values where update_type='delete'")
+      uniqobjs=deletes.map {|x|x.object}
+      uniqobjs.uniq!
+      uniqobjs.each do |x|
+        attrvalues={}
+        attrvalues["id"]=x
+        nvlist=make_name_value_list(attrvalues)
+        callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
+        x.destroy
       end
     end
 

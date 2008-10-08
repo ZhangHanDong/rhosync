@@ -38,12 +38,14 @@ module SourcesHelper
   # name_value_list =  [ { "name" => "name", "value" => "rhomobile" },
   #                     { "name" => "industry", "value" => "software" } ]
   def make_name_value_list(hash)
-    result="["
-    hash.keys.each do |x|
-      result << ("{ 'name' => '"+ x +"', 'value' => '" + hash[x] + "'},")
+    if hash and hash.keys.size>0
+      result="["
+      hash.keys.each do |x|
+        result << ("{ 'name' => '"+ x +"', 'value' => '" + hash[x] + "'},")
+      end
+      result=result[0...result.size-1] # chop off the last comma
+      result += "]"
     end
-    result=result[0...result.size-1] # chop off the last comma
-    result += "]"
   end
 
 end

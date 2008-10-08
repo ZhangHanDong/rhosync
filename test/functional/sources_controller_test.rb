@@ -2,6 +2,12 @@ require 'test_helper'
 
 class SourcesControllerTest < ActionController::TestCase
 
+  def test_should_createobjects_and_refresh
+    get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
+    get :refresh, :id=>sources(:sugar).id
+    assert_redirected_to source_path(assigns(:source))
+  end
+
   def test_should_show_source
     get :show, :id => sources(:sugar).id
     assert_response :success
@@ -15,9 +21,11 @@ class SourcesControllerTest < ActionController::TestCase
   end
 
   def test_should_createobjects
-    get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"attrib"=>"name","value"=>"rhomobile"}]
+    get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     assert_response :success
   end
+
+
 
   def test_should_updateobjects
     get :updateobjects,:id=>sources(:sugar).id,     
