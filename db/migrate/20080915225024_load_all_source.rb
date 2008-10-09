@@ -6,7 +6,7 @@ class LoadAllSource < ActiveRecord::Migration
 
     dir=File.dirname(__FILE__)
     p dir
-    Fixtures.create_fixtures("../../test/fixtures", "sources")
+    Fixtures.create_fixtures(dir, "sources")
 
   end
 
