@@ -51,19 +51,8 @@ sugar:
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
   deletecall:
-    name_value_list << ('deleted'=>1)
-    result=client.set_entry(session_id,'Accounts',name_value_list)
-    result.entry_list.each do |x|
-      x.name_value_list.each do |y|
-        o=ObjectValue.new
-        o.source_id=@source.id
-        o.object=x.id
-        o.attrib=y.name
-        o.value=y.value
-        o.update_type='query'
-        o.save
-      end
-    end
+    name_value_list.push({'name'=>'deleted','value'=>'1'});
+    result=client.set_entry(session_id,'Accounts',name_value_list);
 
 salesforce:
   id: 2

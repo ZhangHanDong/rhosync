@@ -352,7 +352,7 @@ class SourcesController < ApplicationController
       uniqobjs.uniq!
       uniqobjs.each do |x|
         p "Searching for attribute values for object: "+x
-        xvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs for this particular object
+        xvals=ObjectValue.find_all_by_object_and_update_type(x,'create')  # this has all the attribute value pairs for this particular object
         if xvals.size>0
           attrvalues={}
           xvals.each do |y|
@@ -379,7 +379,7 @@ class SourcesController < ApplicationController
       uniqobjs=updates.map {|x|x.object}
       uniqobjs.uniq!
       uniqobjs.each do |x|
-        objvals=ObjectValue.find_all_by_object(x)  # this has all the attribute value pairs now
+        objvals=ObjectValue.find_all_by_object_and_update_type(x,'update')  # this has all the attribute value pairs now
         attrvalues={}
         attrvalues["id"]=x  # setting the ID allows it be an update
         objvals.each do |y|
@@ -403,6 +403,8 @@ class SourcesController < ApplicationController
         attrvalues["id"]=x
         nvlist=make_name_value_list(attrvalues)
         callbinding=eval("name_value_list="+nvlist+";"+@source.deletecall+";binding",callbinding)
+      end
+      deletes.each do |x|  # get rid of the deletes
         x.destroy
       end
     end
