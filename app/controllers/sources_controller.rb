@@ -394,7 +394,7 @@ class SourcesController < ApplicationController
     end
 
     # now do the deletes
-    if @source.updatecall and @source.updatecall.size>0
+    if @source.deletecall and @source.deletecall.size>0
       deletes=ObjectValue.find_by_sql("select * from object_values where update_type='delete'")
       uniqobjs=deletes.map {|x|x.object}
       uniqobjs.uniq!
@@ -402,7 +402,7 @@ class SourcesController < ApplicationController
         attrvalues={}
         attrvalues["id"]=x
         nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("namevaluelist="+nvlist+";"+@source.deletecall+";binding",callbinding)
+        callbinding=eval("name_value_list="+nvlist+";"+@source.deletecall+";binding",callbinding)
         x.destroy
       end
     end

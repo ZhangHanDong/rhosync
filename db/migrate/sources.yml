@@ -24,7 +24,7 @@ sugar:
     order_by = '' # in default order. you can also use SQL like 'accounts.name'
     offset = 0 # I guess this is like the SQL offset
     select_fields = ['name','industry'] # this can't be an empty array, my testing showed
-    max_results = '1000000' # if set to 0 or '', this doesn't return all the results, like you'd expect
+    max_results = '10000' # if set to 0 or '', this doesn't return all the results, like you'd expect
     deleted = 0 # whether you want to retrieve deleted records, too
     result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
 
@@ -51,7 +51,7 @@ sugar:
     result=client.set_entry(session_id,'Accounts',name_value_list)
 
   deletecall:
-    namevaluelist.push('deleted'=>1);
+    name_value_list << ('deleted'=>1)
     result=client.set_entry(session_id,'Accounts',name_value_list)
     result.entry_list.each do |x|
       x.name_value_list.each do |y|
@@ -83,7 +83,6 @@ salesforce:
     accounts=Account.find :all
 
   sync:
-    p 'Syncing'
     accounts.each do |x|
       name_value_list.each do |y|
         o=ObjectValue.new
