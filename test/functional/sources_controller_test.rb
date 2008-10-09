@@ -3,12 +3,24 @@ require 'test_helper'
 class SourcesControllerTest < ActionController::TestCase
 
   def test_should_create_and_delete_objects_and_refresh
-    get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
-    get :deleteobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1"}]
+    result=get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
+    p "Created new object with ID: " +result.id.to_s
+    get :deleteobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>result.id}]
+    p "Result of delete: "+result.inspect.to_s
     get :refresh, :id=>sources(:sugar).id
     assert_redirected_to source_path(assigns(:source))
   end
 
+  def test_should_create_and_update_objects_and_refresh
+    result=get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"xmobile"}]
+    p "Created new object with ID: " +result.id.to_s
+    get :updateobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>result.id,"attrib"=>"name","value"=>"rhomobile"}]
+    p "Result of update: "+result.inspect.to_s
+    get :refresh, :id=>sources(:sugar).id
+    assert_redirected_to source_path(assigns(:source))
+  end
+
+=begin
   def test_should_createobjects_and_refresh
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     get :refresh, :id=>sources(:sugar).id
@@ -95,5 +107,5 @@ class SourcesControllerTest < ActionController::TestCase
 
     assert_redirected_to sources_path
   end
-
+=end
 end

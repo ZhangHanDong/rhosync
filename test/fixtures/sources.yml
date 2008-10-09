@@ -15,7 +15,6 @@ sugar:
     else
       session_id = ss['id']
       uid = client.get_user_id(session_id)
-      p 'logged in to session #{session_id} as #{u} (#{uid}) '
     end
 
   call: |
@@ -44,11 +43,11 @@ sugar:
   createcall:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
-    result=client.set_entry(session_id,'Accounts',name_value_list)
+    result=client.set_entry(session_id,'Accounts',name_value_list);
 
   updatecall:
     # name_value_list is passed in and can be used in the code below
-    result=client.set_entry(session_id,'Accounts',name_value_list)
+    result=client.set_entry(session_id,'Accounts',name_value_list);
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
