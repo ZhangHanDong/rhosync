@@ -8,7 +8,7 @@ class SourcesControllerTest < ActionController::TestCase
     get :refresh, :id=>sources(:sugar).id
     assert_redirected_to source_path(assigns(:source))
   end
-=begin
+
   def test_should_createobjects_and_refresh
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     get :refresh, :id=>sources(:sugar).id
@@ -95,5 +95,5 @@ class SourcesControllerTest < ActionController::TestCase
 
     assert_redirected_to sources_path
   end
-=end
+
 end
