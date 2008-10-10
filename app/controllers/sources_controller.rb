@@ -139,6 +139,11 @@ class SourcesController < ApplicationController
     end
   end
 
+  def editobject
+    # bring up an editing form for
+    @object=ObjectValue.find_by_source_id_and_object_and_attrib params[:id],params[:object],params[:attrib]
+  end
+
   # this creates a view that "flattens" the object values into a view that
   # has each attribute as a separate column
   # for example
@@ -155,7 +160,7 @@ class SourcesController < ApplicationController
   # from account_names, account_industries
   # where account_names.object=account_industries.object;
   def flat_view
-    sql
+    #TODO: write the generic code for this
 
   end
 
