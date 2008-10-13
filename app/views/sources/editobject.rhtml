@@ -1,0 +1,8 @@
+<h2>Editing Object for Sync </h2>
+
+<form action="/sources/<%=@object.source_id%>/updateobjects">
+<input type="Submit" value="Update Object Value"/><br/>
+Object ID <input name="attrvals[][object]" value="<%=@object.object%>"/><br/>
+Attribute Name <input name="attrvals[][attrib]" value="<%=@object.attrib%>"/><br/>
+Value <input name="attrvals[][value]" value="<%=@object.value%>"/><br/>
+</form>
