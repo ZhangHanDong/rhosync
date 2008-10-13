@@ -47,11 +47,11 @@ sugar:
 
   updatecall:
     # name_value_list is passed in and can be used in the code below
-    result=client.set_entry(session_id,'Accounts',name_value_list);
+    result=client.set_entry(session_id,'Accounts',name_value_list)
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
-    result=client.set_entry(session_id,'Accounts',name_value_list);
+    result=client.set_entry(session_id,'Accounts',name_value_list)
 
 salesforce:
   id: 2

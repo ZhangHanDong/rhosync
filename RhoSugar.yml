@@ -1,7 +1,7 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: RhoSugar
-  updated_at: 2008-10-09 23:33:42.794111 Z
+  updated_at: 2008-10-13 22:01:27
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -16,14 +16,13 @@ attributes:
       p 'logged in to session #{session_id} as #{u} (#{uid}) '
     end
 
-  refreshtime: 2008-10-09 18:50:52
-  deletecall: "name_value_list.push({'name'=>'deleted','value'=>'1'});result=client.set_entry(session_id,'Accounts',name_value_list)\r\n\
-    p result.inspect.to_s    "
+  refreshtime: 2008-10-13 22:01:27
+  deletecall: "name_value_list.push({'name'=>'deleted','value'=>'1'});result=client.set_entry(session_id,'Accounts',name_value_list);    "
   url: http://rhomobile.com/sugar/soap.php?wsdl
   type: 
-  createcall: |-
-    result=client.set_entry(session_id,'Accounts',name_value_list)
-    p result.inspect.to_s
+  createcall: |
+    result=client.set_entry(session_id,'Accounts',name_value_list);
+
   id: "6"
   method: 
   sync: |
@@ -39,9 +38,7 @@ attributes:
       end
     end
 
-  updatecall: |-
-    result=client.set_entry(session_id,'Accounts',name_value_list)
-    p result.inspect.to_s
+  updatecall: result=client.set_entry(session_id,'Accounts',name_value_list);
   call: |
     module_name = 'Accounts'
     query = ''
