@@ -32,7 +32,7 @@ sugar:
       x.name_value_list.each do |y|
         o=ObjectValue.new
         o.source_id=@source.id
-        o.object=x.id
+        o.object=x['id']
         o.attrib=y.name
         o.value=y.value
         o.update_type='query'
@@ -81,7 +81,7 @@ salesforce:
       name_value_list.each do |y|
         o=ObjectValue.new
         o.source_id=@source.id
-        o.object=x.id
+        o.object=x['id']
         o.attrib=y.name
         o.value=y.value
         o.update_type='query'
