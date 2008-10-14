@@ -29,6 +29,7 @@ class SourcesController < ApplicationController
     end
   end
 
+
   # this creates all of the rows in the object values table corresponding to
   # the array of hashes given by the attrvals parameter
   # note that the REFRESH action below will later DELETE all of the created records
@@ -65,7 +66,10 @@ class SourcesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :xml => objects }
+      format.html { 
+        flash[:notice]="Created objects"
+        redirect_to :action=>"show"
+      }
       format.xml  { render :xml => objects }
       format.json  { render :json => objects }
     end
@@ -102,7 +106,10 @@ class SourcesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { render :xml => objects }
+      format.html { 
+        flash[:notice]="Updated objects"
+        redirect_to :action=>"show"
+      }
       format.xml  { render :xml => objects }
       format.json  { render :json => objects }
     end
@@ -142,6 +149,10 @@ class SourcesController < ApplicationController
   def editobject
     # bring up an editing form for
     @object=ObjectValue.find_by_source_id_and_object_and_attrib params[:id],params[:object],params[:attrib]
+  end
+
+  def newobject
+    @source=Source.find params[:id]
   end
 
   # this creates a view that "flattens" the object values into a view that

@@ -1,6 +1,4 @@
-
 class ObjectValuesController < ApplicationController
-
 
   # GET /object_values
   # GET /object_values.xml
