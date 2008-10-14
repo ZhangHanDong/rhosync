@@ -394,7 +394,6 @@ class SourcesController < ApplicationController
         # now attrvalues has the attribute values needed for the createcall
         nvlist=make_name_value_list(attrvalues)
         callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
-
       end
     end
 
@@ -422,11 +421,14 @@ class SourcesController < ApplicationController
       ObjectValue.delete_all "update_type='query' and source_id="+@source.id.to_s
       # now take apart the returned data and fill the object values table
       p "Executing backend data sync"
-      callbinding=eval(@source.sync,callbinding) if @source.sync
+      callbinding=eval(@source.sync+";binding",callbinding) if @source.sync
     end
 
     # now do the logoff
-    callbinding=eval(@source.epilog+ ";binding",callbinding) if @source.epilog and @source.epilog.size>0
+    if @source.epilog and @source.epilog.size>0
+      callbinding=eval(@source.epilog+";binding",callbinding)
+      p "Done"
+    end
 
     @source.refreshtime=Time.new  # keep track of the refresh time to help optimize show queries
     @source.save
