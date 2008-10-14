@@ -427,7 +427,6 @@ class SourcesController < ApplicationController
     # now do the logoff
     if @source.epilog and @source.epilog.size>0
       callbinding=eval(@source.epilog+";binding",callbinding)
-      p "Done"
     end
 
     @source.refreshtime=Time.new  # keep track of the refresh time to help optimize show queries

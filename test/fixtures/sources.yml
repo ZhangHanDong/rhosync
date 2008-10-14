@@ -44,14 +44,20 @@ sugar:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Accounts',name_value_list);
+    p result.inspect.to_s
 
   updatecall:
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Accounts',name_value_list);
+    p result.inspect.to_s
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
     result=client.set_entry(session_id,'Accounts',name_value_list);
+    p result.inspect.to_s
+
+  epilog:
+    client.logout(session_id)
 
 salesforce:
   id: 2
