@@ -7,6 +7,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'sources/:id/update', :controller => 'sources', :action => 'update'
   map.connect 'sources/:id/delete', :controller => 'sources', :action => 'delete'
 
+  map.connect 'sources/:id/attributes', :controller => 'sources', :action => 'attributes'
+  map.connect 'sources/:id/attributes.:format', :controller => 'sources', :action => 'attributes'
+
   # object read (show), update, create, delete methods
   map.connect 'sources/:id/show', :controller => 'sources', :action => 'show'
   map.connect 'sources/:id/updateobjects', :controller => 'sources', :action => 'updateobjects'
@@ -14,10 +17,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'sources/:id/deleteobjects', :controller => 'sources', :action => 'deleteobjects'
 
   map.connect 'sources/:id/refresh', :controller => 'sources', :action => 'refresh'
-
-  map.connect 'sources/:id/table_create', :controller => 'sources', :action => 'table_create'
-  map.connect 'sources/:id/table_inserts', :controller => 'sources', :action => 'table_inserts'
-  map.connect 'sources/:id/table_updates', :controller => 'sources', :action => 'table_updates'
 
   # yaml saving and loading
   map.connect 'sources/:id/load_all',:controller=>'sources',:action => 'load_all'

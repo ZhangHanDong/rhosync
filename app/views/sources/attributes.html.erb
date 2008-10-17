@@ -1,0 +1,12 @@
+<h3>Attributes</h3>
+for source: <%=@source.name%>
+<table>
+  <tr><th>Attribute</th></tr>
+<%if @attributes%>
+<%  @attributes.each do |x|%>
+  <tr>
+    <td><%=x.attrib%></td>
+  </tr>
+<%  end%>
+<%end%>
+</table>

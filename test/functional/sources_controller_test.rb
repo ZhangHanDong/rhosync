@@ -31,6 +31,11 @@ class SourcesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  def test_should_retrieve_attributes
+    get :attributes, :id => sources(:sugar).id
+    assert_response :success
+  end
+
   def test_should_show_null_when_waiting_for_refresh
     get :updateobjects,:id=>sources(:sugar).id,
       :attrvals=>[{"object"=>"1","attrib"=>"name","value"=>"rhomobile"}]
@@ -40,15 +45,13 @@ class SourcesControllerTest < ActionController::TestCase
 
   def test_should_createobjects
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
-    assert_response :success
+    assert_redirected_to source_path(assigns(:source))
   end
-
-
 
   def test_should_updateobjects
     get :updateobjects,:id=>sources(:sugar).id,     
       :attrvals=>[{"object"=>"1","attrib"=>"name","value"=>"rhomobile"}]
-    assert_response :success
+    assert_redirected_to source_path(assigns(:source))
   end
 
   def test_should_deleteobjects

@@ -29,6 +29,19 @@ class SourcesController < ApplicationController
     end
   end
 
+  # return the metadata for the specified source
+  def attributes
+    @source=Source.find params[:id]
+    # get the distinct list of attributes that is available
+    @attributes=ObjectValue.find_by_sql "select distinct(attrib) from object_values where source_id="+params[:id]
+
+    respond_to do |format|
+      format.html
+      format.xml  { render :xml => @attributes}
+      format.json { render :json => @attributes}
+    end
+  end
+
 
   # this creates all of the rows in the object values table corresponding to
   # the array of hashes given by the attrvals parameter
@@ -68,7 +81,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       format.html { 
         flash[:notice]="Created objects"
-        redirect_to :action=>"show"
+        redirect_to :action=>"show",:id=>@source.id
       }
       format.xml  { render :xml => objects }
       format.json  { render :json => objects }
@@ -108,7 +121,7 @@ class SourcesController < ApplicationController
     respond_to do |format|
       format.html { 
         flash[:notice]="Updated objects"
-        redirect_to :action=>"show"
+        redirect_to :action=>"show",:id=>@source.id
       }
       format.xml  { render :xml => objects }
       format.json  { render :json => objects }
@@ -153,159 +166,6 @@ class SourcesController < ApplicationController
 
   def newobject
     @source=Source.find params[:id]
-  end
-
-  # this creates a view that "flattens" the object values into a view that
-  # has each attribute as a separate column
-  # for example
-  #     create view account_names as
-  #select value as name,object
-  # from object_values
-  # where attrib='name';
-  # create view account_industries as
-  # select value as name,object
-  # from object_values
-  # where attrib='industry';
-  # create view account_all as
-  # select account_names.object,account_names.name,account_names.industry
-  # from account_names, account_industries
-  # where account_names.object=account_industries.object;
-  def flat_view
-    #TODO: write the generic code for this
-
-  end
-
-  # Generate the SQL CREATE statement
-  # to create a table which is an "app/source specific table"
-  # (usable by an ORM on top of SQLITE on the device)
-  # based on all of the attributes present in the object values table
-  #
-  # RETURNS:
-  #   XMLified or Jsonified string containing the SQL CREATE statement
-  def table_create
-    @source=Source.find params[:id]
-
-    objectvals=ObjectValue.find_all_by_source_id @source.id
-    colnames=[]
-    objectvals.each do |x|  # each attrib is a column name
-      colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
-    end
-    result="DROP TABLE "+@source.name + ";"
-    result+="CREATE TABLE "+@source.name + "(id INTEGER PRIMARY KEY,"
-    colnames.each do |x|
-      result = result + x + " VARCHAR(255)," if x
-    end
-    result=result[0...result.size-1]  # chop off that last comma
-    result = result + ");"
-
-    respond_to do |format|
-      format.html { render :xml => result}
-      format.xml  { render :xml => result }
-      format.json  { render :json => result }
-    end
-  end
-
-  # this create the set of INSERT statements to be executed to populate the
-  # an "app/source specific table" (usable by an ORM on top of SQLITE on the device)
-  # from the object values table
-  # TODO: investigate if we can do this with a view
-  #
-  # RETURNS:
-  #   an array of INSERT strings inside JSON or XML
-  def table_inserts
-    @source=Source.find params[:id]
-    objectvals=ObjectValue.find_all_by_source_id @source.id
-
-    # first find all the column names
-    # TODO: inefficient, should be separate select of just the colnames
-    colnames=[]
-    objectvals.each do |x|  # each attrib is a column name
-      colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
-    end
-
-    # based on those column names formulate the INSERT statement starting text to be used for all INSERTs below
-    insertstart="INSERT INTO " + @source.name + " ("
-    colnames.each do |colname|
-      insertstart+=(colname+",")
-    end
-    insertstart=insertstart[0...insertstart.size-1] # chop off the comma
-    insertstart+=") VALUES("
-
-    # get the list of distinct objects, which will be rows in the new table
-    objects=objectvals.map {|x| x.object}
-    objects.uniq!  # all the distinct objects in the object values array
-    # now go create all the insert statements based on the object values
-    @inserts=[]
-    objects.each do |x|
-      sql=insertstart
-      xvals = ObjectValue.find_all_by_object x # only use the values for this object x!
-
-      valuelist=[]
-      colnames.each do |col|
-        xvals.each do |xval|
-          if xval.attrib==col and !valuelist.index(xval.value)
-            sql = sql +"\"" + xval.value + "\","
-            valuelist << xval.value
-          end
-        end
-      end
-      sql=sql[0...sql.size-1]
-      sql+=");"  # chop off the trailing comma and close the VALUES right paren
-      @inserts << sql
-    end
-
-    respond_to do |format|
-      format.html {render :action=>"table_inserts"}
-      format.xml  { render :xml => @inserts}
-      format.json  { render :json => @inserts }
-    end
-  end
-
-  # generate updates for the "app/source specific table" described above
-
-  def table_updates
-    @source=Source.find params[:id]
-    objectvals=ObjectValue.find_all_by_source_id @source.id
-    # first find all the column names
-    # TODO: inefficient, should be separate select of just the colnames
-    colnames=[]
-    objectvals.each do |x|  # each attrib is a column name
-      colnames << x.attrib if x.attrib and !colnames.index(x.attrib)
-    end
-
-    # get the list of distinct objects, which will be rows in the new table
-    objects=objectvals.map {|x| x.object}
-    objects.uniq!  # all the distinct objects in the object values array
-
-    # based on those column names formulate the INSERT statement starting text to be used for all INSERTs below
-    updatestart="UPDATE " + @source.name + " SET "
-
-    # now go create all the update statements based on the object values
-    @updates=[]
-    objectid=nil
-    objects.each do |x|  # each value is a column name
-      sql=updatestart
-      xvals = ObjectValue.find_all_by_object x # only use the values for this object x!
-      valuelist=[]
-      colnames.each do |col|
-        xvals.each do |xval|
-          if xval.attrib==col and !valuelist.index(xval.value)
-            sql = sql + col +"=\"" + xval.value + "\","
-            valuelist << xval.value
-          end
-          objectid=xval.value if xval.attrib.downcase=="id"
-        end
-      end
-      sql=sql[0...sql.size-1]  # chop last comma off
-      sql += " WHERE ID=" + objectid + ";"
-      @updates << sql if objectid  # only add if we got an ID to use for the object
-    end
-
-    respond_to do |format|
-      format.html { render :action => "table_updates"}
-      format.xml  { render :xml => @updates }
-      format.json  { render :json => @updates }
-    end
   end
 
 
@@ -532,4 +392,5 @@ class SourcesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

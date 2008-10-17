@@ -1,11 +1,11 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: RhoSugar
-  updated_at: 2008-10-14 01:04:01.347665 Z
+  updated_at: 2008-10-17 23:02:26
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
-    ua = {"user_name" => u,"password" => p}
+    ua = {'user_name' => u,'password' => p}
     ss = client.login(ua,nil)
     if ss.error.number.to_i != 0
       p 'failed to login - #{ss.error.description}'
@@ -15,16 +15,12 @@ attributes:
       uid = client.get_user_id(session_id)
     end
 
-  refreshtime: 2008-10-14 00:58:45
-  deletecall: |-
-    name_value_list.push({'name'=>'deleted','value'=>'1'});result=client.set_entry(session_id,'Accounts',name_value_list);
-    p result.inspect.to_s
+  refreshtime: 
+  deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
   url: http://rhomobile.com/sugar/soap.php?wsdl
   type: 
-  createcall: |
-    result=client.set_entry(session_id,'Accounts',name_value_list);
-
-  id: "6"
+  createcall: result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
+  id: "1"
   method: 
   sync: |
     result.entry_list.each do |x|
@@ -34,30 +30,26 @@ attributes:
         o.object=x.id
         o.attrib=y.name
         o.value=y.value
-        o.update_type="query"
+        o.update_type='query'
         o.save
       end
     end
 
-  updatecall: |-
-    result=client.set_entry(session_id,'Accounts',name_value_list);
-    p result.inspect.to_s
+  updatecall: result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
   call: |
     module_name = 'Accounts'
-    query = ''
-    order_by = '' 
-    offset = 0
-    select_fields = ['name','industry'] 
-    max_results = "1000000" 
-    deleted = 0 
-    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted)
+    query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
+    order_by = '' # in default order. you can also use SQL like 'accounts.name'
+    offset = 0 # I guess this is like the SQL offset
+    select_fields = ['name','industry'] # this can't be an empty array, my testing showed
+    max_results = '10000' # if set to 0 or '', this doesn't return all the results, like you'd expect
+    deleted = 0 # whether you want to retrieve deleted records, too
+    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
 
   login: admin
   password: acc3ss$ugar
-  created_at: 2008-09-21 00:40:58
-  epilog: |-
-    client.logout(session_id);
-    p "Done"
+  created_at: 2008-10-17 23:02:26
+  epilog: client.logout(session_id)
 attributes_cache: {}
 
 changed_attributes: {}
