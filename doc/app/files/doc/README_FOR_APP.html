@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>File: README_FOR_APP</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Script-Type" content="text/javascript" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+  <script type="text/javascript">
+  // <![CDATA[
+
+  function popupCode( url ) {
+    window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+  }
+
+  function toggleCode( id ) {
+    if ( document.getElementById )
+      elem = document.getElementById( id );
+    else if ( document.all )
+      elem = eval( "document.all." + id );
+    else
+      return false;
+
+    elemStyle = elem.style;
+    
+    if ( elemStyle.display != "block" ) {
+      elemStyle.display = "block"
+    } else {
+      elemStyle.display = "none"
+    }
+
+    return true;
+  }
+  
+  // Make codeblocks hidden by default
+  document.writeln( "<style type=\"text/css\">div.method-source-code { display: none }</style>" )
+  
+  // ]]>
+  </script>
+
+</head>
+<body>
+
+
+
+  <div id="fileHeader">
+    <h1>README_FOR_APP</h1>
+    <table class="header-table">
+    <tr class="top-aligned-row">
+      <td><strong>Path:</strong></td>
+      <td>doc/README_FOR_APP
+      </td>
+    </tr>
+    <tr class="top-aligned-row">
+      <td><strong>Last Update:</strong></td>
+      <td>Fri Oct 17 17:06:11 -0700 2008</td>
+    </tr>
+    </table>
+  </div>
+  <!-- banner header -->
+
+  <div id="bodyContent">
+
+
+
+  <div id="contextContent">
+
+    <div id="description">
+      <p>
+rhoSync
+</p>
+<p>
+rhoSync is a Ruby-based framework to access data from various backend
+applications and sync them to remote devices. Specifically it is a Ruby on
+Rails application that allows managing backend application sources and user
+subscriptions to those data sources. It is optimized for delivery of
+ongoing incremental updates of those data sources to users accessing that
+data via mobile devices.
+</p>
+<p>
+SYSTEM INSTALLATION AND USAGE
+</p>
+<p>
+PREREQUISITES
+</p>
+<pre>
+    * Ruby on Rails Version 2.1
+    * mySQL (or other relational database that plays nicely with Rails)
+</pre>
+<p>
+ADMINISTRATION
+</p>
+<pre>
+    * install the Rails application files (generally by unzipping)
+    * set up the database, generally by running “rake db:migrate”
+</pre>
+<p>
+SET UP A BACKEND DATA SOURCE
+</p>
+<pre>
+    * we ship with a few Sources out of the box (such as SugarCRM and SalesForce).
+    * These are delivered as Yaml files that should execute when you run the migrations. The Ruby code to interact with the backends is populated into those source records
+    * Edit the “login”, “password” and “URL” fields if you are using one of the existing sources
+    * Otherwise create a new Source from the application main menu and edit those same fields.
+    * If you are using another backend you may need to create “prolog”, “call”, “epilog” and “sync” fields with the appropriate code. See “Creating a Rhosync Datasource”
+</pre>
+<p>
+HOW IT WORKS
+</p>
+<p>
+rhoSync normalizes all backend application data into a common server-based
+relational schema, in preparation for delivering the further downstream,
+generally to mobile devices.
+</p>
+<p>
+Specifically the “master server data table” is a “property bag”
+model, which keeps track of data sources, individual objects and the
+name/value pairs for those objects. This allows handling of diverse backend
+application data structures within a single master store. It also provides
+for efficient delivery of single “fields” of data in either direction
+(e.g. just the status changing of a trouble ticket).
+</p>
+<p>
+The connection code for logging into a backend application (via REST or
+SOAP APIs), calling the data retrieval and update functions, logging off,
+and populating the master data table are each written in Ruby but stored in
+the application sources table. The schema for this table and other tables
+involved in supporting this functionality are as described below. DATABASE
+SCHEMA
+</p>
+<p>
+There are two important tables that describe fully the universe of data
+sources and their contents for downstream syncing. These are the SOURCES
+table and the OBJECT_VALUES table (and the corresponding <a
+href="../../classes/Source.html">Source</a> and ObjectValues models. Other
+tables include tables to keep of the mobile device users and their
+subscriptions to the various data sources available. OBJECT_VALUES A
+“property bag” schema that facilitatest importing any kind of data into
+a common table for later distribution to downstream clients.
+</p>
+<pre>
+    * object – the unique identifier of the object (generally an integer “record ID” from the backend system)
+    * attribute – the name of the attribute (e.g. “Account Name”, “Industry”)
+    * value – the value of the attribute (e.g. “Acme Corp”, “software”)
+    * source_id – reference back to the source (see below) used for syncing
+</pre>
+<p>
+SOURCES This table contains all of the information necessary to connect to
+a given backend system. These includes the URL to connect to and
+authentication information.
+</p>
+<pre>
+    * URL – the URL to connect to (for REST adapters) or the URL to the WSDL (for SOAP services)
+    * SERVER – OPTIONAL a logical name for the data source server (AcmeCorpSugar)
+    * LOGIN – the username or logon ID for the backend
+    * PASSWORD – password (stored in the clear right now) for the backend system
+</pre>
+<p>
+Backend Code Columns
+</p>
+<pre>
+    * PROLOG – a set of Ruby code generally for logging into the backend system. Generally this is a SOAP or REST call which populates a session_id variable (that variable must be used in the call code below).
+    * CALL – the actual code for getting data back (generally uses the session_id acquired in the prolog)
+    * LOGOUT – OPTIONAL, code to logoff the backend system
+    * SYNC – this is the code used to take apart the returned data and stuff it into the OBJECT_VALUES property bag table. Theoretically this could be done in the CALL column.
+</pre>
+<p>
+SUBSCRIPTIONS This table keeps track of user and the data sources that they
+are subscribed to.
+</p>
+<pre>
+    * SOURCE_ID – joins to the specific data source subscribed to in the SOURCES table
+    * USER_ID – joins to the user in the USERS table
+    * QUERY – a set of name/value pairs that can be used to subset the data
+    * LASTSYNC – time of last successful sync of user to the master store
+</pre>
+<p>
+USERS This table is primarily used by the sync subscription code to allow
+joining from subscription status to a specifically identified user
+</p>
+<pre>
+    * userid – the symbolic ID of this user for rhoSync in general (not necessarily for all backend systems)
+    * firstname
+    * lastname
+    * status
+</pre>
+<p>
+Questions: info@rhomobile.com
+</p>
+
+    </div>
+
+
+   </div>
+
+
+  </div>
+
+
+    <!-- if includes -->
+
+    <div id="section">
+
+
+
+
+
+      
+
+
+    <!-- if method_list -->
+
+
+  </div>
+
+
+<div id="validator-badges">
+  <p><small><a href="http://validator.w3.org/check/referer">[Validate]</a></small></p>
+</div>
+
+</body>
+</html>
