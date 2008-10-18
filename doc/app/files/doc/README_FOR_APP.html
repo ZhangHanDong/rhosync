@@ -56,7 +56,7 @@
     </tr>
     <tr class="top-aligned-row">
       <td><strong>Last Update:</strong></td>
-      <td>Fri Oct 17 17:06:11 -0700 2008</td>
+      <td>Fri Oct 17 18:20:13 -0700 2008</td>
     </tr>
     </table>
   </div>
@@ -69,77 +69,106 @@
   <div id="contextContent">
 
     <div id="description">
-      <p>
-rhoSync
-</p>
+      <h1>Rhosync</h1>
 <p>
-rhoSync is a Ruby-based framework to access data from various backend
+Rhosync is a Ruby-based framework to access data from various backend
 applications and sync them to remote devices. Specifically it is a Ruby on
 Rails application that allows managing backend application sources and user
 subscriptions to those data sources. It is optimized for delivery of
 ongoing incremental updates of those data sources to users accessing that
 data via mobile devices.
 </p>
+<h3>Design Goals</h3>
 <p>
-SYSTEM INSTALLATION AND USAGE
-</p>
-<p>
-PREREQUISITES
+RhoSync retrieves data via web services (REST or SOAP) from backend
+enterprise applications for distribution to downstream mobile devices. It
+keeps a master store of all enterprise application data and keeps track of
+the information that users have received. It is written to be far simpler
+to be far simpler
 </p>
 <pre>
-    * Ruby on Rails Version 2.1
-    * mySQL (or other relational database that plays nicely with Rails)
+ to deploy and configure than similar technologies that have come and gone
 </pre>
 <p>
-ADMINISTRATION
+over the past decade.
 </p>
+<p>
+It is also more focused on the complete end to end &#8216;web service
+backend&#8217; to mobile device (with an enabling master data store on the
+server) than earlier equivalents. These products were generally focused on
+the device endpoint syncing to a server-based database. With the success of
+Software as a Service (SaaS) products such as SugarCRM and SalesForce,
+synchronization directly to a server database is much more rarely a viable
+option. Instead we focus on the web service access scenario. Rhosync is
+also focused on arbitrary enterprise application data as opposed to being a
+PIM and email focused product such as Funambol.
+</p>
+<h1>SYSTEM INSTALLATION AND USAGE</h1>
+<h3>PREREQUISITES</h3>
+<pre>
+    * Ruby on Rails Version 2.1
+    * mySQL, SQLite or other database that plays nicely with Rails
+</pre>
+<h3>ADMINISTRATION</h3>
 <pre>
     * install the Rails application files (generally by unzipping)
     * set up the database, generally by running “rake db:migrate”
 </pre>
-<p>
-SET UP A BACKEND DATA SOURCE
-</p>
+<h3>SET UP A BACKEND DATA SOURCE</h3>
 <pre>
-    * we ship with a few Sources out of the box (such as SugarCRM and SalesForce).
-    * These are delivered as Yaml files that should execute when you run the migrations. The Ruby code to interact with the backends is populated into those source records
+    * we ship with an example &quot;Source&quot; out of the box for integrationg with
+      SugarCRM
+    * This is delivered in the Sources.yml files that should execute when you run the migrations.
+       The Ruby code to interact with the backends is populated into those source records
     * Edit the “login”, “password” and “URL” fields if you are using one of the existing sources
     * Otherwise create a new Source from the application main menu and edit those same fields.
-    * If you are using another backend you may need to create “prolog”, “call”, “epilog” and “sync” fields with the appropriate code. See “Creating a Rhosync Datasource”
+    * If you are using another backend you may need to create “prolog”, “call”,
+     &quot;createcall&quot;, &quot;updatecall&quot;, &quot;deletecall&quot;,  “epilog” and “sync” fields with the appropriate code. See “Creating a Rhosync Datasource”
 </pre>
+<h1>HOW IT WORKS</h1>
 <p>
-HOW IT WORKS
-</p>
-<p>
-rhoSync normalizes all backend application data into a common server-based
-relational schema, in preparation for delivering the further downstream,
+Rhosync normalizes all backend application data into a common server-based
+database schema, in preparation for delivering the further downstream,
 generally to mobile devices.
 </p>
 <p>
 Specifically the “master server data table” is a “property bag”
 model, which keeps track of data sources, individual objects and the
-name/value pairs for those objects. This allows handling of diverse backend
-application data structures within a single master store. It also provides
-for efficient delivery of single “fields” of data in either direction
-(e.g. just the status changing of a trouble ticket).
+name/value pairs
+</p>
+<pre>
+ for those objects. This allows handling of diverse backend application data
+</pre>
+<p>
+structures within a single master store. It also provides for efficient
+delivery
+</p>
+<pre>
+ of single “fields” of data in either direction (e.g. just the status changing
+</pre>
+<p>
+of a trouble ticket).
 </p>
 <p>
 The connection code for logging into a backend application (via REST or
 SOAP APIs), calling the data retrieval and update functions, logging off,
 and populating the master data table are each written in Ruby but stored in
 the application sources table. The schema for this table and other tables
-involved in supporting this functionality are as described below. DATABASE
-SCHEMA
+involved in supporting this functionality are as described below.
 </p>
+<h1>DATABASE SCHEMA</h1>
 <p>
 There are two important tables that describe fully the universe of data
 sources and their contents for downstream syncing. These are the SOURCES
 table and the OBJECT_VALUES table (and the corresponding <a
 href="../../classes/Source.html">Source</a> and ObjectValues models. Other
 tables include tables to keep of the mobile device users and their
-subscriptions to the various data sources available. OBJECT_VALUES A
-“property bag” schema that facilitatest importing any kind of data into
-a common table for later distribution to downstream clients.
+subscriptions to the various data sources available.
+</p>
+<h3>OBJECT_VALUES</h3>
+<p>
+A “property bag” schema that facilitatest importing any kind of data
+into a common table for later distribution to downstream clients.
 </p>
 <pre>
     * object – the unique identifier of the object (generally an integer “record ID” from the backend system)
@@ -147,10 +176,11 @@ a common table for later distribution to downstream clients.
     * value – the value of the attribute (e.g. “Acme Corp”, “software”)
     * source_id – reference back to the source (see below) used for syncing
 </pre>
+<h3>SOURCES</h3>
 <p>
-SOURCES This table contains all of the information necessary to connect to
-a given backend system. These includes the URL to connect to and
-authentication information.
+This table contains all of the information necessary to connect to a given
+backend system. These includes the URL to connect to and authentication
+information.
 </p>
 <pre>
     * URL – the URL to connect to (for REST adapters) or the URL to the WSDL (for SOAP services)
@@ -164,31 +194,15 @@ Backend Code Columns
 <pre>
     * PROLOG – a set of Ruby code generally for logging into the backend system. Generally this is a SOAP or REST call which populates a session_id variable (that variable must be used in the call code below).
     * CALL – the actual code for getting data back (generally uses the session_id acquired in the prolog)
+    * CREATECALL - code to create records in the backend from the object values table
+    * UPDATECALL - update code for the backend
+    * DELETECALL - record deletion code for the backend
     * LOGOUT – OPTIONAL, code to logoff the backend system
     * SYNC – this is the code used to take apart the returned data and stuff it into the OBJECT_VALUES property bag table. Theoretically this could be done in the CALL column.
 </pre>
+<h1>SUPPORT</h1>
 <p>
-SUBSCRIPTIONS This table keeps track of user and the data sources that they
-are subscribed to.
-</p>
-<pre>
-    * SOURCE_ID – joins to the specific data source subscribed to in the SOURCES table
-    * USER_ID – joins to the user in the USERS table
-    * QUERY – a set of name/value pairs that can be used to subset the data
-    * LASTSYNC – time of last successful sync of user to the master store
-</pre>
-<p>
-USERS This table is primarily used by the sync subscription code to allow
-joining from subscription status to a specifically identified user
-</p>
-<pre>
-    * userid – the symbolic ID of this user for rhoSync in general (not necessarily for all backend systems)
-    * firstname
-    * lastname
-    * status
-</pre>
-<p>
-Questions: info@rhomobile.com
+Send questions to info@rhomobile.com
 </p>
 
     </div>
