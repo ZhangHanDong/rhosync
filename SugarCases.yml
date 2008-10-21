@@ -1,0 +1,62 @@
+--- &id001 !ruby/object:Source 
+attributes: 
+  name: SugarCases
+  updated_at: 2008-10-21 01:50:22.291609 Z
+  prolog: |
+    u = @source.login
+    p = Digest::MD5.hexdigest(@source.password)
+    ua = {'user_name' => u,'password' => p}
+    ss = client.login(ua,nil)
+    if ss.error.number.to_i != 0
+      p 'failed to login - #{ss.error.description}'
+      return
+    else
+      session_id = ss['id']
+      uid = client.get_user_id(session_id)
+    end
+
+  refreshtime: 2008-10-21 01:49:02
+  deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Cases',name_value_list); p result.inspect.to_s
+  url: http://rhomobile.com/sugar/soap.php?wsdl
+  type: 
+  createcall: result=client.set_entry(session_id,'Cases',name_value_list); p result.inspect.to_s
+  id: "10"
+  method: 
+  sync: |
+    result.entry_list.each do |x|
+      x.name_value_list.each do |y|
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x['id']
+        o.attrib=y.name
+        o.value=y.value
+        o.update_type='query'
+        o.save
+      end
+    end
+
+  updatecall: result=client.set_entry(session_id,'Cases',name_value_list); p result.inspect.to_s
+  call: |
+    module_name = 'Cases'
+    query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
+    order_by = '' # in default order. you can also use SQL like 'accounts.name'
+    offset = 0 # I guess this is like the SQL offset
+    select_fields = ['name','case_number','assigned_to','priority','status','type',
+       'account_name','description','resolution'] # this can't be an empty array, my testing showed
+    max_results = '10000' # if set to 0 or '', this doesn't return all the results, like you'd expect
+    deleted = 0 # whether you want to retrieve deleted records, too
+    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
+
+  login: adam
+  password: password
+  created_at: 2008-10-21 01:43:49
+  epilog: client.logout(session_id)
+attributes_cache: {}
+
+changed_attributes: {}
+
+errors: !ruby/object:ActiveRecord::Errors 
+  base: *id001
+  errors: {}
+
+new_record_before_save: 
