@@ -15,6 +15,15 @@ class SourcesController < ApplicationController
   def show
     last_update_time=Time.parse(params[:last_update]) if params[:last_update]
     @source=Source.find params[:id]
+
+    # if there are any pending updates then we need a refresh, so go invoke it!
+    update_values=ObjectValue.find_by_sql "select * from object_values where update_type!='query' and source_id="+params[:id]
+    if (update_values.size>0)
+      p "Pending updates, need to do refresh/sync first!"
+      do_refresh
+    else
+      p "No pending updates"
+    end
     # if we have a last_update parameter then only do the update
     # if the last update time is before the most recent refresh then bring back values
     if !last_update_time or (@source.refreshtime and (last_update_time<=>@source.refreshtime)<0)
@@ -22,6 +31,8 @@ class SourcesController < ApplicationController
     else  # no need to bring back values because we're still waiting for a refresh on the server!
       @object_values=nil
     end
+
+
     respond_to do |format|
       format.html
       format.xml  { render :xml => @object_values}
@@ -214,94 +225,7 @@ class SourcesController < ApplicationController
   # than the one used to service create, update and delete calls from the client
   # device
   def refresh
-    @source=Source.find params[:id]
-    # not all endpoints require WSDL!
-    client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0
-    # make sure to use client and session_id variables
-    # in your code that is edited into each source!
-    callbinding=eval %"#{@source.prolog};binding"
-
-    # first do all the the creates
-    if @source.createcall and @source.createcall.size>0
-      creates=ObjectValue.find_by_sql("select * from object_values where update_type='create'")
-      uniqobjs=creates.map {|x| x.object}
-      uniqobjs.uniq!
-      uniqobjs.each do |x|
-        p "Searching for attribute values for object: "+x
-        xvals=ObjectValue.find_all_by_object_and_update_type(x,'create')  # this has all the attribute value pairs for this particular object
-        if xvals.size>0
-          attrvalues={}
-          xvals.each do |y|
-            p "Attribute: " + y.attrib
-            p "Value: " + y.value
-            attrvalues[y.attrib]=y.value if y.attrib and y.value
-            y.destroy
-          end
-          # now attrvalues has the attribute values needed for the createcall
-          # the Sugar adapter will use the name_value_list variable that we're building up here
-          # TODO: name_value_list is probably too specific to Sugar
-          #  need a clean way to pass the attrvalues hash to any source adapter cleanly
-          p "Attributes hash size: " + attrvalues.size.to_s
-          nvlist=make_name_value_list(attrvalues)
-          callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
-        end
-
-      end
-    end
-
-    # now do the updates
-    if @source.updatecall and @source.updatecall.size>0
-      updates=ObjectValue.find_by_sql("select * from object_values where update_type='update'")
-      uniqobjs=updates.map {|x|x.object}
-      uniqobjs.uniq!
-      uniqobjs.each do |x|
-        objvals=ObjectValue.find_all_by_object_and_update_type(x,'update')  # this has all the attribute value pairs now
-        attrvalues={}
-        attrvalues["id"]=x  # setting the ID allows it be an update
-        objvals.each do |y|
-          attrvalues[y.attrib]=y.value
-          y.destroy
-        end
-        # now attrvalues has the attribute values needed for the createcall
-        nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("name_value_list="+nvlist+";"+@source.updatecall+";binding",callbinding)
-      end
-    end
-
-    # now do the deletes
-    if @source.deletecall and @source.deletecall.size>0
-      deletes=ObjectValue.find_by_sql("select * from object_values where update_type='delete'")
-      uniqobjs=deletes.map {|x|x.object}
-      uniqobjs.uniq!
-      uniqobjs.each do |x|
-        attrvalues={}
-        attrvalues["id"]=x
-        nvlist=make_name_value_list(attrvalues)
-        callbinding=eval("name_value_list="+nvlist+";"+@source.deletecall+";binding",callbinding)
-      end
-      deletes.each do |x|  # get rid of the deletes
-        x.destroy
-      end
-    end
-
-    if @source.call
-      # now do the query call
-      p "Executing query call"
-      callbinding=eval(@source.call+";binding",callbinding)
-      # delete the old source records
-      ObjectValue.delete_all "update_type='query' and source_id="+@source.id.to_s
-      # now take apart the returned data and fill the object values table
-      p "Executing backend data sync"
-      callbinding=eval(@source.sync+";binding",callbinding) if @source.sync
-    end
-
-    # now do the logoff
-    if @source.epilog and @source.epilog.size>0
-      callbinding=eval(@source.epilog+";binding",callbinding)
-    end
-
-    @source.refreshtime=Time.new  # keep track of the refresh time to help optimize show queries
-    @source.save
+    do_refresh(:id=>params[:id])
 
     redirect_to :action=>"show",:id=>@source.id
   end

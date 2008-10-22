@@ -4,7 +4,6 @@
 
   <%= f.error_messages %>
   <%= f.submit "Update source adapter code" %>
-<%=link_to 'Refresh records',{:action=>'refresh',:id=>@source.id}%>&nbsp;
 <%=link_to 'Show records',{:action=>'show',:id=>@source.id}%>&nbsp;
 <%= link_to 'Back to sources list', sources_path %>&nbsp;
   <p>
