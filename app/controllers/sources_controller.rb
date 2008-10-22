@@ -20,7 +20,7 @@ class SourcesController < ApplicationController
     update_values=ObjectValue.find_by_sql "select * from object_values where update_type!='query' and source_id="+params[:id]
     if (update_values.size>0)
       p "Pending updates, need to do refresh/sync first!"
-      do_refresh
+      do_refresh(params[:id])
     else
       p "No pending updates"
     end
@@ -225,7 +225,7 @@ class SourcesController < ApplicationController
   # than the one used to service create, update and delete calls from the client
   # device
   def refresh
-    do_refresh(:id=>params[:id])
+    do_refresh(params[:id])
 
     redirect_to :action=>"show",:id=>@source.id
   end
