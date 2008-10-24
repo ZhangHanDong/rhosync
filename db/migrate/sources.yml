@@ -148,7 +148,7 @@ sugaremployees:
     end
 
   call: |
-    select_fields = ['first_name','last_name','status','title','phone_mobile','sugar_login']
+    select_fields = ['first_name','last_name','status','title','phone_mobile','user_name']
     result = client.get_entry_list(session_id,'Employees',"(users.status='Active')",'last_name',0,select_fields,'10000',0);
 
 
