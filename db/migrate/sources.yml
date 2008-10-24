@@ -21,9 +21,9 @@ sugar:
     module_name = 'Accounts'
     query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
     order_by = '' # in default order. you can also use SQL like 'accounts.name'
-    offset = 0 # I guess this is like the SQL offset
-    select_fields = ['name','industry'] # this can't be an empty array, my testing showed
-    max_results = '10000' # if set to 0 or '', this doesn't return all the results, like you'd expect
+    offset = 0 
+    select_fields = ['name','industry'] # this can't be an empty array
+    max_results = '10000' # if set to 0 or '', this doesn't return all the results
     deleted = 0 # whether you want to retrieve deleted records, too
     result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
 
@@ -80,19 +80,25 @@ sugarcases:
     end
 
   call: |
-    module_name = 'Cases'
-    query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
-    order_by = '' # in default order. you can also use SQL like 'accounts.name'
-    offset = 0 # I guess this is like the SQL offset
-    select_fields = ['name','case_number','assigned_to','priority','status','type',
-       'account_name','description','resolution'] # this can't be an empty array, my testing showed
-    max_results = '10000' # if set to 0 or '', this doesn't return all the results, like you'd expect
-    deleted = 0 # whether you want to retrieve deleted records, too
-    result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
+    select_fields = ['name','case_number','priority','status','type','description','resolution'] 
+    result = client.get_entry_list(session_id,'Cases','','case_number',0,select_fields,'10000',0);
+
 
   sync: |
     result.entry_list.each do |x|
       x.name_value_list.each do |y|
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x['id']
+        o.attrib=y.name
+        o.value=y.value
+        o.update_type='query'
+        o.save
+      end
+
+      # add fields that didn't come back originally!: the assigned_to and account_id
+      entry_result=client.get_entry(session_id,'Cases',x['id'],['assigned_user_id','account_id'])
+      entry_result.entry_list[0].name_value_list.each do |y|
         o=ObjectValue.new
         o.source_id=@source.id
         o.object=x['id']
@@ -122,8 +128,64 @@ sugarcases:
   epilog:
     client.logout(session_id)
 
-salesforce:
+sugaremployees:
   id: 3
+  name: SugarEmployees
+  url: http://rhomobile.com/sugar/soap.php?wsdl
+  login: adam
+  password: password
+  prolog: |
+    u = @source.login
+    p = Digest::MD5.hexdigest(@source.password)
+    ua = {'user_name' => u,'password' => p}
+    ss = client.login(ua,nil)
+    if ss.error.number.to_i != 0
+      p 'failed to login - #{ss.error.description}'
+      return
+    else
+      session_id = ss['id']
+      uid = client.get_user_id(session_id)
+    end
+
+  call: |
+    select_fields = ['first_name','last_name','status','title','phone_mobile','sugar_login']
+    result = client.get_entry_list(session_id,'Employees',"(users.status='Active')",'last_name',0,select_fields,'10000',0);
+
+
+  sync: |
+    result.entry_list.each do |x|
+      x.name_value_list.each do |y|
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x['id']
+        o.attrib=y.name
+        o.value=y.value
+        o.update_type='query'
+        o.save
+      end
+    end
+
+  createcall:
+    # name_value_list is passed in and can be used in the code below
+    # for creates we just assume that the primary keys (if fields) are left out
+    result=client.set_entry(session_id,'Employees',name_value_list);
+    p result.inspect.to_s
+
+  updatecall:
+    # name_value_list is passed in and can be used in the code below
+    result=client.set_entry(session_id,'Employees',name_value_list);
+    p result.inspect.to_s
+
+  deletecall:
+    name_value_list.push({'name'=>'deleted','value'=>'1'});
+    result=client.set_entry(session_id,'Employees',name_value_list);
+    p result.inspect.to_s
+
+  epilog:
+    client.logout(session_id)
+
+salesforce:
+  id: 4
   url: http://localhost:3000/sf.wsdl
   name: RhoForce
   login: adam@rhomobile.com

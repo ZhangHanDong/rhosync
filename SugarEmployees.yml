@@ -1,0 +1,52 @@
+--- &id001 !ruby/object:Source 
+attributes: 
+  name: SugarEmployees
+  updated_at: 2008-10-24 00:10:19.748287 Z
+  prolog: |
+    u = @source.login
+    p = Digest::MD5.hexdigest(@source.password)
+    ua = {'user_name' => u,'password' => p}
+    ss = client.login(ua,nil)
+    if ss.error.number.to_i != 0
+      p 'failed to login - #{ss.error.description}'
+      return
+    else
+      session_id = ss['id']
+      uid = client.get_user_id(session_id)
+    end
+
+  refreshtime: 2008-10-24 00:01:25
+  deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Employees',name_value_list); p result.inspect.to_s
+  url: http://rhomobile.com/sugar/soap.php?wsdl
+  type: 
+  createcall: result=client.set_entry(session_id,'Employees',name_value_list); p result.inspect.to_s
+  id: "18"
+  method: 
+  sync: |
+    result.entry_list.each do |x|
+      x.name_value_list.each do |y|
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x['id']
+        o.attrib=y.name
+        o.value=y.value
+        o.update_type='query'
+        o.save
+      end
+    end
+
+  updatecall: result=client.set_entry(session_id,'Employees',name_value_list); p result.inspect.to_s
+  call: "    select_fields = ['first_name','last_name','status','title','phone_mobile','sugar_login']\r\n    result = client.get_entry_list(session_id,'Employees',\"(users.status='Active')\",'last_name',0,select_fields,'10000',0);\r\n"
+  login: adam
+  password: password
+  created_at: 2008-10-23 23:48:48
+  epilog: client.logout(session_id)
+attributes_cache: {}
+
+changed_attributes: {}
+
+errors: !ruby/object:ActiveRecord::Errors 
+  base: *id001
+  errors: {}
+
+new_record_before_save: 
