@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class SourcesControllerTest < ActionController::TestCase
+describe "SourcesController", ActionController::TestCase do
 
-  def test_should_create_and_delete_objects_and_refresh
+  it "should create and delete objects and refresh" do
     result=get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     p "Created new object with ID: " +result.id.to_s
     get :deleteobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>result.id}]
@@ -11,7 +11,7 @@ class SourcesControllerTest < ActionController::TestCase
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_create_and_update_objects_and_refresh
+  it "should create and update objects and refresh" do
     result=get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"xmobile"}]
     p "Created new object with ID: " +result.id.to_s
     get :updateobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>result.id,"attrib"=>"name","value"=>"rhomobile"}]
@@ -20,51 +20,51 @@ class SourcesControllerTest < ActionController::TestCase
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_createobjects_and_refresh
+  it "should createobjects and refresh" do
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     get :refresh, :id=>sources(:sugar).id
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_show_source
+  it "should show source" do
     get :show, :id => sources(:sugar).id
     assert_response :success
   end
 
-  def test_should_retrieve_attributes
+  it "should retrieve attributes" do
     get :attributes, :id => sources(:sugar).id
     assert_response :success
   end
 
-  def test_should_show_null_when_waiting_for_refresh
+  it "should show null when waiting for refresh" do
     get :updateobjects,:id=>sources(:sugar).id,
       :attrvals=>[{"object"=>"1","attrib"=>"name","value"=>"rhomobile"}]
 
     get :show, :id => sources(:sugar).id, :last_update => Time.now.to_s
   end
 
-  def test_should_createobjects
+  it "should createobjects" do
     get :createobjects,:id=>sources(:sugar).id,:attrvals=>[{"object"=>"temp1","attrib"=>"name","value"=>"rhomobile"}]
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_updateobjects
+  it "should updateobjects" do
     get :updateobjects,:id=>sources(:sugar).id,     
       :attrvals=>[{"object"=>"1","attrib"=>"name","value"=>"rhomobile"}]
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_deleteobjects
+  it "should deleteobjects" do
     get :deleteobjects, :id=>sources(:sugar),
       :attrvals=>[{"object"=>"1"}]
   end
 
-  def test_should_refresh
+  it "should refresh" do
     get :refresh,:id=>sources(:sugar).id
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_refresh_twice_with_same_count
+  it "should refresh twice with same count" do
     get :refresh,:id=>sources(:sugar).id
     # refresh is supposed to delete existing query records before reexecuting a query
     assert_no_difference 'ObjectValue.count' do
@@ -73,18 +73,18 @@ class SourcesControllerTest < ActionController::TestCase
   end
 
 
-  def test_should_get_index
+  it "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:sources)
+    assigns(:sources).should.not == nil
   end
 
-  def test_should_get_new
+  it "should get new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_source
+  it "should create source" do
     assert_difference('Source.count') do
       post :create, :source => { }
     end
@@ -92,17 +92,17 @@ class SourcesControllerTest < ActionController::TestCase
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_get_edit
+  it "should get edit" do
     get :edit, :id => sources(:sugar).id
     assert_response :success
   end
 
-  def test_should_update_source
+  it "should update source" do
     put :update, :id => sources(:sugar).id, :source => { }
     assert_redirected_to source_path(assigns(:source))
   end
 
-  def test_should_destroy_source
+  it "should destroy source" do
     assert_difference('Source.count', -1) do
       delete :destroy, :id => sources(:sugar).id
     end

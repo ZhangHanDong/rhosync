@@ -1,18 +1,18 @@
 require 'test_helper'
 
-class ObjectValuesControllerTest < ActionController::TestCase
-  def test_should_get_index
+describe "ObjectValuesController", ActionController::TestCase do
+  it "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:object_values)
+    assigns(:object_values).should.not == nil
   end
 
-  def test_should_get_new
+  it "should get new" do
     get :new
     assert_response :success
   end
 
-  def test_should_create_object_value
+  it "should create object value" do
     assert_difference('ObjectValue.count') do
       post :create, :object_value => { }
     end
@@ -21,17 +21,17 @@ class ObjectValuesControllerTest < ActionController::TestCase
   end
 
 
-  def test_should_get_edit
+  it "should get edit" do
     get :edit, :id => object_values(:one).id
     assert_response :success
   end
 
-  def test_should_update_object_value
+  it "should update object value" do
     put :update, :id => object_values(:one).id, :object_value => { }
     assert_redirected_to object_value_path(assigns(:object_value))
   end
 
-  def test_should_destroy_object_value
+  it "should destroy object value" do
     assert_difference('ObjectValue.count', -1) do
       delete :destroy, :id => object_values(:one).id
     end
