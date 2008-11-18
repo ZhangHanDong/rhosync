@@ -1,7 +1,7 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: SugarCases
-  updated_at: 2008-10-30 03:29:37.054848 Z
+  updated_at: 2008-10-30 03:30:45
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -15,7 +15,7 @@ attributes:
       uid = client.get_user_id(session_id)
     end
 
-  refreshtime: 2008-10-30 03:21:36
+  refreshtime: 2008-10-30 03:30:45
   deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Cases',name_value_list); p result.inspect.to_s
   url: http://rhomobile.com/sugar/soap.php?wsdl
   type: 

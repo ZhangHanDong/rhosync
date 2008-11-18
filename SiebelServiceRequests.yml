@@ -1,0 +1,54 @@
+--- &id001 !ruby/object:Source 
+attributes: 
+  name: SiebelServiceRequests
+  updated_at: 2008-11-18 20:56:22
+  prolog: |
+    p "Logging in"
+    url='https://secure-ausomxbha.crmondemand.com/Services/Integration'
+    loginurl=url+ "?command=login";
+    https = Net::HTTP.new(loginurl,"443")
+    https.use_ssl = true
+    https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    headers={"UserName"=>@source.login,"Password"=>@source.password}
+    session_id=nil   
+    https.start do |h| 
+      req = Net::HTTP::Get.new("/Services/Integration", headers)
+      response = h.request(req)
+      resp = response.body
+      session_id=response['Set-Cookie']
+    end
+    p "Session is: " + session_id.to_s
+    http=nil 
+    binding
+    
+
+  refreshtime: 2008-11-17 22:54:04
+  deletecall: ""
+  url: https://secure-ausomxbha.crmondemand.com/Service/Integration
+  type: 
+  createcall: ""
+  id: "26"
+  method: 
+  sync: ""
+  updatecall: ""
+  call: |-
+    p "Inside query with session ID " + session_id.to_s
+    endpoint_url ='https://secure-ausomxbha.crmondemand.com/Services/Integration?jsession='+session_id.to_s
+    obj = Default_Binding_ServiceRequest.new(endpoint_url)
+    obj.wiredump_dev = STDERR
+    serviceRequestWS_ServiceRequestQueryPage_Input = nil;
+    obj.serviceRequestQueryPage(serviceRequestWS_ServiceRequestQueryPage_Input)
+    binding
+  login: RHOMOBILE\ADAM@RHOMOBILE.COM
+  password: password1
+  created_at: 2008-11-14 03:19:45
+  epilog: ""
+attributes_cache: {}
+
+changed_attributes: {}
+
+errors: !ruby/object:ActiveRecord::Errors 
+  base: *id001
+  errors: {}
+
+new_record_before_save: 

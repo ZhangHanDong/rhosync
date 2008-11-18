@@ -17,8 +17,8 @@ module SourcesHelper
 
   def do_refresh(id)
     @source=Source.find id
-    # not all endpoints require WSDL!
-    client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0
+    # not all endpoints require WSDL! dont do this if you dont see WSDL in the URL (a bit of a hack)
+    client = SOAP::WSDLDriverFactory.new(@source.url).create_rpc_driver if @source.url and @source.url.size>0 and @source.url=~/wsdl/
     # make sure to use client and session_id variables
     # in your code that is edited into each source!
     callbinding=eval %"#{@source.prolog};binding"
@@ -90,6 +90,7 @@ module SourcesHelper
       # now do the query call
       p "Executing query call"
       callbinding=eval(@source.call+";binding",callbinding)
+      p "Executed query call"
       # delete the old source records
       ObjectValue.delete_all "update_type='query' and source_id="+@source.id.to_s
       # now take apart the returned data and fill the object values table
