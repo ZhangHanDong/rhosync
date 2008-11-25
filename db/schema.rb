@@ -12,7 +12,7 @@
 ActiveRecord::Schema.define(:version => 20081002212238) do
 
   create_table "object_values", :force => true do |t|
-    t.integer  "source_id",   :limit => 11
+    t.integer  "source_id"
     t.string   "attrib"
     t.string   "object"
     t.string   "value"
