@@ -1,6 +1,6 @@
-sugar:
+SugarAccounts:
   id: 1
-  name: RhoSugar
+  name: SugarAccounts
   url: http://rhomobile.com/sugar/soap.php?wsdl
   login: admin
   password: acc3ss$ugar
@@ -60,7 +60,7 @@ sugar:
     client.logout(session_id)
 
 
-sugarcases:
+SugarCases:
   id: 2
   name: SugarCases
   url: http://rhomobile.com/sugar/soap.php?wsdl
@@ -128,7 +128,7 @@ sugarcases:
   epilog:
     client.logout(session_id)
 
-sugaremployees:
+SugarEmployees:
   id: 3
   name: SugarEmployees
   url: http://rhomobile.com/sugar/soap.php?wsdl
