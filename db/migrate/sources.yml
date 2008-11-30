@@ -300,7 +300,12 @@ output=obj.serviceRequestInsert(input)
 binding
 
   deletecall:
-
+input=ServiceRequestWS_ServiceRequestDelete_Input.new
+s=ServiceRequest.new
+s.serviceRequestId=name_value_list[0]["value"] # ID
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestDelete(input)
+binding
 
 
   updatecall:
