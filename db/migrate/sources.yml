@@ -165,13 +165,13 @@ SugarEmployees:
       end
     end
 
-  createcall:
+  createcall: |
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Employees',name_value_list);
     p result.inspect.to_s
 
-  updatecall:
+  updatecall: |
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Employees',name_value_list);
     p result.inspect.to_s
@@ -184,8 +184,124 @@ SugarEmployees:
   epilog:
     client.logout(session_id)
 
-SalesforceAccounts:
+SiebelServiceRequests:
   id: 4
+  name: SiebelServiceRequests
+  url: secure-ausomxbha.crmondemand.com
+  login: RHOMOBILE/ADAM@RHOMOBILE.COM
+  password: password1
+  prolog: |
+    https = Net::HTTP.new(@source.url,"443")
+    https.use_ssl = true
+    https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    headers={"UserName"=>@source.login,"Password"=>@source.password}
+    session_id=nil
+    https.start do |https|
+        req = Net::HTTP::Get.new("/Services/Integration?command=login", headers)
+        response = https.request(req)
+        resp = response.body
+        p "Response " + resp
+        session_id=response['Set-Cookie']
+    end
+    session=session_id.to_s
+    start=session.index('=')
+    finish=session.index(';')
+    session=session[start+1...finish] if start and finish
+    endpoint_url ='https://secure-ausomxbha.crmondemand.com/Services/Integration/ServiceRequest;jsessionid='+session
+    obj = Default_Binding_ServiceRequest.new(endpoint_url)
+    obj.wiredump_dev = STDERR
+    http=nil
+
+  call: |
+input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
+input.startRowNum=0
+s=ServiceRequest.new
+s.serviceRequestId=""
+s.subject=""
+s.createdDate=""
+s.accountName=""
+s.description=""
+s.priority=""
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestQueryPage(input)
+
+  sync: |
+output.listOfServiceRequest.each do |x|
+  # subject
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="subject"
+  o.value=x.subject
+  o.update_type="query"
+  o.save
+  #accountName
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="accountName"
+  o.value=x.accountName
+  o.update_type="query"
+  o.save
+  #description
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="description"
+  o.value=x.description
+  o.update_type="query"
+  o.save
+  #priority
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="priority"
+  o.value=x.priority
+  o.update_type="query"
+  o.save
+  #createdDate attribute
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="createdDate"
+  o.value=x.createdDate
+  o.update_type="query"
+  o.save
+end
+
+  createcall: |
+questWS_ServiceRequestInsert_Input.new
+s=ServiceRequest.new
+s.serviceRequestId=""
+s.accountName=name_value_list[0]["value"] # account name
+s.description=name_value_list[1]["value"] # description
+s.priority=name_value_list[2]["value"] # priority
+s.subject=name_value_list[3]["value"] # subject
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestInsert(input)
+
+  deletecall: |
+input=ServiceRequestWS_ServiceRequestDelete_Input.new
+s=ServiceRequest.new
+s.serviceRequestId=name_value_list[0]["value"] # ID
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestDelete(input)
+
+  updatecall: |
+input=ServiceRequestWS_ServiceRequestUpdate_Input.new
+s=ServiceRequest.new
+s.accountName=name_value_list[0]["value"] # account name
+s.description=name_value_list[1]["value"] # description
+s.priority=name_value_list[2]["value"] # priority
+s.serviceRequestId=name_value_list[4]["value"] # subject
+s.subject=name_value_list[4]["value"] # subject
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestUpdate(input)
+
+  epilog:
+
+SalesforceAccounts:
+  id: 5
   url: http://localhost:3000/sf.wsdl
   name: SalesForceAccounts
   login: adam@rhomobile.com
@@ -214,101 +330,8 @@ SalesforceAccounts:
       end
     end
 
-
   createcall:
 
   updatecall:
 
   deletecall:
-
-SiebelServiceRequests:
-  id: 5
-  name: SiebelServiceRequests
-  url: secure-ausomxbha.crmondemand.com
-  login: RHOMOBILE/ADAM@RHOMOBILE.COM
-  password: password1
-  prolog: |-
-    https = Net::HTTP.new(@source.url,"443")
-    https.use_ssl = true
-    https.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    headers={"UserName"=>@source.login,"Password"=>@source.password}
-    session_id=nil
-    https.start do |https|
-        req = Net::HTTP::Get.new("/Services/Integration?command=login", headers)
-        response = https.request(req)
-        resp = response.body
-        p "Response " + resp
-        session_id=response['Set-Cookie']
-    end
-    session=session_id.to_s
-    start=session.index('=')
-    finish=session.index(';')
-    session=session[start+1...finish] if start and finish
-    endpoint_url ='https://secure-ausomxbha.crmondemand.com/Services/Integration/ServiceRequest;jsessionid='+session
-    obj = Default_Binding_ServiceRequest.new(endpoint_url)
-    obj.wiredump_dev = STDERR
-    http=nil
-    binding
-
-  call: |-
-input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
-input.startRowNum=0
-s=ServiceRequest.new
-s.serviceRequestId=""
-s.subject=""
-s.createdDate=""
-s.accountName=""
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestQueryPage(input)
-binding
-
-  sync: |-
-output.listOfServiceRequest.each do |x|
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="subject"
-  o.value=x.subject
-  o.update_type="query"
-  o.save
-  #accountName
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="accountName"
-  o.value=x.accountName
-  o.update_type="query"
-  o.save
-  #createdDate attribute
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="createdDate"
-  o.value=x.createdDate
-  o.update_type="query"
-  o.save
-end
-
-  createcall:
-input=ServiceRequestWS_ServiceRequestInsert_Input.new
-s=ServiceRequest.new
-s.serviceRequestId=""
-s.subject=name_value_list[1]["value"] # subject
-s.accountName=name_value_list[0]["value"] # account name
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestInsert(input)
-binding
-
-  deletecall:
-input=ServiceRequestWS_ServiceRequestDelete_Input.new
-s=ServiceRequest.new
-s.serviceRequestId=name_value_list[0]["value"] # ID
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestDelete(input)
-binding
-
-
-  updatecall:
-
-  epilog:
-
