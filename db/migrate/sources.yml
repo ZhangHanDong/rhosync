@@ -240,11 +240,6 @@ SiebelServiceRequests:
         p "Response " + resp
         session_id=response['Set-Cookie']
     end
-    p "Session is: " + session_id.to_s
-    http=nil
-    binding
-
-  call: |-
     session=session_id.to_s
     start=session.index('=')
     finish=session.index(';')
@@ -252,27 +247,57 @@ SiebelServiceRequests:
     endpoint_url ='https://secure-ausomxbha.crmondemand.com/Services/Integration/ServiceRequest;jsessionid='+session
     obj = Default_Binding_ServiceRequest.new(endpoint_url)
     obj.wiredump_dev = STDERR
-    input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
-    input.startRowNum=0
-    s=ServiceRequest.new
-    s.serviceRequestId=""
-    s.subject=""
-    input.listOfServiceRequest=[s]
-    output=obj.serviceRequestQueryPage(input)
+    http=nil
     binding
 
+  call: |-
+input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
+input.startRowNum=0
+s=ServiceRequest.new
+s.serviceRequestId=""
+s.subject=""
+s.createdDate=""
+s.accountName=""
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestQueryPage(input)
+binding
+
   sync: |-
-    output.listOfServiceRequest.each do |x|
-      o=ObjectValue.new
-      o.source_id=@source.id
-      o.object=x.serviceRequestId
-      o.attrib="subject"
-      o.value=x.subject
-      o.update_type="query"
-      o.save
-    end
+output.listOfServiceRequest.each do |x|
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="subject"
+  o.value=x.subject
+  o.update_type="query"
+  o.save
+  #accountName
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="accountName"
+  o.value=x.accountName
+  o.update_type="query"
+  o.save
+  #createdDate attribute
+  o=ObjectValue.new
+  o.source_id=@source.id
+  o.object=x.serviceRequestId
+  o.attrib="createdDate"
+  o.value=x.createdDate
+  o.update_type="query"
+  o.save
+end
 
   createcall:
+input=ServiceRequestWS_ServiceRequestInsert_Input.new
+s=ServiceRequest.new
+s.serviceRequestId=""
+s.subject=name_value_list[1]["value"] # subject
+s.accountName=name_value_list[0]["value"] # account name
+input.listOfServiceRequest=[s]
+output=obj.serviceRequestInsert(input)
+binding
 
   deletecall:
 

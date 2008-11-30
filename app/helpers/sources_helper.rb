@@ -8,7 +8,7 @@ module SourcesHelper
     if hash and hash.keys.size>0
       result="["
       hash.keys.each do |x|
-        result << ("{'name' => '"+ x +"', 'value' => '" + hash[x] + "'},")
+        result << ("{'name' => '"+ x +"', 'value' => '" + hash[x] + "'},") if x and x.size>0 and hash[x]
       end
       result=result[0...result.size-1]  # chop off last comma
       result += "]"
@@ -45,6 +45,7 @@ module SourcesHelper
           #  need a clean way to pass the attrvalues hash to any source adapter cleanly
           p "Attributes hash size: " + attrvalues.size.to_s
           nvlist=make_name_value_list(attrvalues)
+          p "nvlist " + nvlist
           callbinding=eval("name_value_list="+nvlist+";"+@source.createcall+";binding",callbinding)
         end
 
