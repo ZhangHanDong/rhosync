@@ -95,7 +95,6 @@ SugarCases:
         o.update_type='query'
         o.save
       end
-
       # add fields that didn't come back originally!: the assigned_to and account_id
       entry_result=client.get_entry(session_id,'Cases',x['id'],['assigned_user_id','account_id'])
       entry_result.entry_list[0].name_value_list.each do |y|
@@ -213,125 +212,89 @@ SiebelServiceRequests:
     http=nil
 
   call: |
-input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
-input.startRowNum=0
-s=ServiceRequest.new
-s.serviceRequestId=""
-s.subject=""
-s.createdDate=""
-s.accountName=""
-s.description=""
-s.priority=""
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestQueryPage(input)
+    input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
+    input.startRowNum=0
+    s=ServiceRequest.new
+    s.serviceRequestId=""
+    s.subject=""
+    s.createdDate=""
+    s.accountName=""
+    s.description=""
+    s.priority=""
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestQueryPage(input)
 
   sync: |
-output.listOfServiceRequest.each do |x|
-  # subject
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="subject"
-  o.value=x.subject
-  o.update_type="query"
-  o.save
-  #accountName
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="accountName"
-  o.value=x.accountName
-  o.update_type="query"
-  o.save
-  #description
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="description"
-  o.value=x.description
-  o.update_type="query"
-  o.save
-  #priority
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="priority"
-  o.value=x.priority
-  o.update_type="query"
-  o.save
-  #createdDate attribute
-  o=ObjectValue.new
-  o.source_id=@source.id
-  o.object=x.serviceRequestId
-  o.attrib="createdDate"
-  o.value=x.createdDate
-  o.update_type="query"
-  o.save
-end
-
-  createcall: |
-questWS_ServiceRequestInsert_Input.new
-s=ServiceRequest.new
-s.serviceRequestId=""
-s.accountName=name_value_list[0]["value"] # account name
-s.description=name_value_list[1]["value"] # description
-s.priority=name_value_list[2]["value"] # priority
-s.subject=name_value_list[3]["value"] # subject
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestInsert(input)
-
-  deletecall: |
-input=ServiceRequestWS_ServiceRequestDelete_Input.new
-s=ServiceRequest.new
-s.serviceRequestId=name_value_list[0]["value"] # ID
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestDelete(input)
-
-  updatecall: |
-input=ServiceRequestWS_ServiceRequestUpdate_Input.new
-s=ServiceRequest.new
-s.accountName=name_value_list[0]["value"] # account name
-s.description=name_value_list[1]["value"] # description
-s.priority=name_value_list[2]["value"] # priority
-s.serviceRequestId=name_value_list[4]["value"] # subject
-s.subject=name_value_list[4]["value"] # subject
-input.listOfServiceRequest=[s]
-output=obj.serviceRequestUpdate(input)
-
-  epilog:
-
-SalesforceAccounts:
-  id: 5
-  url: http://localhost:3000/sf.wsdl
-  name: SalesForceAccounts
-  login: adam@rhomobile.com
-  password: ac
-  prolog: |
-    class Account < ActiveRecord::Base
-      establish_connection(:url=>'https://www.salesforce.com',
-        :adapter => 'activesalesforce',
-        :username => @source.login,
-        :password => @source.password)
-    end
-
-  call: |
-    accounts=Account.find :all
-
-  sync:
-    accounts.each do |x|
-      name_value_list.each do |y|
+    output.listOfServiceRequest.each do |x|
+        # subject
         o=ObjectValue.new
         o.source_id=@source.id
-        o.object=x['id']
-        o.attrib=y.name
-        o.value=y.value
-        o.update_type='query'
+        o.object=x.serviceRequestId
+        o.attrib="subject"
+        o.value=x.subject
+        o.update_type="query"
         o.save
-      end
+        #accountName
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="accountName"
+        o.value=x.accountName
+        o.update_type="query"
+        o.save
+        #description
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="description"
+        o.value=x.description
+        o.update_type="query"
+        o.save
+        #priority
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="priority"
+        o.value=x.priority
+        o.update_type="query"
+        o.save
+        #createdDate attribute
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="createdDate"
+        o.value=x.createdDate
+        o.update_type="query"
+        o.save
     end
 
-  createcall:
+  createcall: |
+      questWS_ServiceRequestInsert_Input.new
+      s=ServiceRequest.new
+      s.serviceRequestId=""
+      s.accountName=name_value_list[0]["value"] # account name
+      s.description=name_value_list[1]["value"] # description
+      s.priority=name_value_list[2]["value"] # priority
+      s.subject=name_value_list[3]["value"] # subject
+      input.listOfServiceRequest=[s]
+      output=obj.serviceRequestInsert(input)
 
-  updatecall:
+  deletecall: |
+    input=ServiceRequestWS_ServiceRequestDelete_Input.new
+    s=ServiceRequest.new
+    s.serviceRequestId=name_value_list[0]["value"] # ID
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestDelete(input)
 
-  deletecall:
+  updatecall: |
+    input=ServiceRequestWS_ServiceRequestUpdate_Input.new
+    s=ServiceRequest.new
+    s.accountName=name_value_list[0]["value"] # account name
+    s.description=name_value_list[1]["value"] # description
+    s.priority=name_value_list[2]["value"] # priority
+    s.serviceRequestId=name_value_list[4]["value"] # subject
+    s.subject=name_value_list[4]["value"] # subject
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestUpdate(input)
+
+  epilog:
