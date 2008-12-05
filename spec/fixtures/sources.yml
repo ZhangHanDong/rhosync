@@ -1,6 +1,6 @@
-sugar:
+SugarAccounts:
   id: 1
-  name: RhoSugar
+  name: SugarAccounts
   url: http://rhomobile.com/sugar/soap.php?wsdl
   login: admin
   password: acc3ss$ugar
@@ -60,7 +60,7 @@ sugar:
     client.logout(session_id)
 
 
-sugarcases:
+SugarCases:
   id: 2
   name: SugarCases
   url: http://rhomobile.com/sugar/soap.php?wsdl
@@ -95,7 +95,6 @@ sugarcases:
         o.update_type='query'
         o.save
       end
-
       # add fields that didn't come back originally!: the assigned_to and account_id
       entry_result=client.get_entry(session_id,'Cases',x['id'],['assigned_user_id','account_id'])
       entry_result.entry_list[0].name_value_list.each do |y|
@@ -128,7 +127,7 @@ sugarcases:
   epilog:
     client.logout(session_id)
 
-sugaremployees:
+SugarEmployees:
   id: 3
   name: SugarEmployees
   url: http://rhomobile.com/sugar/soap.php?wsdl
@@ -165,13 +164,13 @@ sugaremployees:
       end
     end
 
-  createcall:
+  createcall: |
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Employees',name_value_list);
     p result.inspect.to_s
 
-  updatecall:
+  updatecall: |
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Employees',name_value_list);
     p result.inspect.to_s
@@ -184,39 +183,118 @@ sugaremployees:
   epilog:
     client.logout(session_id)
 
-salesforce:
+SiebelServiceRequests:
   id: 4
-  url: http://localhost:3000/sf.wsdl
-  name: RhoForce
-  login: adam@rhomobile.com
-  password: ac
+  name: SiebelServiceRequests
+  url: secure-ausomxbha.crmondemand.com
+  login: RHOMOBILE/ADAM@RHOMOBILE.COM
+  password: password1
   prolog: |
-    class Account < ActiveRecord::Base
-      establish_connection(:url=>'https://www.salesforce.com',
-        :adapter => 'activesalesforce',
-        :username => @source.login,
-        :password => @source.password)
+    https = Net::HTTP.new(@source.url,"443")
+    https.use_ssl = true
+    https.verify_mode = OpenSSL::SSL::VERIFY_NONE
+    headers={"UserName"=>@source.login,"Password"=>@source.password}
+    session_id=nil
+    https.start do |https|
+        req = Net::HTTP::Get.new("/Services/Integration?command=login", headers)
+        response = https.request(req)
+        resp = response.body
+        p "Response " + resp
+        session_id=response['Set-Cookie']
     end
+    session=session_id.to_s
+    start=session.index('=')
+    finish=session.index(';')
+    session=session[start+1...finish] if start and finish
+    endpoint_url ='https://secure-ausomxbha.crmondemand.com/Services/Integration/ServiceRequest;jsessionid='+session
+    obj = Default_Binding_ServiceRequest.new(endpoint_url)
+    obj.wiredump_dev = STDERR
+    http=nil
 
   call: |
-    accounts=Account.find :all
+    input=ServiceRequestWS_ServiceRequestQueryPage_Input.new
+    input.startRowNum=0
+    s=ServiceRequest.new
+    s.serviceRequestId=""
+    s.subject=""
+    s.createdDate=""
+    s.accountName=""
+    s.description=""
+    s.priority=""
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestQueryPage(input)
 
-  sync:
-    accounts.each do |x|
-      name_value_list.each do |y|
+  sync: |
+    output.listOfServiceRequest.each do |x|
+        # subject
         o=ObjectValue.new
         o.source_id=@source.id
-        o.object=x['id']
-        o.attrib=y.name
-        o.value=y.value
-        o.update_type='query'
+        o.object=x.serviceRequestId
+        o.attrib="subject"
+        o.value=x.subject
+        o.update_type="query"
         o.save
-      end
+        #accountName
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="accountName"
+        o.value=x.accountName
+        o.update_type="query"
+        o.save
+        #description
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="description"
+        o.value=x.description
+        o.update_type="query"
+        o.save
+        #priority
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="priority"
+        o.value=x.priority
+        o.update_type="query"
+        o.save
+        #createdDate attribute
+        o=ObjectValue.new
+        o.source_id=@source.id
+        o.object=x.serviceRequestId
+        o.attrib="createdDate"
+        o.value=x.createdDate
+        o.update_type="query"
+        o.save
     end
 
+  createcall: |
+      questWS_ServiceRequestInsert_Input.new
+      s=ServiceRequest.new
+      s.serviceRequestId=""
+      s.accountName=name_value_list[0]["value"] # account name
+      s.description=name_value_list[1]["value"] # description
+      s.priority=name_value_list[2]["value"] # priority
+      s.subject=name_value_list[3]["value"] # subject
+      input.listOfServiceRequest=[s]
+      output=obj.serviceRequestInsert(input)
 
-  createcall:
+  deletecall: |
+    input=ServiceRequestWS_ServiceRequestDelete_Input.new
+    s=ServiceRequest.new
+    s.serviceRequestId=name_value_list[0]["value"] # ID
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestDelete(input)
 
-  updatecall:
+  updatecall: |
+    input=ServiceRequestWS_ServiceRequestUpdate_Input.new
+    s=ServiceRequest.new
+    s.accountName=name_value_list[0]["value"] # account name
+    s.description=name_value_list[1]["value"] # description
+    s.priority=name_value_list[2]["value"] # priority
+    s.serviceRequestId=name_value_list[4]["value"] # subject
+    s.subject=name_value_list[4]["value"] # subject
+    input.listOfServiceRequest=[s]
+    output=obj.serviceRequestUpdate(input)
 
-  deletecall:
+  epilog:
