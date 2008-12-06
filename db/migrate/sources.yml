@@ -269,7 +269,7 @@ SiebelServiceRequests:
     end
 
   createcall: |
-      questWS_ServiceRequestInsert_Input.new
+      ServiceRequestWS_ServiceRequestInsert_Input.new
       s=ServiceRequest.new
       s.serviceRequestId=""
       s.accountName=name_value_list[0]["value"] # account name
@@ -292,8 +292,7 @@ SiebelServiceRequests:
     s.accountName=name_value_list[0]["value"] # account name
     s.description=name_value_list[1]["value"] # description
     s.priority=name_value_list[2]["value"] # priority
-    s.serviceRequestId=name_value_list[4]["value"] # subject
-    s.subject=name_value_list[4]["value"] # subject
+    s.serviceRequestId=name_value_list[3]["value"] # subject
     input.listOfServiceRequest=[s]
     output=obj.serviceRequestUpdate(input)
 

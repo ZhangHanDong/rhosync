@@ -1,0 +1,40 @@
+--- &id001 !ruby/object:Source 
+attributes: 
+  name: Basecamp
+  refreshtime: 
+  prolog: ""
+  updated_at: 2008-12-06 00:26:45.605112 Z
+  deletecall: ""
+  createcall: ""
+  type: 
+  url: http://rhomobile.basecamphq.com
+  sync: |-
+    response.each do |x|
+      o=ObjectValue.new
+      o.object=x["objectid"]
+    end
+  method: 
+  id: "6"
+  updatecall: ""
+  call: |
+    action=@source.url+"/projects.xml"
+    headers=[]
+    headers << :login=>@source.login
+    headers << :password=>@source.password
+    result=open(action,headers)
+    response=XmlSimple.xml_in(result)
+    p response.inspect.to_s
+
+  password: password
+  login: admin
+  epilog: ""
+  created_at: 2008-12-05 21:56:36
+attributes_cache: {}
+
+changed_attributes: {}
+
+errors: !ruby/object:ActiveRecord::Errors 
+  base: *id001
+  errors: {}
+
+new_record_before_save: 

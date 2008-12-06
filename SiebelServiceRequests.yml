@@ -24,7 +24,7 @@ attributes:
     obj.wiredump_dev = STDERR
     http=nil 
     binding
-  updated_at: 2008-11-30 18:02:32
+  updated_at: 2008-12-06 02:24:17.785199 Z
   deletecall: ""
   createcall: |-
     input=ServiceRequestWS_ServiceRequestInsert_Input.new
@@ -34,7 +34,6 @@ attributes:
     s.accountName=name_value_list[0]["value"] # account name
     input.listOfServiceRequest=[s]
     output=obj.serviceRequestInsert(input)
-    binding
   type: 
   url: secure-ausomxbha.crmondemand.com
   sync: |
