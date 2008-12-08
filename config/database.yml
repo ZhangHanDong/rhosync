@@ -16,4 +16,4 @@ test:
 production:
   adapter: sqlite3
   database: /var/www/apps/rhosync/shared/production.sqlite3
-  timeout: 5000
+  timeout: 15000
