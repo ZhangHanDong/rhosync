@@ -165,5 +165,3 @@ sugar:
 
 = SUPPORT 
 Send questions to info@rhomobile.com
-
-
