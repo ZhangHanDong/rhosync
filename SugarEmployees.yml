@@ -1,7 +1,7 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: SugarEmployees
-  refreshtime: 2008-12-09 00:01:10
+  refreshtime: 2008-12-09 00:40:14
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -15,7 +15,7 @@ attributes:
       uid = client.get_user_id(session_id)
     end
 
-  updated_at: 2008-12-09 00:01:10
+  updated_at: 2008-12-09 00:48:25.710096 Z
   deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Employees',name_value_list); p result.inspect.to_s
   createcall: result=client.set_entry(session_id,'Employees',name_value_list); p result.inspect.to_s
   type: 
@@ -41,8 +41,8 @@ attributes:
     select_fields = ['first_name','last_name','status','title','phone_mobile','user_name']
     result = client.get_entry_list(session_id,'Employees',"(users.status='Active')",'last_name',0,select_fields,'10000',0);
 
-  password: acc3ss$ugar
-  login: admin
+  password: password
+  login: adam
   epilog: client.logout(session_id)
   created_at: 2008-11-20 23:04:24
 attributes_cache: {}

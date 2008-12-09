@@ -25,7 +25,7 @@ module SourcesHelper
 
     # first do all the the creates
     if @source.createcall and @source.createcall.size>0
-      creates=ObjectValue.find_by_sql("select * from object_values where update_type='create'")
+      creates=ObjectValue.find_by_sql("select * from object_values where update_type='create' and source_id="+id)
       uniqobjs=creates.map {|x| x.object}
       uniqobjs.uniq!
       uniqobjs.each do |x|
@@ -54,7 +54,7 @@ module SourcesHelper
 
     # now do the updates
     if @source.updatecall and @source.updatecall.size>0
-      updates=ObjectValue.find_by_sql("select * from object_values where update_type='update'")
+      updates=ObjectValue.find_by_sql("select * from object_values where update_type='update' and source_id="+id)
       uniqobjs=updates.map {|x|x.object}
       uniqobjs.uniq!
       uniqobjs.each do |x|
@@ -73,7 +73,7 @@ module SourcesHelper
 
     # now do the deletes
     if @source.deletecall and @source.deletecall.size>0
-      deletes=ObjectValue.find_by_sql("select * from object_values where update_type='delete'")
+      deletes=ObjectValue.find_by_sql("select * from object_values where update_type='delete' and source_id="+id)
       uniqobjs=deletes.map {|x|x.object}
       uniqobjs.uniq!
       uniqobjs.each do |x|
@@ -94,8 +94,8 @@ module SourcesHelper
       # now take apart the returned data and fill the object values table
       p "Executing backend data sync"
       callbinding=eval(@source.sync+";binding",callbinding) if @source.sync
-      ObjectValue.delete_all "(update_type='pending' or update_type is null) and source_id="+@source.id.to_s
-      ObjectValue.find_by_sql("update object_values set update_type='query' where update_type='pending' or update_type is null and source_id="+@source.id.to_s)
+      ObjectValue.delete_all "(update_type='query') and source_id="+@source.id.to_s
+      ObjectValue.find_by_sql("update object_values set update_type='query' where (update_type='pending' or update_type is null) and source_id="+@source.id.to_s)
     end
 
     # now do the logoff

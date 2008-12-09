@@ -1,7 +1,7 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: RhoSugar
-  refreshtime: 2008-12-08 22:52:37
+  refreshtime: 2008-12-09 00:45:10
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -15,7 +15,7 @@ attributes:
       uid = client.get_user_id(session_id)
     end
 
-  updated_at: 2008-12-08 23:02:13.668821 Z
+  updated_at: 2008-12-09 00:45:49.043368 Z
   deletecall: name_value_list.push({'name'=>'deleted','value'=>'1'}); result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
   createcall: result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
   type: 
@@ -35,7 +35,7 @@ attributes:
   method: 
   id: "1"
   updatecall: result=client.set_entry(session_id,'Accounts',name_value_list); p result.inspect.to_s
-  call: |
+  call: |-
     module_name = 'Accounts'
     query = '' # gets all the acounts, you can also use SQL like 'accounts.name like '%company%''
     order_by = '' # in default order. you can also use SQL like 'accounts.name'
@@ -44,9 +44,9 @@ attributes:
     max_results = '10000' # if set to 0 or '', this doesn't return all the results
     deleted = 0 # whether you want to retrieve deleted records, too
     result = client.get_entry_list(session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
-
-  password: acc3ss$ugar
-  login: admin
+    p result.inspect.to_s
+  password: password
+  login: adam
   epilog: client.logout(session_id)
   created_at: 2008-11-20 23:04:24
 attributes_cache: {}
