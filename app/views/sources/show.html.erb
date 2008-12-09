@@ -1,15 +1,24 @@
 <%=link_to 'Edit source',{:action=>'edit',:id=>@source.id}%><br>
 <%=link_to 'Refresh object-value records',{:action=>'refresh',:id=>@source.id}%><br>
 <%=link_to 'Create object-value record',{:action=>'newobject',:id=>@source.id}%><br>
-
+<%prevobj=""%>
 <table>
   <tr><th>Object</th><th>Attribute</th><th>Value</th><th>Delete Objects</th></tr>
   <%if @object_values%>
 <%  @object_values.each do |x|%>
+<%if x.object!=prevobj and prevobj!=""%>
+    <tr><td colspan=4><hr/></td></tr>
+<%end%>
   <tr>
-  <td><%=link_to x.object,{:action=>"editobject",:id=>@source.id,:object=>x.object,:attrib=>x.attrib}%></td><td><%=x.attrib%></td><td><%=x.value%></td>
+  <td>
+<%if x.object!=prevobj%>
+<%=link_to x.object,{:action=>"editobject",:id=>@source.id,:object=>x.object,:attrib=>x.attrib}%>
+<%end%>
+</td><td><%=x.attrib%></td><td><%=x.value%></td>
   <td><%=link_to "X",{:action=>"deleteobjects",:id=>@source.id,:attrvals=>[{"object"=>x.object}]}%></td>
   </tr>
-<%end%>
+<%
+  prevobj=x.object
+end%>
 <%  end%>
 </table>
