@@ -1,32 +1,52 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: Basecamp
-  refreshtime: 
+  refreshtime: 2008-12-08 20:39:10
   prolog: ""
-  updated_at: 2008-12-06 00:26:45.605112 Z
+  updated_at: 2008-12-08 20:46:39.224406 Z
   deletecall: ""
   createcall: ""
   type: 
   url: http://rhomobile.basecamphq.com
   sync: |-
-    response.each do |x|
-      o=ObjectValue.new
-      o.object=x["objectid"]
+    xml_data = XmlSimple.xml_in(response.body); xml_data["project"].each do |project|
+          id = project["id"][0]["content"]
+          o=ObjectValue.new
+          o.source_id=@source.id
+          o.object=id
+          o.attrib="name"
+          o.value= project["name"][0]
+          o.update_type='query'
+          o.save
+          o=ObjectValue.new
+          o.source_id=@source.id
+          o.object=id
+          o.attrib="status"
+          o.value= project["status"][0]
+          o.update_type='query'
+          o.save
+          o=ObjectValue.new
+          o.source_id=@source.id
+          o.object=id
+          o.attrib="company_id"
+          o.value= project["company"][0]["id"][0]["content"]
+          o.update_type='query'
+          o.save
+          o=ObjectValue.new
+          o.source_id=@source.id
+          o.object=id
+          o.attrib="company_name"
+          o.value= project["company"][0]["name"]
+          o.update_type='query'
+          o.save      
     end
   method: 
   id: "6"
   updatecall: ""
-  call: |
-    action=@source.url+"/projects.xml"
-    headers=[]
-    headers << :login=>@source.login
-    headers << :password=>@source.password
-    result=open(action,headers)
-    response=XmlSimple.xml_in(result)
-    p response.inspect.to_s
-
-  password: password
-  login: admin
+  call: "    uri = URI.parse(@source.url+\"/projects.xml\")\r\n    req = Net::HTTP::Get.new(uri.path, 'Accept' => 'application/xml')\r\n    req.basic_auth @source.login, @source.password\r\n    response = Net::HTTP.start(uri.host,uri.port) do |http|\r\n      http.request(req)\r\n    end\r\n\
+    \r\n "
+  password: 1ada27d82ec37a1229db
+  login: www.vidalgraupera.com
   epilog: ""
   created_at: 2008-12-05 21:56:36
 attributes_cache: {}
