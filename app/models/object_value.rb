@@ -13,4 +13,9 @@ class ObjectValue < ActiveRecord::Base
       p "Name:" + x.name
     end
   end
+
+  def before_validate
+    self.update_type="pending"
+  end
+
 end

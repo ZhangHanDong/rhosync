@@ -1,7 +1,7 @@
 --- &id001 !ruby/object:Source 
 attributes: 
   name: SiebelServiceRequests
-  refreshtime: 2008-11-30 17:57:42
+  refreshtime: 2008-12-06 02:24:21
   prolog: |-
     https = Net::HTTP.new(@source.url,"443")
     https.use_ssl = true
@@ -24,7 +24,7 @@ attributes:
     obj.wiredump_dev = STDERR
     http=nil 
     binding
-  updated_at: 2008-12-06 02:24:17.785199 Z
+  updated_at: 2008-12-08 23:42:46.142524 Z
   deletecall: ""
   createcall: |-
     input=ServiceRequestWS_ServiceRequestInsert_Input.new
@@ -43,7 +43,6 @@ attributes:
       o.object=x.serviceRequestId
       o.attrib="subject"
       o.value=x.subject
-      o.update_type="query"
       o.save
       #accountName
       o=ObjectValue.new
@@ -51,7 +50,6 @@ attributes:
       o.object=x.serviceRequestId
       o.attrib="accountName"
       o.value=x.accountName
-      o.update_type="query"
       o.save
       #createdDate attribute
       o=ObjectValue.new
@@ -59,7 +57,6 @@ attributes:
       o.object=x.serviceRequestId
       o.attrib="createdDate"
       o.value=x.createdDate
-      o.update_type="query"
       o.save
     end
     

@@ -91,12 +91,11 @@ module SourcesHelper
       # now do the query call
       p "Executing query call"
       callbinding=eval(@source.call+";binding",callbinding)
-      p "Executed query call"
-      # delete the old source records
-      ObjectValue.delete_all "update_type='query' and source_id="+@source.id.to_s
       # now take apart the returned data and fill the object values table
       p "Executing backend data sync"
       callbinding=eval(@source.sync+";binding",callbinding) if @source.sync
+      ObjectValue.delete_all "(update_type='pending' or update_type is null) and source_id="+@source.id.to_s
+      ObjectValue.find_by_sql("update object_values set update_type='query' where update_type='pending' or update_type is null and source_id="+@source.id.to_s)
     end
 
     # now do the logoff

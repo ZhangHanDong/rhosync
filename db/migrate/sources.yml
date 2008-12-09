@@ -35,7 +35,6 @@ SugarAccounts:
         o.object=x['id']
         o.attrib=y.name
         o.value=y.value
-        o.update_type='query'
         o.save
       end
     end
@@ -44,17 +43,14 @@ SugarAccounts:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Accounts',name_value_list);
-    p result.inspect.to_s
 
   updatecall:
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Accounts',name_value_list);
-    p result.inspect.to_s
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
     result=client.set_entry(session_id,'Accounts',name_value_list);
-    p result.inspect.to_s
 
   epilog:
     client.logout(session_id)
@@ -92,7 +88,6 @@ SugarCases:
         o.object=x['id']
         o.attrib=y.name
         o.value=y.value
-        o.update_type='query'
         o.save
       end
       # add fields that didn't come back originally!: the assigned_to and account_id
@@ -103,7 +98,6 @@ SugarCases:
         o.object=x['id']
         o.attrib=y.name
         o.value=y.value
-        o.update_type='query'
         o.save
       end
     end
@@ -112,17 +106,14 @@ SugarCases:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Cases',name_value_list);
-    p result.inspect.to_s
 
   updatecall:
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Cases',name_value_list);
-    p result.inspect.to_s
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
     result=client.set_entry(session_id,'Cases',name_value_list);
-    p result.inspect.to_s
 
   epilog:
     client.logout(session_id)
@@ -159,7 +150,6 @@ SugarEmployees:
         o.object=x['id']
         o.attrib=y.name
         o.value=y.value
-        o.update_type='query'
         o.save
       end
     end
@@ -168,17 +158,14 @@ SugarEmployees:
     # name_value_list is passed in and can be used in the code below
     # for creates we just assume that the primary keys (if fields) are left out
     result=client.set_entry(session_id,'Employees',name_value_list);
-    p result.inspect.to_s
 
   updatecall: |
     # name_value_list is passed in and can be used in the code below
     result=client.set_entry(session_id,'Employees',name_value_list);
-    p result.inspect.to_s
 
   deletecall:
     name_value_list.push({'name'=>'deleted','value'=>'1'});
     result=client.set_entry(session_id,'Employees',name_value_list);
-    p result.inspect.to_s
 
   epilog:
     client.logout(session_id)
@@ -232,7 +219,6 @@ SiebelServiceRequests:
         o.object=x.serviceRequestId
         o.attrib="subject"
         o.value=x.subject
-        o.update_type="query"
         o.save
         #accountName
         o=ObjectValue.new
@@ -240,7 +226,6 @@ SiebelServiceRequests:
         o.object=x.serviceRequestId
         o.attrib="accountName"
         o.value=x.accountName
-        o.update_type="query"
         o.save
         #description
         o=ObjectValue.new
@@ -248,7 +233,7 @@ SiebelServiceRequests:
         o.object=x.serviceRequestId
         o.attrib="description"
         o.value=x.description
-        o.update_type="query"
+        o.update_type="pending"
         o.save
         #priority
         o=ObjectValue.new
@@ -256,7 +241,6 @@ SiebelServiceRequests:
         o.object=x.serviceRequestId
         o.attrib="priority"
         o.value=x.priority
-        o.update_type="query"
         o.save
         #createdDate attribute
         o=ObjectValue.new
@@ -264,7 +248,6 @@ SiebelServiceRequests:
         o.object=x.serviceRequestId
         o.attrib="createdDate"
         o.value=x.createdDate
-        o.update_type="query"
         o.save
     end
 
