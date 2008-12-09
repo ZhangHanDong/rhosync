@@ -2,8 +2,8 @@ SugarAccounts:
   id: 1
   name: SugarAccounts
   url: http://rhomobile.com/sugar/soap.php?wsdl
-  login: admin
-  password: acc3ss$ugar
+  login: testuser
+  password: testuser
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -64,8 +64,8 @@ SugarCases:
   id: 2
   name: SugarCases
   url: http://rhomobile.com/sugar/soap.php?wsdl
-  login: adam
-  password: password
+  login: testuser
+  password: testuser
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
@@ -131,8 +131,8 @@ SugarEmployees:
   id: 3
   name: SugarEmployees
   url: http://rhomobile.com/sugar/soap.php?wsdl
-  login: adam
-  password: password
+  login: testuser
+  password: testuser
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)
