@@ -7,6 +7,7 @@ describe SourcesController do
     stubs = {:url=>'',
              :prolog=>'',
              :epilog=>'',
+             :login=>true,
              :createcall=>'',
              :updatecall=>'',
              :deletecall=>'',
