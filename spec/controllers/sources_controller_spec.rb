@@ -13,6 +13,7 @@ describe SourcesController do
              :deletecall=>'',
              :call=>'',
              :sync=>'',
+             :query=>'',
              :initadapter=>true,
              :source_adapter=>nil,
              :refreshtime=>time,
