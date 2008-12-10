@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081002212238) do
+ActiveRecord::Schema.define(:version => 20081209184058) do
 
   create_table "object_values", :force => true do |t|
     t.integer  "source_id"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20081002212238) do
     t.text     "updatecall"
     t.text     "deletecall"
     t.datetime "refreshtime"
+    t.string   "adapter"
   end
 
 end

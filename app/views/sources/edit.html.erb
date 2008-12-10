@@ -15,14 +15,19 @@
     <%= f.label :login %><%= f.text_field :login, :size=>10%> &nbsp;
     <%= f.label :password %><%= f.text_field :password, :size=>20 %>
   </p>
+Provide the name of the source adapter class located in your lib directory which has
+login, query, sync, create, update, delete, and logoff methods.
+<p>
+<%= f.label "Source adapter class" %><br/>
+<%= f.text_field :adapter, :size=>50 %>
+</p>
 
-Enter source code for login, query, create, update, delete, logoff and sync in boxes below.
+OR enter source code for login, query, create, update, delete, logoff and sync in boxes below.
 Be careful to only use apostrophes (single quotes) for strings versus double quotes.
   <p>
-    <%= f.label "Prolog (login)" %><br />
+    <%= f.label "Login" %><br />
     <%= f.text_area :prolog, :rows=>10,:cols=>60 %>
   </p>
-
 
   <p>
     <%= f.label "Query Call" %><br />
@@ -46,7 +51,7 @@ Be careful to only use apostrophes (single quotes) for strings versus double quo
   </p>
 
     <p>
-    <%= f.label "Epilog (logoff)" %><br />
+    <%= f.label "Logoff" %><br />
     <%= f.text_area :epilog ,:rows=>3,:cols=>60%>
   </p>
 
