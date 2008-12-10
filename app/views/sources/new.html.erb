@@ -13,7 +13,6 @@
     <%= f.text_field :url %>
   </p>
 
-
   <p>
     <%= f.label :login %><br />
     <%= f.text_field :login %>
@@ -23,39 +22,44 @@
     <%= f.text_field :password %>
   </p>
 
+Provide the name of the source adapter class located in your lib directory which has
+login, query, sync, create, update, delete, and logoff methods.
+<p>
+<%= f.label "Source adapter class" %><br/>
+<%= f.text_field :adapter, :size=>50 %>
+</p>
 
-    <p>
-    <%= f.label :prolog %><br />
-    <%= f.text_area :prolog,:rows=>10,:cols=>60 %>
+OR enter source code for login, query, create, update, delete, logoff and sync in boxes below.
+Be careful to only use apostrophes (single quotes) for strings versus double quotes.
+  <p>
+    <%= f.label "Login" %><br />
+    <%= f.text_area :prolog, :rows=>10,:cols=>60 %>
   </p>
 
-    <p>
+  <p>
     <%= f.label "Query Call" %><br />
-    <%= f.text_area :call,:rows=>20,:cols=>60 %>
-  </p>
-
-      <p>
-    <%= f.label "Create Call" %><br />
     <%= f.text_area :call, :rows=>10, :cols=>60%>
+  </p>
+      <p>
+    <%= f.label "Sync query to object values" %><br />
+    <%= f.text_area :sync ,:rows=>10,:cols=>60%>
+  </p>
+    <p>
+    <%= f.label "Create Call" %><br />
+    <%= f.text_area :createcall, :rows=>3, :cols=>60%>
   </p>
   <p>
     <%= f.label "Update Call" %><br />
-    <%= f.text_area :call, :rows=>10, :cols=>60%>
+    <%= f.text_area :updatecall, :rows=>3, :cols=>60%>
   </p>
   <p>
     <%= f.label "Delete Call" %><br />
-    <%= f.text_area :call, :rows=>10, :cols=>60%>
+    <%= f.text_area :deletecall, :rows=>3, :cols=>60%>
   </p>
 
-
-  <p>
-    <%= f.label :epilog %><br />
-    <%= f.text_area :epilog, :rows=>3, :cols=>60 %>
-  </p>
-
-      <p>
-    <%= f.label :sync %><br />
-    <%= f.text_area :sync ,:rows=>10,:cols=>60%>
+    <p>
+    <%= f.label "Logoff" %><br />
+    <%= f.text_area :epilog ,:rows=>3,:cols=>60%>
   </p>
 
   <p>
