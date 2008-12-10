@@ -14,6 +14,7 @@ describe SourcesController do
              :call=>'',
              :sync=>'',
              :query=>'',
+             :logoff=>'',
              :initadapter=>true,
              :source_adapter=>nil,
              :refreshtime=>time,
