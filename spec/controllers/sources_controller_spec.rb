@@ -12,9 +12,13 @@ describe SourcesController do
              :deletecall=>'',
              :call=>'',
              :sync=>'',
+             :initadapter=>true,
+             :source_adapter=>nil,
              :refreshtime=>time,
              "refreshtime=".to_sym=>time,
              :save=>true} unless stubs.size > 0
+    @adapter = mock_model(SugarAccounts, stubs)
+    stubs['source_adapter'] = @adapter
     @mock_source ||= mock_model(Source, stubs)
   end
   
