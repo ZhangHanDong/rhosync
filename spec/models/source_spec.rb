@@ -7,7 +7,7 @@ describe Source do
   end
 
   it "should load fixtures" do
-    Fixtures.create_fixtures(File.join(File.dirname(__FILE__), "..", "fixtures"), "sources")
+    Fixtures.create_fixtures(File.join(File.dirname(__FILE__), "..", "..", "db", "migrate"), "sources")
     @source = Source.find(1)
     @source.name.should == "SugarAccounts"
     @source.attributes.size.should == 18
