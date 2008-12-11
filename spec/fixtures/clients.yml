@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  obj_key: MyString
+  client_id: MyString
+  update_type: MyString
+
+two:
+  obj_key: MyString
+  client_id: MyString
+  update_type: MyString

@@ -1,0 +1,29 @@
+--- &id001 !ruby/object:Source 
+attributes: 
+  name: SugarAccounts
+  refreshtime: 
+  prolog: ""
+  updated_at: 2008-12-10 01:30:39.540724 Z
+  deletecall: ""
+  adapter: SugarAccounts
+  createcall: ""
+  type: 
+  url: http://rhomobile.com/sugar/soap.php?wsdl
+  sync: ""
+  method: 
+  id: "1"
+  updatecall: ""
+  call: ""
+  password: testuser
+  login: testuser
+  epilog: ""
+  created_at: 2008-12-10 00:57:19
+attributes_cache: {}
+
+changed_attributes: {}
+
+errors: !ruby/object:ActiveRecord::Errors 
+  base: *id001
+  errors: {}
+
+new_record_before_save: 
