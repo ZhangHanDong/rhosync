@@ -9,15 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20081210193846) do
-
-  create_table "clients", :force => true do |t|
-    t.string   "obj_key",     :null => false
-    t.string   "client_id",   :null => false
-    t.string   "update_type", :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20081209184058) do
 
   create_table "object_values", :force => true do |t|
     t.integer  "source_id"
@@ -27,7 +19,6 @@ ActiveRecord::Schema.define(:version => 20081210193846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "update_type"
-    t.string   "obj_key"
   end
 
   create_table "sources", :force => true do |t|
