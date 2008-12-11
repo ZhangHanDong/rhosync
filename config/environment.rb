@@ -5,16 +5,10 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.1.0' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
-
-# Add these lines to config/environment.rb just before the Rails initializer code
-require 'rubygems'
-gem 'soap4r'
-require 'soap/mapping'
-
 
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
@@ -31,6 +25,8 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+  config.gem "libxml-ruby", :lib => "xml/libxml"
+  config.gem "soap4r", :lib => "soap/mapping"
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
@@ -54,7 +50,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_syncr_session',
+    :session_key => '_rhosync_session',
     :secret      => '9d694d3f0150ddda62b8b8fc0e5397087abb91e39731f5a916df65203b242b587a29116cc02930929cd3c3c103853db756178f938e5b718afb6a20d86e85877c'
   }
 
