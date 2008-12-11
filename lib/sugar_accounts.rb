@@ -1,6 +1,4 @@
-class SugarAccounts
-
-  attr_accessor :client
+class SugarAccounts < SourceAdapter
 
   def initialize(source)
     @source=source
