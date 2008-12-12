@@ -1,9 +1,7 @@
-class SugarAccounts
-
-  attr_accessor :client
+class SugarAccounts < SourceAdapter
 
   def initialize(source)
-    @source=source
+    super
   end
 
   def login
@@ -32,16 +30,8 @@ class SugarAccounts
   end
 
   def sync
-    @result.entry_list.each do |x|
-      x.name_value_list.each do |y|
-        o=ObjectValue.new
-        o.source_id=@source.id
-        o.object=x['id']
-        o.attrib=y.name
-        o.value=y.value
-        o.save
-      end
-    end
+    # use the base class sync method
+    super
   end
 
   def create(name_value_list)
