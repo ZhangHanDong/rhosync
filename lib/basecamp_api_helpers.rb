@@ -1,7 +1,7 @@
 module BasecampAPIHelpers
 
-  def add_triple(source_id, object_id, attrib, value, update_type='query')
-    puts "#{source_id}, #{object_id}, #{attrib}, #{value}, #{update_type}\n"
+  def add_triple(source_id, object_id, attrib, value)
+    puts "#{source_id}, #{object_id}, #{attrib}, #{value}\n"
     o=ObjectValue.new
     o.source_id=source_id
     o.object=object_id
@@ -13,11 +13,9 @@ module BasecampAPIHelpers
     else
       o.value= nil
     end
-  
-    o.update_type=update_type
-    
+      
     if !o.save
-      puts "failed creating triple #{source_id}, #{object_id}, #{attrib}, #{value}, #{update_type}"
+      puts "failed creating triple #{source_id}, #{object_id}, #{attrib}, #{value}"
     end
   end
     
