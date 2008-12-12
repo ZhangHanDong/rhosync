@@ -1,8 +1,10 @@
-class BasecampProjects 
+# API documentation http://developer.37signals.com/basecamp/companies.shtml
+
+class BasecampCompanies 
   attr_accessor :client
   
   include BasecampAPIHelpers
-
+  
   def initialize(source)
     @source=source
   end
@@ -12,25 +14,25 @@ class BasecampProjects
   end
 
   def query
-    uri = URI.parse(@source.url+"/projects.xml")
+    puts @source.inspect
+    uri = URI.parse(@source.url+"/companies.xml")
     req = Net::HTTP::Get.new(uri.path, 'Accept' => 'application/xml')
     req.basic_auth @source.login, @source.password
     response = Net::HTTP.start(uri.host,uri.port) do |http|
       http.request(req)
     end
     xml_data = XmlSimple.xml_in(response.body); 
-    @result = xml_data["project"]
+    @result = xml_data["company"]
   end
 
   def sync
-    @result.each do |project|
-      id = project["id"][0]["content"]      
-    
-      %w(name status).each do |key|
-        add_triple(@source.id, id, key, project[key][0])      
-      end
+    @result.each do |company|
+      id = company["id"][0]["content"]    
       
-      add_triple(@source.id, id, "company_id", project["company"][0]["id"][0]["content"])
+      %w(name city zip phone-number-office address-one address-two country web-address uuid 
+        phone-number-fax url-name time-zone-id state).each do |key|
+          add_triple(@source.id, id, key, company[key][0])      
+      end
     end
   end
 
