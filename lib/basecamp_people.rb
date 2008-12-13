@@ -57,7 +57,7 @@ class BasecampPeople
       puts person
     
       %w(first-name last-name email-address).each do |key|
-          add_triple(@source.id, id, key, person[key][0])      
+          add_triple(@source.id, id, key.gsub('-','_'), person[key][0])      
       end
     end
   end
