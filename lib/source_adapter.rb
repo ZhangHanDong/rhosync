@@ -9,10 +9,10 @@ class SourceAdapter
   end
 
   def query
- end
+  end
 
-  def sync
-    @result.entry_list.each do |x|
+  def sync(result)
+    result.entry_list.each do |x|
       x.name_value_list.each do |y|
         o=ObjectValue.new
         o.source_id=@source.id
