@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :clients
+
   map.resources :apps
 
   map.resources :apps
@@ -9,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
 
 
   map.connect 'sources/index/:app/:pwd',:controller=>'sources',:action=>'index'
+  map.connect 'sources/:id/clientcreate', :controller => 'sources', :action => 'clientcreate'
   
   # build in CRUD
   map.connect 'sources/:id/create/:app/:pwd', :controller => 'sources', :action => 'create'

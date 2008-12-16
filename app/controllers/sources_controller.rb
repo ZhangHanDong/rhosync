@@ -13,8 +13,6 @@ class SourcesController < ApplicationController
   # shows all object values in XML structure given a supplied source
   # if a :last_update parameter is supplied then only show data that has been
   # refreshed (retrieved from the backend) since then
-
-
   protect_from_forgery :only => [:create, :delete, :update]
 
   def show
@@ -55,6 +53,19 @@ class SourcesController < ApplicationController
       format.html
       format.xml  { render :xml => @attributes}
       format.json { render :json => @attributes}
+    end
+  end
+  
+  # generate a new client for this source
+  def clientcreate
+    @client = Client.new
+    
+    respond_to do |format|
+      if @client.save
+        format.html { redirect_to(clients_url) }
+        format.json { render :json => @client }
+        format.xml  { head :ok }
+      end
     end
   end
 

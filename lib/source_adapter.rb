@@ -1,7 +1,7 @@
 class SourceAdapter
   attr_accessor :client
-  def initialize(source)
-    @source = source
+  def initialize(source=nil)
+    @source = source.nil? ? self : source
   end
 
   def login
@@ -9,7 +9,7 @@ class SourceAdapter
   end
 
   def query
- end
+  end
 
   def sync
     @result.entry_list.each do |x|
