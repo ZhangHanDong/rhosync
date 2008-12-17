@@ -241,8 +241,9 @@ class SourcesController < ApplicationController
   # the password is actually more of a token than it is a password as we use it now
   # this returns all sources that are associated with a given "app" as determine by the token
   def index
-    @sources = Source.find_all_by_password(params[:password])
-    
+    #@sources = Source.find_all_by_password(params[:password])
+    @sources = Source.find :all
+        
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @sources }
