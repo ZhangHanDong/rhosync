@@ -4,6 +4,7 @@ SugarAccounts:
   url: http://rhomobile.com/sugar/soap.php?wsdl
   login: testuser
   password: testuser
+  adapter: SugarAccounts
   prolog: |
     u = @source.login
     p = Digest::MD5.hexdigest(@source.password)

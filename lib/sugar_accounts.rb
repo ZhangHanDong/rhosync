@@ -26,7 +26,7 @@ class SugarAccounts < SourceAdapter
     select_fields = ['name','industry'] # this can't be an empty array
     max_results = '10000' # if set to 0 or '', this doesn't return all the results
     deleted = 0 # whether you want to retrieve deleted records, too
-    @result = super.client.get_entry_list(@session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
+    @result = client.get_entry_list(@session_id,module_name,query,order_by,offset,select_fields,max_results,deleted);
   end
 
   def sync
